@@ -1,0 +1,11 @@
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.exe
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.deps.json
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.runtimeconfig.json
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.runtimeconfig.dev.json
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.dll
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.pdb
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.csprojAssemblyReference.cache
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfoInputs.cache
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfo.cs
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.dll
+C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.pdb
