@@ -8,6 +8,7 @@ namespace Project_B
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine("Test Line");
+            Console.WriteLine("Second test line");
         }
     }
 }
