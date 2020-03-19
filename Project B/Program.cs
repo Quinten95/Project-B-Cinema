@@ -8,6 +8,9 @@ namespace Project_B
         {
             Console.WriteLine("Hello World!");
 
+            Console.WriteLine("Voor welke film wilt u tickets kopen?");
+
+            
         }
         
     }
