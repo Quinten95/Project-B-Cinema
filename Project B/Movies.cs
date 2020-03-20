@@ -25,8 +25,9 @@ namespace Project_B
             this.director = director;
             this.WhichScreen = whichScreen;
         }
+        public static Movies movieOne = new Movies(1, "movieOne", DateTime.Parse("6/22/2020 10:00:00 AM"), Screen.screenOne, 128, "genre", "director");
 
-        Movies movieOne = new Movies(1, "movieOne", DateTime.Parse("6/22/2020 10:00:00 AM"), Screen.screenOne, 128, "genre", "director");
-        
+
     }
+    
 }
