@@ -6,13 +6,11 @@ namespace Project_B
 {
     class Screen
     {
-        private int screenNumber;
-        private int amountOfSeats;
-        private int amountOfVip;
-        private int amountOfRows;
-        private int amountOfSeatsPerRow;
-
-        public static Screen screenOne = new Screen(1, 150, 15, 10, 15);
+        public int screenNumber;
+        public int amountOfSeats;
+        public int amountOfVip;
+        public int amountOfRows;
+        public int amountOfSeatsPerRow;
 
         public Screen(int screenNumber, int amountOfSeats, int amountOfVip, int amountOfRows, int amountOfSeatsPerRow)
         {
@@ -23,6 +21,13 @@ namespace Project_B
             this.amountOfSeatsPerRow = amountOfSeatsPerRow;
 
         }
+
+        //List of screens - Three with 150 seats, one with 300 seats, and one with 500 seats
+        public static Screen screenOne = new Screen(1, 150, 15, 10, 15);
+        public static Screen screenTwo = new Screen(1, 150, 15, 10, 15);
+        public static Screen screenThree = new Screen(1, 150, 15, 10, 15);
+        public static Screen screenFour = new Screen(1, 300, 30, 30, 10);
+        public static Screen screenFive = new Screen(1, 500, 30, 25, 20);
     }
 
 }
