@@ -60,7 +60,7 @@ namespace Project_B
             Console.WriteLine("------------------------");
             Console.WriteLine("Filmnummer: " + movie.movieID);
             Console.WriteLine(movie.movieName);
-            Console.WriteLine("Zaal " + movie.whichScreen);
+            Console.WriteLine("Zaal " + movie.whichScreen.screenNumber);
             Console.WriteLine("Starttijden = 09:00, 13:00, 17:00");
             Console.WriteLine("Filmlengte: " + movie.runTime + " minuten");
             Console.WriteLine("Genre: " + movie.genre);
