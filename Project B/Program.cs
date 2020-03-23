@@ -92,6 +92,7 @@ namespace Project_B
             }
             else if (userConfirmation == "n" || userConfirmation == "N")
             {
+                Console.WriteLine("Voor welke film wilt u tickets kopen:");
                 int userChoice = -1;
                 while (userChoice < 1 || userChoice > Movies.movieList.Count)
                 {
