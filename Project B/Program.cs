@@ -6,6 +6,7 @@ namespace Project_B
     {
         public static void Main(string[] args)
         {
+            Movies.InitMovies();
             displayWelcomeMsg();
             choiceMenu();
         }
@@ -22,41 +23,26 @@ namespace Project_B
             Console.WriteLine("|    ========   ===   ===     ====   ===========   ===          ===   ===           ===   ===     === |");
             Console.WriteLine("------------------------------------------------------------------------------------------------------");
             Console.WriteLine("");
-            Console.WriteLine("                              -----------------------------------------");
-            Console.WriteLine("                             |      Welkom op de site van CinemaX!     |");
-            Console.WriteLine("                             | Hier kunt u zien welke films er draaien.|");
-            Console.WriteLine("                             |      Ook kunt u tickets bestellen!      |");
-            Console.WriteLine("                              -----------------------------------------");
+            Console.WriteLine(" ----------------------------------------------------");
+            Console.WriteLine("|      Welkom op de site van CinemaX!                |");
+            Console.WriteLine("| Hier kunt u zien welke films er draaien.           |");
+            Console.WriteLine("|      Ook kunt u tickets bestellen!                 |");
         }
-        static void choiceMenu() { 
+        
+        static void choiceMenu()
+        {
             string userChoice;
 
-            Console.WriteLine("Selecteer een optie met de bijbehoorende nummer.");
-            Console.WriteLine("------------------------");
-            Console.WriteLine("1) Bekijk ons filmaanbod");
-            Console.WriteLine("2) Maak een reservatie");
-            Console.WriteLine("3) Log in / Registreer");
+            Console.WriteLine(" ----------------------------------------------------");
+            Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
+            Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
+            Console.WriteLine("| 2) Maak een reservatie                             |");
+            Console.WriteLine(" ----------------------------------------------------");
             userChoice = Console.ReadLine();
 
             if (userChoice == "1")
             {
-                Console.WriteLine("Ons filmaanbod");
-                Movies.movieCatalog(Movies.movieOne);
-                Console.WriteLine(""); //in deze regel komt later de korte uitschrijving over de film
-                Movies.movieCatalog(Movies.movieTwo);
-                Console.WriteLine(""); //in deze regel komt later de korte uitschrijving over de film
-                Movies.movieCatalog(Movies.movieThree);
-                Console.WriteLine(""); //in deze regel komt later de korte uitschrijving over de film
-                Movies.movieCatalog(Movies.movieFour);
-                Console.WriteLine(""); //in deze regel komt later de korte uitschrijving over de film
-                Movies.movieCatalog(Movies.movieFive);
-                Console.WriteLine(""); //in deze regel komt later de korte uitschrijving over de film
-                Movies.movieCatalog(Movies.movieSix);
-                Console.WriteLine(""); //in deze regel komt later de korte uitschrijving over de film
-                Movies.movieCatalog(Movies.movieSeven);
-                Console.WriteLine(""); //in deze regel komt later de korte uitschrijving over de film
-                Movies.movieCatalog(Movies.movieEight);
-                Console.WriteLine(""); //in deze regel komt later de korte uitschrijving over de film
+                Movies.DisplayMovies();
             }
             else if (userChoice == "2")
             {
@@ -65,10 +51,8 @@ namespace Project_B
             else
             {
                 Console.WriteLine("Voer alstublieft een nummer in.");
-           
-            }
 
+            }
         }
-        
     }
 }
