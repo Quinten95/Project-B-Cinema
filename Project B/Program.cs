@@ -6,6 +6,7 @@ namespace Project_B
     {
         public static void Main(string[] args)
         {
+            Screen.InitScreens();
             Movies.InitMovies();
             displayWelcomeMsg();
             choiceMenu();
@@ -31,27 +32,80 @@ namespace Project_B
         
         static void choiceMenu()
         {
-            string userChoice;
+            int userChoice = 0;
 
             Console.WriteLine(" ----------------------------------------------------");
             Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
-            Console.WriteLine(" ----------------------------------------------------");
-            userChoice = Console.ReadLine();
+            Console.WriteLine(" ----------------------------------------------------\n");
 
-            if (userChoice == "1")
+            while (userChoice != 1 && userChoice != 2)
             {
-                Movies.DisplayMovies();
+                try
+                {
+                    userChoice = int.Parse(Console.ReadLine());                    
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Maak a.u.b. een keuze uit één van de opties:");
+                }
+                
             }
-            else if (userChoice == "2")
+            switch (userChoice)
             {
-                Console.WriteLine("Voor welke film wilt u tickets kopen?");
+                case 1:
+                    Movies.DisplayMovies();
+                    Console.WriteLine("\n");
+                    choiceMenu();
+                    break;
+                case 2:
+                    Console.WriteLine("Voor welke film wilt u tickets kopen:");
+                    userChoice = -1;
+                    while (userChoice < 1 || userChoice > Movies.movieList.Count)
+                    {
+                        try
+                        {
+                            userChoice = int.Parse(Console.ReadLine());
+                            Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
+                            reserveTicket(movieToReserve);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                        }
+                    }
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Voer alstublieft een nummer in.");
+        }
 
+        static void reserveTicket(Movies movie)
+        {
+
+            Console.WriteLine("U heeft gekozen voor: " + movie.movieName);
+            Console.WriteLine("Type \'y\' om uw keuze te bevestigen en \'n\' om uw keuze te wijzigen: ");
+
+            string userConfirmation = Console.ReadLine();
+            if (userConfirmation == "y" || userConfirmation == "Y")
+            {
+                Ticket ticket = new Ticket(movie);
+            }
+            else if (userConfirmation == "n" || userConfirmation == "N")
+            {
+                int userChoice = -1;
+                while (userChoice < 1 || userChoice > Movies.movieList.Count)
+                {
+                    try
+                    {
+                        userChoice = int.Parse(Console.ReadLine());
+                        Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
+                        reserveTicket(movieToReserve);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                    }
+                }
             }
         }
     }
