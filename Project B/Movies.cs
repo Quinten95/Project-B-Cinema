@@ -35,19 +35,20 @@ namespace Project_B
             foreach (Movies movie in movieList)
             {
                 movieCatalog(movie);
-            }          
+            }   
+            
         }
 
         public static void InitMovies()
         {
-            movieList.Add(new Movies(1, "movieOne", new DateTime(2020, 04, 04), (Screen) Screen.screenList[0], 147, "genre", "director"));
-            movieList.Add(new Movies(2, "movieTwo", new DateTime(2020, 04, 04), (Screen)Screen.screenList[0], 99, "genre", "director"));
-            movieList.Add(new Movies(3, "movieThree", new DateTime(2020, 04, 04), (Screen)Screen.screenList[1], 105, "genre", "director"));
-            movieList.Add(new Movies(4, "movieFour", new DateTime(2020, 04, 04), (Screen)Screen.screenList[1], 109, "genre", "director"));
-            movieList.Add(new Movies(5, "movieFive", new DateTime(2020, 04, 04), (Screen)Screen.screenList[2], 128, "genre", "director"));
+            movieList.Add(new Movies(1, "No Time To Die", new DateTime(2020, 11, 12), (Screen) Screen.screenList[0], 163, "Actie, Avontuur, Thriller", "Cary Joji Fukunaga"));
+            movieList.Add(new Movies(2, "Knives Out", new DateTime(2020, 11, 28), (Screen)Screen.screenList[0], 130, "Drama, Thriller", "Rian Johnson"));
+            movieList.Add(new Movies(3, "The Passion", new DateTime(2020, 04, 09), (Screen)Screen.screenList[1], 100, "Music", "david Grifhorst"));
+            movieList.Add(new Movies(4, "Farewell", new DateTime(2020, 12, 31), (Screen)Screen.screenList[1], 90, "Docs", "Pieter van Huystee"));
+            movieList.Add(new Movies(5, "The Turning", new DateTime(2020, 04, 16), (Screen)Screen.screenList[2], 100, "Horror", "Floria Sigismondi"));
             movieList.Add(new Movies(6, "Mission: Impossible - Fallout", new DateTime(2020, 04, 04), (Screen)Screen.screenList[3], 145, "Actie", "Christopher McQuarrie"));
-            movieList.Add(new Movies(7, "movieSeven", new DateTime(2020, 04, 04), (Screen)Screen.screenList[3], 100, "genre", "director"));
-            movieList.Add(new Movies(8, "movieEight", new DateTime(2020, 04, 04), (Screen)Screen.screenList[4], 121, "genre", "director"));
+            movieList.Add(new Movies(7, "Black Widow", new DateTime(2020, 04, 29), (Screen)Screen.screenList[3], 130, "Actie, Advontuur, Science Fiction", "Cate Shortland"));
+            movieList.Add(new Movies(8, "Honey Boy", new DateTime(2020, 04, 16), (Screen)Screen.screenList[4], 94, "Drama", "Alma Har'el"));
         }
         
     
