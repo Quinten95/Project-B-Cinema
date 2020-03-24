@@ -84,27 +84,32 @@ namespace Project_B
 
             Console.WriteLine("U heeft gekozen voor: " + movie.movieName);
             Console.WriteLine("Type \'y\' om uw keuze te bevestigen en \'n\' om uw keuze te wijzigen: ");
-
-            string userConfirmation = Console.ReadLine();
-            if (userConfirmation == "y" || userConfirmation == "Y")
+            
+            string userConfirmation = "";
+            while (userConfirmation != "y" || userConfirmation != "Y")
             {
-                Ticket ticket = new Ticket(movie);
-            }
-            else if (userConfirmation == "n" || userConfirmation == "N")
-            {
-                Console.WriteLine("Voor welke film wilt u tickets kopen:");
-                int userChoice = -1;
-                while (userChoice < 1 || userChoice > Movies.movieList.Count)
+                userConfirmation = Console.ReadLine();
+                if (userConfirmation == "y" || userConfirmation == "Y")
                 {
-                    try
+                    Ticket ticket = new Ticket(movie);
+                    break;
+                }
+                else if (userConfirmation == "n" || userConfirmation == "N")
+                {
+                    Console.WriteLine("Voor welke film wilt u tickets kopen:");
+                    int userChoice = -1;
+                    while (userChoice < 1 || userChoice > Movies.movieList.Count)
                     {
-                        userChoice = int.Parse(Console.ReadLine());
-                        Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
-                        reserveTicket(movieToReserve);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                        try
+                        {
+                            userChoice = int.Parse(Console.ReadLine());
+                            Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
+                            reserveTicket(movieToReserve);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                        }
                     }
                 }
             }
