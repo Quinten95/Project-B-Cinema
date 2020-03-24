@@ -6,17 +6,15 @@ namespace Project_B
 {
     class Ticket
     {
-        private int screen;
+        private Screen screen;
         private int seat;
         private int row;
-        private string movie;
+        private Movies movie;
 
-        public Ticket(int screen, int seat, int row, string movie)
+        public Ticket(Movies movie)
         {
-            this.screen = screen;
-            this.seat = seat;
-            this.row = row;
             this.movie = movie;
+            this.screen = movie.whichScreen;
         }
     }
 }
