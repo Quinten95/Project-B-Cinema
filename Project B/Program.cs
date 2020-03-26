@@ -53,6 +53,7 @@ namespace Project_B
                 }
                 
             }
+            //deze switch statement controleert of de gebruiker optie 1 of 2 kiest
             switch (userChoice)
             {
                 case 1:
@@ -65,6 +66,8 @@ namespace Project_B
                     userChoice = -1;
                     while (userChoice < 1 || userChoice > Movies.movieList.Count)
                     {
+                        //hier wordt gecheckt of de gebruiker wel een bestaand filmnummer kiest
+                        //zo ja wordt de reserveTicket method aangeroepen en de geselecteerde film als parameter meegegeven
                         try
                         {
                             userChoice = int.Parse(Console.ReadLine());
@@ -80,18 +83,24 @@ namespace Project_B
             }
         }
 
+        /** in deze method wordt met de meegegeven movie een ticket aangemaakt
+         * wanneer de gebruiker aangeeft dat de geselecteerde film de juiste is
+         */
         static void reserveTicket(Movies movie)
         {
 
             Console.WriteLine("U heeft gekozen voor: " + movie.movieName);
             Console.WriteLine("Type \'y\' om uw keuze te bevestigen en \'n\' om uw keuze te wijzigen: ");
             
+            //deze while loop controleert of de gebruiker de juiste keuze heeft gemaakt
             string userConfirmation = "";
             while (userConfirmation != "y" && userConfirmation != "Y")
             {
                 userConfirmation = Console.ReadLine();
                 switch (userConfirmation)
                 {
+                    //als de gebruiker bevestigd met y of Y wordt er een ticket aangemaakt waar de geselecteerde film aan wordt meegegeven
+                    //vervolgens wordt om de gebruiker zijn gegevens gevraagd en wordt hier een nieuwe customer instance van gemaakt
                     case "y":
                     case "Y":
                         {
@@ -105,6 +114,9 @@ namespace Project_B
 
                             Console.WriteLine("Voert u alsublieft uw geboortedatum in (dd/mm/yyyy):");
                             DateTime? customerBirthDay = null;
+                            //deze while loop met try/catch clausule zorgt ervoor dat de gebruiker een correcte datum invult
+                            //die ook converteerbaar is naar een DateTime format 
+                            //zonder dat de app crasht als de gebruiker een foute datum invult
                             while (customerBirthDay == null)
                             {
                                 try
@@ -121,7 +133,8 @@ namespace Project_B
                             Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
                             break;
                         }
-
+                    //wanneer de gebruiker n of N invult bij de bevestigingsvraag
+                    //moet deze een nieuwe film kiezen die aan deze method meegegeven wordt
                     case "n":
                     case "N":
                         {
@@ -143,9 +156,9 @@ namespace Project_B
 
                             break;
                         }
-
+                  
                     default:
-                        Console.WriteLine("Kiest u a.u.b. voor één van de opties");
+                        Console.WriteLine("Kiest u a.u.b. voor één van de opties:");
                         break;
                 }
             }
