@@ -33,3 +33,16 @@ C:\Users\alisa\OneDrive\Documenten\GitHub\Project-B-Cinema\Project B\obj\Debug\n
 C:\Users\alisa\OneDrive\Documenten\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfo.cs
 C:\Users\alisa\OneDrive\Documenten\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.dll
 C:\Users\alisa\OneDrive\Documenten\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.pdb
+D:\Project Quinten\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.exe
+D:\Project Quinten\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.deps.json
+D:\Project Quinten\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.runtimeconfig.json
+D:\Project Quinten\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.runtimeconfig.dev.json
+D:\Project Quinten\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.dll
+D:\Project Quinten\Project B\Project B\bin\Debug\netcoreapp3.1\Project B.pdb
+D:\Project Quinten\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.csprojAssemblyReference.cache
+D:\Project Quinten\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.csproj.CoreCompileInputs.cache
+D:\Project Quinten\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfoInputs.cache
+D:\Project Quinten\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfo.cs
+D:\Project Quinten\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.dll
+D:\Project Quinten\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.pdb
+D:\Project Quinten\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.genruntimeconfig.cache
