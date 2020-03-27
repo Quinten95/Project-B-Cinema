@@ -38,9 +38,10 @@ namespace Project_B
             Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
+            Console.WriteLine("| 3) Bekijk onze prijzen                             |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
-            while (userChoice != 1 && userChoice != 2)
+            while (userChoice != 1 && userChoice != 2 && userChoice != 3)
             {
                 try
                 {
@@ -75,6 +76,10 @@ namespace Project_B
                             Console.WriteLine("Voert u a.u.b. een film nummer in:");
                         }
                     }
+                    break;
+                case 3:
+                    MoviePrice.PriceList();
+                    choiceMenu();
                     break;
             }
         }
