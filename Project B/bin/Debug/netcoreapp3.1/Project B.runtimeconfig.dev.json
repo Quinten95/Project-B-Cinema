@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\iris_\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\iris_\\.nuget\\packages"
+      "C:\\Users\\stefa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\stefa\\.nuget\\packages"
     ]
   }
 }

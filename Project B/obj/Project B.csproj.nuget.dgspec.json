@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project Quinten\\Project B\\Project B\\Project B.csproj": {}
+    "C:\\Users\\stefa\\OneDrive\\Documents\\GitHub\\Project-B-Cinema\\Project B\\Project B.csproj": {}
   },
   "projects": {
-    "D:\\Project Quinten\\Project B\\Project B\\Project B.csproj": {
+    "C:\\Users\\stefa\\OneDrive\\Documents\\GitHub\\Project-B-Cinema\\Project B\\Project B.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project Quinten\\Project B\\Project B\\Project B.csproj",
+        "projectUniqueName": "C:\\Users\\stefa\\OneDrive\\Documents\\GitHub\\Project-B-Cinema\\Project B\\Project B.csproj",
         "projectName": "Project B",
-        "projectPath": "D:\\Project Quinten\\Project B\\Project B\\Project B.csproj",
-        "packagesPath": "C:\\Users\\iris_\\.nuget\\packages\\",
-        "outputPath": "D:\\Project Quinten\\Project B\\Project B\\obj\\",
+        "projectPath": "C:\\Users\\stefa\\OneDrive\\Documents\\GitHub\\Project-B-Cinema\\Project B\\Project B.csproj",
+        "packagesPath": "C:\\Users\\stefa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stefa\\OneDrive\\Documents\\GitHub\\Project-B-Cinema\\Project B\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\iris_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stefa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

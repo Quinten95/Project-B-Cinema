@@ -161,6 +161,7 @@ namespace Project_B
                         Console.WriteLine("Kiest u a.u.b. voor één van de opties:");
                         break;
                 }
+                    Console.WriteLine("U heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
             }
 
             
