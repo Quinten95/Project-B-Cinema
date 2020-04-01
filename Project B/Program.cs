@@ -136,6 +136,7 @@ namespace Project_B
                                 }
                             }
                             Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
+                            Console.WriteLine("U heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
                             break;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag
@@ -166,7 +167,7 @@ namespace Project_B
                         Console.WriteLine("Kiest u a.u.b. voor één van de opties:");
                         break;
                 }
-                    Console.WriteLine("U heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
+                    
             }
 
             
