@@ -158,7 +158,26 @@ namespace Project_B
                                 }
                             }
                             Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
-                            Console.WriteLine("U heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
+
+                            //dit genereert een random string van cijfers en letters (de reserveringscode waarmee de klant naar de kassa kan)
+                            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                            char[] reservationCodeChars = new char[10];
+                            Random random = new Random();
+
+                            for (int i = 0; i < reservationCodeChars.Length; i++)
+                            {
+                                reservationCodeChars[i] = chars[random.Next(chars.Length)];
+                            }
+
+                            string reservationCode = new string(reservationCodeChars);
+
+
+                            Console.WriteLine("\nU heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
+                            Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
+                            Console.WriteLine("Uw reserveringscode is: " + reservationCode + "\n\n");
+
+                            
+
                             break;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag
