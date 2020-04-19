@@ -10,11 +10,13 @@ namespace Project_B
         private int seat;
         private int row;
         private Movies movie;
+        private int numberOfPeople;
 
-        public Ticket(Movies movie)
+        public Ticket(Movies movie, int numberOfPeople)
         {
             this.movie = movie;
-            this.screen = movie.whichScreen;
+            this.numberOfPeople = numberOfPeople;
+
         }
     }
 }

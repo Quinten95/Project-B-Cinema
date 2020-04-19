@@ -109,7 +109,29 @@ namespace Project_B
                     case "y":
                     case "Y":
                         {
-                            Ticket ticket = new Ticket(movie);
+                            Console.WriteLine("Hoeveel tickets wilt u bestellen? (Min 1, Max 10)");
+                            int numberOfPeople = -1;
+                            while (numberOfPeople < 1 || numberOfPeople > 10)
+                            {                                
+                                try
+                                {
+                                    numberOfPeople = int.Parse(Console.ReadLine());
+                                    Ticket ticket = new Ticket(movie, numberOfPeople);
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine("Voert u a.u.b. het aantal personen in (Min 1, Max 10)");
+                                }
+                                
+                                if (numberOfPeople < 1)
+                                {
+                                    Console.WriteLine("Het aantal personen kan niet kleiner dan 1 zijn:");
+                                }
+                                if (numberOfPeople > 10)
+                                {
+                                    Console.WriteLine("Het aantal personen mag niet groter dan 10 zijn:");
+                                }
+                            }
 
                             Console.WriteLine("Voert u alstublieft uw naam in:");
                             string customerName = Console.ReadLine();
