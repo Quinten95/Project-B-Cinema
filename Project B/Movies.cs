@@ -39,6 +39,7 @@ namespace Project_B
             
         }
 
+        //deze method initialiseert de films en zet ze in een ArrayList, waardoor de data makkelijk opnieuw te gebruiken is
         public static void InitMovies()
         {
             movieList.Add(new Movies(1, "No Time To Die", new DateTime(2020, 11, 12), (Screen) Screen.screenList[0], 163, "Actie, Avontuur, Thriller", "Cary Joji Fukunaga"));
@@ -55,7 +56,7 @@ namespace Project_B
   
         
         
-
+        //deze method maakt per film die meegegeven wordt een mooi weergegeven detail overzicht
         public static void movieCatalog(Movies movie)
         {
             Console.WriteLine("------------------------");

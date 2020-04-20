@@ -1,8 +1,13 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
+<<<<<<< HEAD
       "C:\\Users\\Erwin\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\Erwin\\.nuget\\packages"
+=======
+      "C:\\Users\\stefa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\stefa\\.nuget\\packages"
+>>>>>>> master
     ]
   }
 }
