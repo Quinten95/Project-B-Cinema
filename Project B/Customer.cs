@@ -17,11 +17,12 @@ namespace Project_B
             return 2.0;
         }
 
-        public Customer(string customerName, DateTime birthday)
+        public Customer(string customerName, DateTime birthday, string email)
         {
             this.customerName = customerName;
             this.birthday = birthday;
             this.priceOfTicket = calcTicketPrice();
+            this.Email = email;
         }
     }
 }
