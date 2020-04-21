@@ -109,8 +109,6 @@ namespace Project_B
                     case "y":
                     case "Y":
                         {
-                            Ticket ticket = new Ticket(movie);
-
                             Console.WriteLine("Voert u alstublieft uw naam in:");
                             string customerName = Console.ReadLine();
 
@@ -135,7 +133,9 @@ namespace Project_B
                                     Console.WriteLine("Uw geboortedatum moet als dd/mm/yyyy ingevoerd worden, bijv: 01/01/2020:");
                                 }
                             }
+                            //TE DOEN: Zet bij elke film wat voor soort film het is (3D, IMAX, etc.) Ook nog iets voor VIP bedenken.
                             Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
+                            Ticket ticket = new Ticket(movie, customer);
                             break;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag

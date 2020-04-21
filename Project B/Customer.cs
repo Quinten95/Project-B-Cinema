@@ -7,22 +7,16 @@ namespace Project_B
     class Customer
     {
         private string customerName;
-        private DateTime birthday;
+        private DateTime? birthday;
         public int Age { get; set; }
         public string Email { get; set; }
-        public double priceOfTicket;
 
-        public double calcTicketPrice()
-        {
-            return 2.0;
-        }
-
-        public Customer(string customerName, DateTime birthday, string email)
+        public Customer(string customerName, DateTime? birthday, string email)
         {
             this.customerName = customerName;
             this.birthday = birthday;
-            this.priceOfTicket = calcTicketPrice();
             this.Email = email;
         }
+
     }
 }

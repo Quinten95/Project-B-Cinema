@@ -22,6 +22,27 @@ namespace Project_B
             return roundedValue;
         };
 
+        //Deze method koppelt een prijs aan de ticket met de leeftijd van de persoon als basis.
+        public static double calcTicketPrice(Ticket ticket, Customer person)
+        {
+            if (person.Age < 13)
+            {
+                return round(basePrice, childrensDiscount);
+            }
+            else if (person.Age > 17 && person.Age < 25)
+            {
+                return round(basePrice, studentDiscount);
+            }
+            else if (person.Age > 64)
+            {
+                return round(basePrice, elderlyDiscount);
+            }
+            else
+            {
+                return basePrice;
+            }
+        }
+
         public static void PriceList()
         {
             Console.WriteLine("Onze Prijzen");
