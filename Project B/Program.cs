@@ -109,12 +109,28 @@ namespace Project_B
                     case "y":
                     case "Y":
                         {
-                            Console.WriteLine("Wilt u een VIP ticket kopen? (ja/nee)");
-                            string vipChoice = Console.ReadLine().ToLower();
-                            bool isVip = false;
-                            if (vipChoice == "ja")
-                            {
-                                isVip = true;
+                            Console.WriteLine("Hoeveel tickets wilt u bestellen? (Min 1, Max 10)");
+                            int numberOfPeople = -1;
+                            while (numberOfPeople < 1 || numberOfPeople > 10)
+                            {                                
+                                try
+                                {
+                                    numberOfPeople = int.Parse(Console.ReadLine());
+                                    Ticket ticket = new Ticket(movie, numberOfPeople);
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine("Voert u a.u.b. het aantal personen in (Min 1, Max 10)");
+                                }
+                                
+                                if (numberOfPeople < 1)
+                                {
+                                    Console.WriteLine("Het aantal personen kan niet kleiner dan 1 zijn:");
+                                }
+                                if (numberOfPeople > 10)
+                                {
+                                    Console.WriteLine("Het aantal personen mag niet groter dan 10 zijn:");
+                                }
                             }
 
                             Console.WriteLine("Voert u alstublieft uw naam in:");
@@ -141,11 +157,27 @@ namespace Project_B
                                     Console.WriteLine("Uw geboortedatum moet als dd/mm/yyyy ingevoerd worden, bijv: 01/01/2020:");
                                 }
                             }
-                            //TE DOEN: Zet bij elke film wat voor soort film het is (3D, IMAX, etc.) Ook nog iets voor VIP bedenken.
                             Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
-                            Ticket ticket = new Ticket(movie, customer, isVip);
-                            Console.WriteLine(customer.Age);
-                            Console.WriteLine(ticket.priceOfTicket);
+
+                            //dit genereert een random string van cijfers en letters (de reserveringscode waarmee de klant naar de kassa kan)
+                            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                            char[] reservationCodeChars = new char[10];
+                            Random random = new Random();
+
+                            for (int i = 0; i < reservationCodeChars.Length; i++)
+                            {
+                                reservationCodeChars[i] = chars[random.Next(chars.Length)];
+                            }
+
+                            string reservationCode = new string(reservationCodeChars);
+
+
+                            Console.WriteLine("\nU heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
+                            Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
+                            Console.WriteLine("Uw reserveringscode is: " + reservationCode + "\n\n");
+
+                            
+
                             break;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag
@@ -176,7 +208,7 @@ namespace Project_B
                         Console.WriteLine("Kiest u a.u.b. voor één van de opties:");
                         break;
                 }
-                    Console.WriteLine("U heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
+                    
             }
 
             

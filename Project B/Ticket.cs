@@ -10,15 +10,13 @@ namespace Project_B
         private int seat;
         private int row;
         private Movies movie;
-        public double priceOfTicket;
-        private bool isVip;
+        private int numberOfPeople;
 
-        public Ticket(Movies movie, Customer customer, bool VipChoice)
+        public Ticket(Movies movie, int numberOfPeople)
         {
             this.movie = movie;
-            this.screen = movie.whichScreen;
-            this.isVip = VipChoice;
-            this.priceOfTicket = MoviePrice.calcTicketPrice(movie, customer, isVip);
+            this.numberOfPeople = numberOfPeople;
+
         }
     }
 }
