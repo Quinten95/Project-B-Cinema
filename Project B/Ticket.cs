@@ -11,12 +11,14 @@ namespace Project_B
         private int row;
         private Movies movie;
         public double priceOfTicket;
+        private bool isVip;
 
-        public Ticket(Movies movie, Customer customer)
+        public Ticket(Movies movie, Customer customer, bool VipChoice)
         {
             this.movie = movie;
             this.screen = movie.whichScreen;
-            this.priceOfTicket = MoviePrice.calcTicketPrice(this, customer);
+            this.isVip = VipChoice;
+            this.priceOfTicket = MoviePrice.calcTicketPrice(movie, customer, isVip);
         }
     }
 }

@@ -109,6 +109,14 @@ namespace Project_B
                     case "y":
                     case "Y":
                         {
+                            Console.WriteLine("Wilt u een VIP ticket kopen? (ja/nee)");
+                            string vipChoice = Console.ReadLine().ToLower();
+                            bool isVip = false;
+                            if (vipChoice == "ja")
+                            {
+                                isVip = true;
+                            }
+
                             Console.WriteLine("Voert u alstublieft uw naam in:");
                             string customerName = Console.ReadLine();
 
@@ -135,7 +143,9 @@ namespace Project_B
                             }
                             //TE DOEN: Zet bij elke film wat voor soort film het is (3D, IMAX, etc.) Ook nog iets voor VIP bedenken.
                             Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
-                            Ticket ticket = new Ticket(movie, customer);
+                            Ticket ticket = new Ticket(movie, customer, isVip);
+                            Console.WriteLine(customer.Age);
+                            Console.WriteLine(ticket.priceOfTicket);
                             break;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag
