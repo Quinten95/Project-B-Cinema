@@ -29,22 +29,22 @@ namespace Project_B
         public static Func<Movies, double> typeChecker4 = x => x.movieType == "Auro3D" ? auro3DPrice : basePrice;
 
         //Deze method koppelt een prijs aan de ticket met de leeftijd van de persoon als basis.
-        public static double calcTicketPrice(Movies movie, Customer person, bool vip)
+        public static double calcTicketPrice(Movies movie, int age, bool vip)
         {
             double price = typeChecker1(movie);
             if (vip)
             {
                 price += VIPcost;
             }
-            if (person.Age < 13)
+            if (age < 13)
             {
                 return round(price, childrensDiscount);
             }
-            else if (person.Age < 23)
+            else if (age < 23)
             {
                 return round(price, studentDiscount);
             }
-            else if (person.Age > 64)
+            else if (age > 64)
             {
                 return round(price, elderlyDiscount);
             }

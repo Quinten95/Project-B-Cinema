@@ -109,6 +109,14 @@ namespace Project_B
                     case "y":
                     case "Y":
                         {
+                            Ticket ticketCaller = null;
+                            Console.WriteLine("Wilt u een VIP ticket kopen? (ja/nee)");
+                            string vipChoice = Console.ReadLine().ToLower();
+                            bool isVip = false;
+                            if (vipChoice == "ja")
+                            {
+                                isVip = true;
+                            }
                             Console.WriteLine("Hoeveel tickets wilt u bestellen? (Min 1, Max 10)");
                             int numberOfPeople = -1;
                             while (numberOfPeople < 1 || numberOfPeople > 10)
@@ -116,7 +124,8 @@ namespace Project_B
                                 try
                                 {
                                     numberOfPeople = int.Parse(Console.ReadLine());
-                                    Ticket ticket = new Ticket(movie, numberOfPeople);
+                                    Ticket ticket = new Ticket(movie, numberOfPeople, isVip);
+                                    ticketCaller = ticket;
                                 }
                                 catch (Exception e)
                                 {
@@ -171,13 +180,10 @@ namespace Project_B
 
                             string reservationCode = new string(reservationCodeChars);
 
-
                             Console.WriteLine("\nU heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
                             Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
                             Console.WriteLine("Uw reserveringscode is: " + reservationCode + "\n\n");
-
-                            
-
+                            Console.WriteLine("De totale prijs is: " + ticketCaller.totalPrice);
                             break;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag
