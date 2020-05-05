@@ -9,3 +9,14 @@ C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcor
 C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfo.cs
 C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.dll
 C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B\Project B\obj\Debug\netcoreapp3.1\Project B.pdb
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\bin\Debug\netcoreapp3.1\Project B.exe
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\bin\Debug\netcoreapp3.1\Project B.deps.json
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\bin\Debug\netcoreapp3.1\Project B.runtimeconfig.json
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\bin\Debug\netcoreapp3.1\Project B.runtimeconfig.dev.json
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\bin\Debug\netcoreapp3.1\Project B.dll
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\bin\Debug\netcoreapp3.1\Project B.pdb
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.csprojAssemblyReference.cache
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfoInputs.cache
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfo.cs
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.dll
+C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.pdb
