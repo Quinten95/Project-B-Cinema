@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -51,9 +52,11 @@ namespace Project_B
             Console.WriteLine("| 2) Maak een reservatie                             |");
             Console.WriteLine("| 3) Bekijk onze prijzen                             |");
             Console.WriteLine("| 4) Account registratie                             |");
+            Console.WriteLine("| 5) Inloggen                                        |");
+            Console.WriteLine("| 6) Afsluiten                                       |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
-            while (userChoice < 1 || userChoice > 4)
+            while (userChoice < 1 || userChoice > 6)
             {
                 try
                 {
@@ -101,6 +104,16 @@ namespace Project_B
 
                 case 4:
                     registerCustomer();
+                    choiceMenu();
+                    break;
+
+                case 5:
+                    loginCustomer();
+                    choiceMenu();
+                    break;
+
+                case 6:
+                    Environment.Exit(0);
                     break;
             }
         }
@@ -235,9 +248,15 @@ namespace Project_B
         {
             JsonSerializerOptions options = new JsonSerializerOptions();
             options.WriteIndented = true;
-          
+
             Console.WriteLine("Voert u alstublieft uw gewenste gebruikersnaam in:");
             string customerUserName = Console.ReadLine();
+
+            while(registeredCustomers.Exists(Customer => Customer.CustomerUserName == customerUserName))
+            {
+                Console.WriteLine("Gebruikersnaam bezet, kiest u a.u.b. een andere gebruikersnaam:");
+                customerUserName = Console.ReadLine();
+            }
 
             Console.WriteLine("Voert u alstublieft een wachtwoord in:");
             string customerPassword = Console.ReadLine();
@@ -275,10 +294,33 @@ namespace Project_B
 
             File.WriteAllText("registered_customers.json", jsonString);
             Console.WriteLine("Account geregistreerd!");
-
-            choiceMenu();
         }
 
+        static void loginCustomer()
+        {
+            bool loginSuccesful = false;
+            Console.WriteLine("\nGebruikersnaam:");
+            string username = Console.ReadLine();
+            Console.WriteLine("\nWachtwoord:");
+            string password = Console.ReadLine();
+
+            foreach (Customer customer in registeredCustomers)
+            {
+                if(username == customer.CustomerUserName && password == customer.CustomerPassword)
+                {
+                    Console.WriteLine("\nWelkom " + customer.CustomerName+"\n");
+                    loginSuccesful = true;
+                }
+            }
+
+            if(loginSuccesful == false)
+            {
+                Console.WriteLine("\nGebruikersnaam of wachtwoord onbekend!\n");
+            }
+        }
+        //vult de registeredCustomer list met de bestaande customers in de Json file
+        //dit omdat de Json file volledig overschreven wordt met alle customers die in deze list staan
+        //wanneer een nieuwe registratie gemaakt wordt dmv de File.WriteAllText
         private static void fillRegisteredCustomerList()
         {
             string jsonText = File.ReadAllText("registered_customers.json");

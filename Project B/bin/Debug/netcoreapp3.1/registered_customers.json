@@ -14,5 +14,13 @@
     "Email": "erwin@testemail.com",
     "CustomerPassword": "testww",
     "CustomerUserName": "ErwinH"
+  },
+  {
+    "CustomerName": "Benny Benito",
+    "Birthday": "1995-02-12T00:00:00",
+    "Age": 25,
+    "Email": "lkj@gmail.com",
+    "CustomerPassword": "ww",
+    "CustomerUserName": "qdg"
   }
 ]
