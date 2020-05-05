@@ -29,7 +29,7 @@ namespace Project_B
             Tuple<int, double>[] collector = new Tuple<int, double>[x];
             for (int i = 0; i < x; i++)
             {
-                Console.WriteLine("Voer persoon " + (i + 1) + "'s leeftijd in.");
+                Console.WriteLine("Voer persoon " + (i + 1) + " zijn/haar leeftijd in.");
                 int personIage = -1; 
                 while(personIage < 0 || personIage > 120)
                 {

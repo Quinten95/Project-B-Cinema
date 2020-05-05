@@ -1,17 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Project_B
 {
-    class Program
-    {
+
+    class Program {
+
+        static List<Customer> registeredCustomers = new List<Customer>();
+    
         public static void Main(string[] args)
         {
+            fillRegisteredCustomerList();
             Screen.InitScreens();
             Movies.InitMovies();
             displayWelcomeMsg();
             choiceMenu();
         }
+
 
         static void displayWelcomeMsg()
         {
@@ -40,9 +51,12 @@ namespace Project_B
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
             Console.WriteLine("| 3) Bekijk onze prijzen                             |");
+            Console.WriteLine("| 4) Account registratie                             |");
+            Console.WriteLine("| 5) Inloggen                                        |");
+            Console.WriteLine("| 6) Afsluiten                                       |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
-            while (userChoice != 1 && userChoice != 2 && userChoice != 3)
+            while (userChoice < 1 || userChoice > 6)
             {
                 try
                 {
@@ -62,6 +76,7 @@ namespace Project_B
                     Console.WriteLine("\n");
                     choiceMenu();
                     break;
+
                 case 2:
                     Console.WriteLine("Voor welke film wilt u tickets kopen:");
                     userChoice = -1;
@@ -81,9 +96,24 @@ namespace Project_B
                         }
                     }
                     break;
+
                 case 3:
                     MoviePrice.PriceList();
                     choiceMenu();
+                    break;
+
+                case 4:
+                    registerCustomer();
+                    choiceMenu();
+                    break;
+
+                case 5:
+                    loginCustomer();
+                    choiceMenu();
+                    break;
+
+                case 6:
+                    Environment.Exit(0);
                     break;
             }
         }
@@ -110,10 +140,10 @@ namespace Project_B
                     case "Y":
                         {
                             Ticket ticketCaller = null;
-                            Console.WriteLine("Wilt u een VIP ticket kopen? (ja/nee)");
+                            Console.WriteLine("Wilt u een VIP ticket kopen? (y/n)");
                             string vipChoice = Console.ReadLine().ToLower();
                             bool isVip = false;
-                            if (vipChoice == "ja")
+                            if (vipChoice == "y" || vipChoice == "Y")
                             {
                                 isVip = true;
                             }
@@ -149,11 +179,11 @@ namespace Project_B
                             string customerEmail = Console.ReadLine();
 
                             Console.WriteLine("Voert u alsublieft uw geboortedatum in (dd/mm/yyyy):");
-                            DateTime? customerBirthDay = null;
+                            DateTime customerBirthDay = DateTime.Today;
                             //deze while loop met try/catch clausule zorgt ervoor dat de gebruiker een correcte datum invult
                             //die ook converteerbaar is naar een DateTime format 
                             //zonder dat de app crasht als de gebruiker een foute datum invult
-                            while (customerBirthDay == null)
+                            while (customerBirthDay == DateTime.Today)
                             {
                                 try
                                 {
@@ -182,8 +212,8 @@ namespace Project_B
 
                             Console.WriteLine("\nU heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
                             Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
-                            Console.WriteLine("Uw reserveringscode is: " + reservationCode + "\n\n");
-                            Console.WriteLine("De totale prijs is: " + ticketCaller.totalPrice.ToString("0.00"));
+                            Console.WriteLine("De totale prijs is: " + String.Format("{0:0.00}", ticketCaller.totalPrice));
+                            Console.WriteLine("Uw reserveringscode is: " + reservationCode);
                             break;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag
@@ -218,6 +248,120 @@ namespace Project_B
             }
 
             
+        }
+
+        private static void registerCustomer()
+        {
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = true;
+
+            Console.WriteLine("Voert u alstublieft uw gewenste gebruikersnaam in:");
+            string customerUserName = Console.ReadLine();
+
+            while(registeredCustomers.Exists(Customer => Customer.CustomerUserName == customerUserName))
+            {
+                Console.WriteLine("Gebruikersnaam bezet, kiest u a.u.b. een andere gebruikersnaam:");
+                customerUserName = Console.ReadLine();
+            }
+
+            Console.WriteLine("Voert u alstublieft een wachtwoord in:");
+            string customerPassword = Console.ReadLine();
+
+            Console.WriteLine("Voert u alstublieft uw naam in:");
+            string customerName = Console.ReadLine();
+
+            Console.WriteLine("Voert u alstublieft uw e-mail adres in:");
+            string customerEmail = Console.ReadLine();
+
+            Console.WriteLine("Voert u alsublieft uw geboortedatum in (dd/mm/yyyy):");
+            DateTime customerBirthDay = DateTime.Today;
+            //deze while loop met try/catch clausule zorgt ervoor dat de gebruiker een correcte datum invult
+            //die ook converteerbaar is naar een DateTime format 
+            //zonder dat de app crasht als de gebruiker een foute datum invult
+            while (customerBirthDay == DateTime.Today)
+            {
+                try
+                {
+                    string customerBDayStr = Console.ReadLine();
+                    CultureInfo dutchCI = new CultureInfo("nl-NL", false);
+                    customerBirthDay = DateTime.Parse(customerBDayStr, dutchCI);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Uw geboortedatum moet als dd/mm/yyyy ingevoerd worden, bijv: 01/01/2020:");
+                }
+            }
+            Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
+            customer.CustomerPassword = customerPassword;
+            customer.CustomerUserName = customerUserName;
+            registeredCustomers.Add(customer);
+
+            var jsonString = JsonSerializer.Serialize(registeredCustomers, options);
+
+            File.WriteAllText("registered_customers.json", jsonString);
+            Console.WriteLine("Account geregistreerd!");
+        }
+
+        static void loginCustomer()
+        {
+            bool loginSuccesful = false;
+            Console.WriteLine("\nGebruikersnaam:");
+            string username = Console.ReadLine();
+            Console.WriteLine("\nWachtwoord:");
+            string password = Console.ReadLine();
+
+            foreach (Customer customer in registeredCustomers)
+            {
+                if(username == customer.CustomerUserName && password == customer.CustomerPassword)
+                {
+                    Console.WriteLine("\nWelkom " + customer.CustomerName+"\n");
+                    loginSuccesful = true;
+                }
+            }
+
+            if(loginSuccesful == false)
+            {
+                Console.WriteLine("\nGebruikersnaam of wachtwoord onbekend!\n");
+            }
+        }
+        //vult de registeredCustomer list met de bestaande customers in de Json file
+        //dit omdat de Json file volledig overschreven wordt met alle customers die in deze list staan
+        //wanneer een nieuwe registratie gemaakt wordt dmv de File.WriteAllText
+        private static void fillRegisteredCustomerList()
+        {
+            string jsonText = File.ReadAllText("registered_customers.json");
+
+            using (JsonDocument document = JsonDocument.Parse(jsonText))
+            {
+                JsonElement root = document.RootElement;
+                JsonElement customerListElement = root;
+
+                foreach(JsonElement customer in customerListElement.EnumerateArray())
+                {
+                    if(customer.TryGetProperty("CustomerName", out JsonElement CustomerNameElement)&&
+                        customer.TryGetProperty("Birthday", out JsonElement BirthdayElement)&&
+                        customer.TryGetProperty("Age", out JsonElement AgeElement)&&
+                        customer.TryGetProperty("Email", out JsonElement EmailElement)&&
+                        customer.TryGetProperty("CustomerPassword", out JsonElement CustomerPasswordElement)&&
+                        customer.TryGetProperty("CustomerUserName", out JsonElement CustomerUserNameElement))
+                    {
+                        string CustomerName = CustomerNameElement.GetString();
+                        DateTime Birthday = BirthdayElement.GetDateTime();
+                        int Age = AgeElement.GetInt32();
+                        string Email = EmailElement.GetString();
+                        string CustomerPassword = CustomerPasswordElement.GetString();
+                        string CustomerUserName = CustomerUserNameElement.GetString();
+
+                        Customer customer1 = new Customer(CustomerName, Birthday, Email);
+                        customer1.CustomerPassword = CustomerPassword;
+                        customer1.CustomerUserName = CustomerUserName;
+                        customer1.Age = Age;
+
+                        registeredCustomers.Add(customer1);
+                    }
+                }
+            }
+
         }
     }
 }
