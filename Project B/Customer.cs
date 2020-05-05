@@ -7,14 +7,16 @@ namespace Project_B
     class Customer
     {
         private string customerName;
-        private DateTime birthday;
+        private DateTime? birthday;
         public int Age { get; set; }
         public string Email { get; set; }
 
-        public Customer(string customerName, DateTime birthday)
+        public Customer(string customerName, DateTime? birthday, string email)
         {
             this.customerName = customerName;
             this.birthday = birthday;
+            this.Email = email;
         }
+
     }
 }
