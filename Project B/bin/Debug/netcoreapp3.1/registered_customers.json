@@ -1,0 +1,18 @@
+[
+  {
+    "CustomerName": "Quinten de Groot",
+    "Birthday": "1995-02-12T00:00:00",
+    "Age": 25,
+    "Email": "quinten103@gmail.com",
+    "CustomerPassword": "ww",
+    "CustomerUserName": "quinten95"
+  },
+  {
+    "CustomerName": "Erwin ",
+    "Birthday": "1998-01-14T00:00:00",
+    "Age": 22,
+    "Email": "erwin@testemail.com",
+    "CustomerPassword": "testww",
+    "CustomerUserName": "ErwinH"
+  }
+]
