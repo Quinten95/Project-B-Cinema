@@ -10,6 +10,7 @@ namespace Project_B
         public static double price3D = 10.00;
         public static double IMAXPrice = 12.00;
         public static double auro3DPrice = 15.00;
+        public static double VIPcost = 3.00;
         public static double childrensDiscount = 0.8;
         public static double elderlyDiscount = 0.7;
         public static double studentDiscount = 0.9;
@@ -21,6 +22,37 @@ namespace Project_B
             double roundedValue = Math.Round(p, 2);
             return roundedValue;
         };
+
+        public static Func<Movies, double> typeChecker1 = x => x.movieType == "Base" ? basePrice : typeChecker2(x);
+        public static Func<Movies, double> typeChecker2 = x => x.movieType == "3D" ? price3D : typeChecker3(x);
+        public static Func<Movies, double> typeChecker3 = x => x.movieType == "IMAX" ? IMAXPrice : typeChecker4(x);
+        public static Func<Movies, double> typeChecker4 = x => x.movieType == "Auro3D" ? auro3DPrice : basePrice;
+
+        //Deze method koppelt een prijs aan de ticket met de leeftijd van de persoon als basis.
+        public static double calcTicketPrice(Movies movie, int age, bool vip)
+        {
+            double price = typeChecker1(movie);
+            if (vip)
+            {
+                price += VIPcost;
+            }
+            if (age < 13)
+            {
+                return round(price, childrensDiscount);
+            }
+            else if (age < 23)
+            {
+                return round(price, studentDiscount);
+            }
+            else if (age > 64)
+            {
+                return round(price, elderlyDiscount);
+            }
+            else
+            {
+                return price;
+            }
+        }
 
         public static void PriceList()
         {

@@ -12,12 +12,13 @@
         "projectPath": "C:\\Users\\Quinten\\Documents\\SCHOOL\\PROJECT B\\Project B Fixed\\Project B\\Project B.csproj",
         "packagesPath": "C:\\Users\\Quinten\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Quinten\\Documents\\SCHOOL\\PROJECT B\\Project B Fixed\\Project B\\obj\\",
+
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Quinten\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Erwin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
