@@ -57,3 +57,5 @@ C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\ne
 C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfo.cs
 C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.dll
 C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.pdb
+C:\Users\Erwin\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.csproj.CoreCompileInputs.cache
+C:\Users\Erwin\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.genruntimeconfig.cache

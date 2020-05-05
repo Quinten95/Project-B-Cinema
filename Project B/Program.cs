@@ -183,7 +183,7 @@ namespace Project_B
                             Console.WriteLine("\nU heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
                             Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
                             Console.WriteLine("Uw reserveringscode is: " + reservationCode + "\n\n");
-                            Console.WriteLine("De totale prijs is: " + ticketCaller.totalPrice);
+                            Console.WriteLine("De totale prijs is: " + ticketCaller.totalPrice.ToString("0.00"));
                             break;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag
