@@ -68,11 +68,36 @@ namespace Project_B
                 }
                 
             }
-            //deze switch statement controleert of de gebruiker optie 1 of 2 kiest
+            //deze switch statement controleert of de gebruiker een van de beschikbare opties op het hoofdmenu kiest
             switch (userChoice)
             {
                 case 1:
-                    Movies.DisplayMovies();
+                    Console.WriteLine("Hoe wilt u de filmlijst bekijken? \n 1) Zoeken op sleutelwoorden \n 2) Ik wil de hele lijst zien");
+                    int viewList = 0;  
+                    while (viewList < 1 || viewList > 2)
+                    {
+                        try
+                        {
+                            viewList = int.Parse(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Maak a.u.b. een keuze uit één van de opties:");
+                        }
+                    }
+                    //Deze switch statement controleert of de gebruiker een van de beschikbare manieren van films zoeken kiest.
+                    switch (viewList)
+                    {
+                         case 1:
+                           Console.WriteLine("Voer uw zoektermen in.");
+                           string[] searchTerms = Console.ReadLine().Split();
+                           Movies.DisplayMovies(searchTerms);
+                           break;
+                         case 2:
+                           Movies.DisplayMovies();
+                           break;       
+                    }
+
                     Console.WriteLine("\n");
                     choiceMenu();
                     break;

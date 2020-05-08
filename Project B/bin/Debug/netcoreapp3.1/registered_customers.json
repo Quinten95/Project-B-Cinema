@@ -22,5 +22,21 @@
     "Email": "lkj@gmail.com",
     "CustomerPassword": "ww",
     "CustomerUserName": "qdg"
+  },
+  {
+    "CustomerName": "Erwin",
+    "Birthday": "1999-07-06T00:00:00",
+    "Age": 21,
+    "Email": "0989373@hr.nl",
+    "CustomerPassword": "testwachtwoord",
+    "CustomerUserName": "Erwin"
+  },
+  {
+    "CustomerName": "Quinten de Groot",
+    "Birthday": "1993-12-12T00:00:00",
+    "Age": 27,
+    "Email": "testemail@gmail.com",
+    "CustomerPassword": "password1234",
+    "CustomerUserName": "Quinten93"
   }
 ]
