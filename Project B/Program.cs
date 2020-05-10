@@ -140,6 +140,12 @@ namespace Project_B
 
                 case 6:
                     Console.WriteLine("Van welke voorstelling wilt u de zaalstatus zien?");
+                    string allMovies = "";
+                    foreach(Movies movie in Movies.movieList)
+                    {
+                        allMovies += $"{movie.movieID}) {movie.movieName} | ";
+                    }
+                    Console.WriteLine(allMovies);
                     int seeScreen = 0;
                     while (seeScreen < 1 || seeScreen > Movies.movieList.Count)
                     {
