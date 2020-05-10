@@ -41,7 +41,7 @@ namespace Project_B
             Console.WriteLine("| Hier kunt u zien welke films er draaien.           |");
             Console.WriteLine("|      Ook kunt u tickets bestellen!                 |");
         }
-        
+
         static void choiceMenu()
         {
             int userChoice = 0;
@@ -53,7 +53,8 @@ namespace Project_B
             Console.WriteLine("| 3) Bekijk onze prijzen                             |");
             Console.WriteLine("| 4) Account registratie                             |");
             Console.WriteLine("| 5) Inloggen                                        |");
-            Console.WriteLine("| 6) Afsluiten                                       |");
+            Console.WriteLine("| 6) Zaalstatus bekijken                             |");
+            Console.WriteLine("| 7) Afsluiten                                       |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
             while (userChoice < 1 || userChoice > 6)
@@ -138,6 +139,23 @@ namespace Project_B
                     break;
 
                 case 6:
+                    Console.WriteLine("Van welke voorstelling wilt u de zaalstatus zien?");
+                    int seeScreen = 0;
+                    while (seeScreen < 1 || seeScreen > Movies.movieList.Count)
+                    {
+                        try
+                        {
+                            seeScreen = int.Parse(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Maak a.u.b. een keuze uit één van de opties:");
+                        }
+                    }
+                    Movies.ScreenSeats((Movies)Movies.movieList[seeScreen - 1]);
+                    break;
+
+                case 7:
                     Environment.Exit(0);
                     break;
             }

@@ -76,6 +76,18 @@ namespace Project_B
             }
         }
 
+
+        public static void ScreenSeats(Movies movie)
+        {
+            Console.WriteLine($"Status van zaal {movie.whichScreen.screenNumber} tijdens {movie.movieName} om {movie.startTime} =");
+            for (int rowCounter = 1; rowCounter < movie.whichScreen.amountOfRows; rowCounter++)
+            {
+                Console.WriteLine($"Rij {rowCounter} : {movie.whichScreen.amountOfSeatsPerRow} / {movie.whichScreen.amountOfSeatsPerRow}");
+            }
+            Console.WriteLine($"VIP Rij : {movie.whichScreen.amountOfVip} / {movie.whichScreen.amountOfVip}");
+            Console.WriteLine($"Totaal : {movie.whichScreen.amountOfSeats} / {movie.whichScreen.amountOfSeats}");
+        }
+
         //deze method initialiseert de films en zet ze in een ArrayList, waardoor de data makkelijk opnieuw te gebruiken is
         public static void InitMovies()
         {
@@ -89,7 +101,7 @@ namespace Project_B
             movieList.Add(new Movies(8, "Honey Boy", new DateTime(2020, 04, 16, 16, 00, 00), (Screen)Screen.screenList[4], 94, "Drama", "Alma Har'el", "Base"));
         }
         
-    
+        
   
         
         

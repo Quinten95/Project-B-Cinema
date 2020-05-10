@@ -30,7 +30,7 @@ namespace Project_B
             screenList.Add(new Screen(2, 150, 15, 10, 15));
             screenList.Add(new Screen(3, 150, 15, 10, 15));
             screenList.Add(new Screen(4, 300, 30, 30, 10));
-            screenList.Add(new Screen(5, 500, 30, 25, 20));
+            screenList.Add(new Screen(5, 500, 40, 25, 20));
         } 
     }
 
