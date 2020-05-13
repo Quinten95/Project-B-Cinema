@@ -8,20 +8,20 @@ namespace Project_B
     class Movies
     {
         public int movieID;
-        public string movieName;
+        public string MovieName { get; set; }
         public DateTime startTime;
         public int runTime;
         public string genre;
         public string director;
         public Screen whichScreen;
         public string movieType;
-        public static ArrayList movieList = new ArrayList();
+        public static List<Movies> movieList = new List<Movies>();
 
         public Movies(int movieID, string movieName, DateTime startTime,
             Screen whichScreen, int runTime, string genre, string director, string movieType)
         {
             this.movieID = movieID;
-            this.movieName = movieName;
+            this.MovieName = movieName;
             this.startTime = startTime;
             this.runTime = runTime;
             this.genre = genre;
@@ -61,7 +61,7 @@ namespace Project_B
         {
             Console.WriteLine("------------------------");
             Console.WriteLine("Filmnummer: " + movie.movieID);
-            Console.WriteLine(movie.movieName);
+            Console.WriteLine(movie.MovieName);
             Console.WriteLine("Zaal " + movie.whichScreen.screenNumber);
             Console.WriteLine(movie.startTime.ToString("dd/MM/yyyy HH:mm"));
             Console.WriteLine("Filmlengte: " + movie.runTime + " minuten");

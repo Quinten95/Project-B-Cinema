@@ -1,0 +1,20 @@
+[
+  {
+    "ReservationCode": "tk8Buwgmwh",
+    "CustomerName": "Quinten de Groot",
+    "CustomerEmail": "quinten103@gmail.com",
+    "MovieName": "Knives Out",
+    "NumberOfPeople": 2,
+    "IsVip": true,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "WcnwYXCFST",
+    "CustomerName": "Quinten de Groot",
+    "CustomerEmail": "quinten103@gmail.com",
+    "MovieName": "Honey Boy",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 7
+  }
+]

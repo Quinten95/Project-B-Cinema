@@ -19,9 +19,12 @@ namespace Project_B
 
         public static void Main(string[] args)
         {
-            fillRegisteredCustomerList();
             Screen.InitScreens();
             Movies.InitMovies();
+
+            fillReservationList();
+            fillRegisteredCustomerList();
+            
             displayWelcomeMsg();
             choiceMenu();
         }
@@ -127,8 +130,9 @@ namespace Project_B
         static void reserveTicket(Movies movie)
         {
 
-            Console.WriteLine("U heeft gekozen voor: " + movie.movieName);
+            Console.WriteLine("U heeft gekozen voor: " + movie.MovieName);
             Console.WriteLine("Type \'y\' om uw keuze te bevestigen en \'n\' om uw keuze te wijzigen: ");
+            Customer customer;
             
             //deze while loop controleert of de gebruiker de juiste keuze heeft gemaakt
             string userConfirmation = "";
@@ -142,7 +146,7 @@ namespace Project_B
                     case "y":
                     case "Y":
                         {
-                            Ticket ticketCaller = null;
+                            Ticket ticket = null;
                             Console.WriteLine("Wilt u een VIP ticket kopen? (y/n)");
                             string vipChoice = Console.ReadLine().ToLower();
                             bool isVip = false;
@@ -168,8 +172,11 @@ namespace Project_B
                                     }
                                     else
                                     {
-                                        Ticket ticket = new Ticket(movie, numberOfPeople, isVip);
-                                        ticketCaller = ticket;
+                                        Ticket tempTicket = new Ticket(movie, numberOfPeople, isVip);
+
+                                        Tuple<int, double>[] peoplePrices = tempTicket.PriceCalculator(numberOfPeople, movie, isVip);
+                                        tempTicket.TotalPrice = tempTicket.PriceSummer(peoplePrices);
+                                        ticket = tempTicket;
                                     }
                                 }
                                 catch (Exception e)
@@ -181,7 +188,7 @@ namespace Project_B
                             }
                             if (loggedIn == true)
                             {                                                               
-                                Customer customer = registeredCustomers.Find(x => x.CustomerUserName == loggedInCustomerUsername);
+                                customer = registeredCustomers.Find(x => x.CustomerUserName == loggedInCustomerUsername);
                                 Console.WriteLine("\nControlleer uw gegevens:");
                                 Console.WriteLine("Naam: " + customer.CustomerName);
                                 Console.WriteLine("Email: " + customer.Email);
@@ -212,7 +219,7 @@ namespace Project_B
                                         Console.WriteLine("Uw geboortedatum moet als dd/mm/yyyy ingevoerd worden, bijv: 01/01/2020:");
                                     }
                                 }
-                                Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
+                                customer = new Customer(customerName, customerBirthDay, customerEmail);
                             }
                             //dit genereert een random string van cijfers en letters (de reserveringscode waarmee de klant naar de kassa kan)
                             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -226,9 +233,9 @@ namespace Project_B
 
                             string reservationCode = new string(reservationCodeChars);
 
-                            Console.WriteLine("\nU heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
+                            Console.WriteLine("\nU heeft gekozen voor: " + movie.MovieName + " op " + movie.startTime);
                             Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
-                            Console.WriteLine("De totale prijs is: " + String.Format("{0:0.00}", ticketCaller.totalPrice));
+                            Console.WriteLine("De totale prijs is: " + String.Format("{0:0.00}", ticket.TotalPrice));
 
                             Console.WriteLine("\nWilt u uw keuze bevestigen? (y/n)");
                             string userChoice1 = Console.ReadLine();
@@ -236,6 +243,10 @@ namespace Project_B
                             if (userChoice1 == "y")
                             {
                                 Console.WriteLine("Uw reserveringscode is: " + reservationCode);
+                                ticket.CustomerName = customer.CustomerName;
+                                ticket.CustomerEmail = customer.Email;
+                                ticket.ReservationCode = reservationCode;
+                                saveReservationJson(ticket);
                             }
                             else
                             {
@@ -291,8 +302,54 @@ namespace Project_B
             
         }
 
-        private static void saveReservationJson(Ticket ticket, Customer customer)
+        private static void saveReservationJson(Ticket ticket)
         {
+            reservations.Add(ticket);
+            
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = true;
+            var jsonString = JsonSerializer.Serialize(reservations, options);
+
+            File.WriteAllText("reservations.json", jsonString);
+        }
+
+        static void fillReservationList()
+        {
+            string jsonText = File.ReadAllText("reservations.json");
+            
+            using (JsonDocument document = JsonDocument.Parse(jsonText))
+            {
+                JsonElement root = document.RootElement;
+                JsonElement reservationList = root;
+
+                foreach (JsonElement ticket in reservationList.EnumerateArray())
+                {
+                    if (ticket.TryGetProperty("ReservationCode", out JsonElement ReservationCodeElement) &&
+                        ticket.TryGetProperty("CustomerName", out JsonElement CustomerNameElement) &&
+                        ticket.TryGetProperty("CustomerEmail", out JsonElement CustomerEmailElement) &&
+                        ticket.TryGetProperty("MovieName", out JsonElement MovieNameElement) &&
+                        ticket.TryGetProperty("NumberOfPeople", out JsonElement NumberOfPeopleElement) &&
+                        ticket.TryGetProperty("IsVip", out JsonElement IsVipElement) &&
+                        ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement))
+                    {
+                        string reservationCode = ReservationCodeElement.GetString();
+                        string customerName = CustomerNameElement.GetString();
+                        string customerEmail = CustomerEmailElement.GetString();
+                        string movieName = MovieNameElement.GetString();
+                        int numberOfPeople = NumberOfPeopleElement.GetInt32();
+                        bool isVip = IsVipElement.GetBoolean();
+                        int totalPrice = TotalPriceElement.GetInt32();
+
+                        Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
+                         
+                        Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip);
+                        fillTicket.CustomerName = customerName;
+                        fillTicket.CustomerEmail = customerEmail;
+                        fillTicket.ReservationCode = reservationCode;
+                        reservations.Add(fillTicket);
+                    }
+                }
+            }
 
         }
 
