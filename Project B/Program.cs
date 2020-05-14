@@ -265,7 +265,7 @@ namespace Project_B
 
                             Console.WriteLine("\nU heeft gekozen voor: " + movie.MovieName + " op " + movie.startTime);
                             Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
-                            Console.WriteLine("De totale prijs is: " + String.Format("{0:0.00}", ticket.TotalPrice));
+                            Console.WriteLine("De totale prijs is: €" + String.Format("{0:0.00}", ticket.TotalPrice));
 
                             Console.WriteLine("\nWilt u uw keuze bevestigen? (y/n)");
                             string userChoice1 = Console.ReadLine();
@@ -621,7 +621,7 @@ namespace Project_B
                         "\nFilm: " + movieName +
                         "\nTijd: " + startTime.ToString("dd/MM/yyyy HH:mm") +
                         "\nZaal: " + screenNumber +
-                        "\nPrijs: " + String.Format("{0:0.00}", totalPrice);
+                        "\nPrijs: €" + String.Format("{0:0.00}", totalPrice);
             msg.IsBodyHtml = false;
 
 
