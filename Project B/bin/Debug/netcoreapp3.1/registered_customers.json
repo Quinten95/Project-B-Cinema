@@ -24,19 +24,11 @@
     "CustomerUserName": "qdg"
   },
   {
-    "CustomerName": "Erwin",
-    "Birthday": "1999-07-06T00:00:00",
-    "Age": 21,
-    "Email": "0989373@hr.nl",
-    "CustomerPassword": "testwachtwoord",
-    "CustomerUserName": "Erwin"
-  },
-  {
-    "CustomerName": "Quinten de Groot",
-    "Birthday": "1993-12-12T00:00:00",
-    "Age": 27,
-    "Email": "testemail@gmail.com",
-    "CustomerPassword": "password1234",
-    "CustomerUserName": "Quinten93"
+    "CustomerName": "Benito",
+    "Birthday": "1923-02-13T00:00:00",
+    "Age": 97,
+    "Email": "benny@gmail.com",
+    "CustomerPassword": "Test95",
+    "CustomerUserName": "Test95"
   }
 ]
