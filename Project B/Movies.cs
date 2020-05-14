@@ -50,7 +50,7 @@ namespace Project_B
                     bool movieNameChecker = false;
                     bool movieGenreChecker = false;
                     //Deze foreach loops kijken of individuele termen overeenkomen met filmtitels of genres.
-                    foreach(String part in movie.movieName.Split())
+                    foreach(String part in movie.MovieName.Split())
                     {
                         if(part.ToLower() == terms[i].ToLower())
                         {
@@ -79,7 +79,7 @@ namespace Project_B
 
         public static void ScreenSeats(Movies movie)
         {
-            Console.WriteLine($"Status van zaal {movie.whichScreen.screenNumber} tijdens {movie.movieName} om {movie.startTime} =");
+            Console.WriteLine($"Status van zaal {movie.whichScreen.screenNumber} tijdens {movie.MovieName} om {movie.startTime} =");
             for (int rowCounter = 1; rowCounter < movie.whichScreen.amountOfRows; rowCounter++)
             {
                 Console.WriteLine($"Rij {rowCounter} : {movie.whichScreen.amountOfSeatsPerRow} / {movie.whichScreen.amountOfSeatsPerRow}");
