@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -265,6 +267,8 @@ namespace Project_B
                                 ticket.CustomerName = customer.CustomerName;
                                 ticket.CustomerEmail = customer.Email;
                                 ticket.ReservationCode = reservationCode;
+                                sendCustomerMail(customer.CustomerName, customer.Email, reservationCode,
+                                    movie.MovieName, movie.startTime, movie.whichScreen.screenNumber, ticket.TotalPrice);
                                 saveReservationJson(ticket);
                             }
                             else
@@ -571,6 +575,41 @@ namespace Project_B
                 }
 
             }
+
+        }
+
+        static void sendCustomerMail(string customerName, string customerEmail, string reservationCode,
+                                    string movieName, DateTime startTime, int screenNumber, double totalPrice)
+        {
+
+
+            String adres = "cinemax.noreply@gmail.com";
+            String password = "Cinemax1234";
+
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(adres);
+            msg.To.Add(new MailAddress(customerEmail));
+            msg.Subject = "Uw CinemaX reservering";
+            msg.Body =  "Beste " + customerName + ", hierbij een bevestiging van uw reservering:\n"+
+                        "\nReserveringscode: " + reservationCode +
+                        "\nFilm: " + movieName + 
+                        "\nTijd: " + startTime.ToString("dd/MM/yyyy HH:mm") +
+                        "\nZaal: " + screenNumber +
+                        "\nPrijs: " + String.Format("{0:0.00}", totalPrice);
+            msg.IsBodyHtml = false;
+
+
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+            NetworkCredential loginInfo = new NetworkCredential(adres, password);
+
+
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = true;
+            smtpClient.Credentials = loginInfo;
+
+            smtpClient.Send(msg);
 
         }
     }

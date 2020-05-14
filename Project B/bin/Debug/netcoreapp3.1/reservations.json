@@ -15,6 +15,24 @@
     "MovieName": "The Passion",
     "NumberOfPeople": 1,
     "IsVip": false,
-    "TotalPrice": 10
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "TaqUhecE",
+    "CustomerName": "Quinten de Groot",
+    "CustomerEmail": "quinten103@gmail.com",
+    "MovieName": "The Passion",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "r5gmDrrs",
+    "CustomerName": "Quinten de Groot",
+    "CustomerEmail": "quinten103@gmail.com",
+    "MovieName": "The Turning",
+    "NumberOfPeople": 2,
+    "IsVip": true,
+    "TotalPrice": 20
   }
 ]
