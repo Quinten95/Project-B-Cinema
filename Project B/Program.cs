@@ -150,7 +150,7 @@ namespace Project_B
                     string allMovies = "";
                     foreach(Movies movie in Movies.movieList)
                     {
-                        allMovies += $"{movie.movieID}) {movie.movieName} | ";
+                        allMovies += $"{movie.movieID}) {movie.MovieName} | ";
                     }
                     Console.WriteLine(allMovies);
                     int seeScreen = 0;
