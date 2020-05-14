@@ -12,7 +12,8 @@ using System.Text.Json.Serialization;
 namespace Project_B
 {
 
-    class Program {
+    class Program
+    {
 
         static List<Customer> registeredCustomers = new List<Customer>();
         static List<Ticket> reservations = new List<Ticket>();
@@ -26,7 +27,7 @@ namespace Project_B
 
             fillReservationList();
             fillRegisteredCustomerList();
-            
+
             displayWelcomeMsg();
             choiceMenu();
         }
@@ -49,7 +50,7 @@ namespace Project_B
             Console.WriteLine("| Hier kunt u zien welke films er draaien.           |");
             Console.WriteLine("|      Ook kunt u tickets bestellen!                 |");
         }
-        
+
         static void choiceMenu()
         {
             int userChoice = 0;
@@ -69,13 +70,13 @@ namespace Project_B
             {
                 try
                 {
-                    userChoice = int.Parse(Console.ReadLine());                    
+                    userChoice = int.Parse(Console.ReadLine());
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine("Maak a.u.b. een keuze uit één van de opties:");
                 }
-                
+
             }
             //deze switch statement controleert of de gebruiker optie 1 of 2 kiest
             switch (userChoice)
@@ -140,7 +141,7 @@ namespace Project_B
             Console.WriteLine("U heeft gekozen voor: " + movie.MovieName);
             Console.WriteLine("Type \'y\' om uw keuze te bevestigen en \'n\' om uw keuze te wijzigen: ");
             Customer customer;
-            
+
             //deze while loop controleert of de gebruiker de juiste keuze heeft gemaakt
             string userConfirmation = "";
             while (userConfirmation != "y" && userConfirmation != "Y")
@@ -204,11 +205,11 @@ namespace Project_B
                                 {
                                     Console.WriteLine("Voert u a.u.b. het aantal personen in (Min 1, Max 10)");
                                 }
-                                
-                                
+
+
                             }
                             if (loggedIn == true)
-                            {                                                               
+                            {
                                 customer = registeredCustomers.Find(x => x.CustomerUserName == loggedInCustomerUsername);
                                 Console.WriteLine("\nControlleer uw gegevens:");
                                 Console.WriteLine("Naam: " + customer.CustomerName);
@@ -221,6 +222,14 @@ namespace Project_B
 
                                 Console.WriteLine("Voert u alstublieft uw e-mail adres in:");
                                 string customerEmail = Console.ReadLine();
+                                
+                                while(IsValidEmail(customerEmail) == false)
+                                {
+                                    Console.WriteLine("Voert u a.u.b. een geldig email adres in:");
+                                    customerEmail = Console.ReadLine();
+                                }
+
+
 
                                 Console.WriteLine("Voert u alsublieft uw geboortedatum in (dd/mm/yyyy):");
                                 DateTime customerBirthDay = DateTime.Today;
@@ -314,21 +323,34 @@ namespace Project_B
 
                             break;
                         }
-                  
+
                     default:
                         Console.WriteLine("Kiest u a.u.b. voor één van de opties:");
                         break;
                 }
-                    
+
             }
 
-            
+
+        }
+
+        static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private static void saveReservationJson(Ticket ticket)
         {
             reservations.Add(ticket);
-            
+
             JsonSerializerOptions options = new JsonSerializerOptions();
             options.WriteIndented = true;
             var jsonString = JsonSerializer.Serialize(reservations, options);
@@ -339,7 +361,7 @@ namespace Project_B
         static void fillReservationList()
         {
             string jsonText = File.ReadAllText("reservations.json");
-            
+
             using (JsonDocument document = JsonDocument.Parse(jsonText))
             {
                 JsonElement root = document.RootElement;
@@ -364,7 +386,7 @@ namespace Project_B
                         int totalPrice = TotalPriceElement.GetInt32();
 
                         Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
-                         
+
                         Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip);
                         fillTicket.CustomerName = customerName;
                         fillTicket.CustomerEmail = customerEmail;
@@ -384,7 +406,7 @@ namespace Project_B
             Console.WriteLine("Voert u alstublieft uw gewenste gebruikersnaam in:");
             string customerUserName = Console.ReadLine();
 
-            while(registeredCustomers.Exists(Customer => Customer.CustomerUserName == customerUserName))
+            while (registeredCustomers.Exists(Customer => Customer.CustomerUserName == customerUserName))
             {
                 Console.WriteLine("Gebruikersnaam bezet, kiest u a.u.b. een andere gebruikersnaam:");
                 customerUserName = Console.ReadLine();
@@ -398,7 +420,11 @@ namespace Project_B
 
             Console.WriteLine("Voert u alstublieft uw e-mail adres in:");
             string customerEmail = Console.ReadLine();
-
+            while (IsValidEmail(customerEmail) == false)
+            {
+                Console.WriteLine("Voert u a.u.b. een geldig email adres in:");
+                customerEmail = Console.ReadLine();
+            }
             Console.WriteLine("Voert u alsublieft uw geboortedatum in (dd/mm/yyyy):");
             DateTime customerBirthDay = DateTime.Today;
             //deze while loop met try/catch clausule zorgt ervoor dat de gebruiker een correcte datum invult
@@ -438,15 +464,15 @@ namespace Project_B
 
             foreach (Customer customer in registeredCustomers)
             {
-                if(username == customer.CustomerUserName && password == customer.CustomerPassword)
+                if (username == customer.CustomerUserName && password == customer.CustomerPassword)
                 {
-                    Console.WriteLine("\nWelkom " + customer.CustomerName+"\n");
+                    Console.WriteLine("\nWelkom " + customer.CustomerName + "\n");
                     loggedInCustomerUsername = customer.CustomerUserName;
                     loginSuccesful = true;
                 }
             }
 
-            if(loginSuccesful == false)
+            if (loginSuccesful == false)
             {
                 Console.WriteLine("\nGebruikersnaam of wachtwoord onbekend!\n");
             }
@@ -465,13 +491,13 @@ namespace Project_B
                 JsonElement root = document.RootElement;
                 JsonElement customerListElement = root;
 
-                foreach(JsonElement customer in customerListElement.EnumerateArray())
+                foreach (JsonElement customer in customerListElement.EnumerateArray())
                 {
-                    if(customer.TryGetProperty("CustomerName", out JsonElement CustomerNameElement)&&
-                        customer.TryGetProperty("Birthday", out JsonElement BirthdayElement)&&
-                        customer.TryGetProperty("Age", out JsonElement AgeElement)&&
-                        customer.TryGetProperty("Email", out JsonElement EmailElement)&&
-                        customer.TryGetProperty("CustomerPassword", out JsonElement CustomerPasswordElement)&&
+                    if (customer.TryGetProperty("CustomerName", out JsonElement CustomerNameElement) &&
+                        customer.TryGetProperty("Birthday", out JsonElement BirthdayElement) &&
+                        customer.TryGetProperty("Age", out JsonElement AgeElement) &&
+                        customer.TryGetProperty("Email", out JsonElement EmailElement) &&
+                        customer.TryGetProperty("CustomerPassword", out JsonElement CustomerPasswordElement) &&
                         customer.TryGetProperty("CustomerUserName", out JsonElement CustomerUserNameElement))
                     {
                         string CustomerName = CustomerNameElement.GetString();
@@ -497,7 +523,7 @@ namespace Project_B
         {
             Console.WriteLine("Weet u zeker dat u uw reservering wilt annuleren? (y/n)");
             string userChoice = "";
-            while(userChoice != "y" || userChoice != "Y")
+            while (userChoice != "y" || userChoice != "Y")
             {
                 userChoice = Console.ReadLine();
 
@@ -583,16 +609,16 @@ namespace Project_B
         {
 
 
-            String adres = "cinemax.noreply@gmail.com";
-            String password = "Cinemax1234";
+            string adres = "cinemax.noreply@gmail.com";
+            string password = "Cinemax1234";
 
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress(adres);
             msg.To.Add(new MailAddress(customerEmail));
             msg.Subject = "Uw CinemaX reservering";
-            msg.Body =  "Beste " + customerName + ", hierbij een bevestiging van uw reservering:\n"+
+            msg.Body = "Beste " + customerName + ", hierbij een bevestiging van uw reservering:\n" +
                         "\nReserveringscode: " + reservationCode +
-                        "\nFilm: " + movieName + 
+                        "\nFilm: " + movieName +
                         "\nTijd: " + startTime.ToString("dd/MM/yyyy HH:mm") +
                         "\nZaal: " + screenNumber +
                         "\nPrijs: " + String.Format("{0:0.00}", totalPrice);
