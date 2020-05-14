@@ -82,8 +82,20 @@ namespace Project_B
             switch (userChoice)
             {
                 case 1:
-                    Movies.DisplayMovies();
-                    Console.WriteLine("\n");
+                    Console.WriteLine("Wilt u 1) op termen zoeken, of 2) de hele film lijst zien?");
+                    string searchChoice = Console.ReadLine();
+                    switch (searchChoice) {
+                      case "1":
+                        Console.WriteLine("Vul uw zoektermen in. (genre, titels...)");
+                        string terms = Console.ReadLine();
+                        string[] arrayTerms = terms.Split();
+                        Movies.DisplayMovies(arrayTerms);
+                        break;
+                      case "2":
+                        Movies.DisplayMovies();
+                        Console.WriteLine("\n");
+                        break;
+                    }
                     choiceMenu();
                     break;
 
