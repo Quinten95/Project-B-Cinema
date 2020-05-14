@@ -40,6 +40,7 @@ namespace Project_B
             Console.WriteLine("|      Welkom op de site van CinemaX!                |");
             Console.WriteLine("| Hier kunt u zien welke films er draaien.           |");
             Console.WriteLine("|      Ook kunt u tickets bestellen!                 |");
+            Console.WriteLine("test");
         }
 
         static void choiceMenu()
