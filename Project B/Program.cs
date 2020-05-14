@@ -59,10 +59,11 @@ namespace Project_B
             Console.WriteLine("| 3) Bekijk onze prijzen                             |");
             Console.WriteLine("| 4) Account registratie                             |");
             Console.WriteLine("| 5) Inloggen                                        |");
-            Console.WriteLine("| 6) Afsluiten                                       |");
+            Console.WriteLine("| 6) Reservering annuleren                           |");
+            Console.WriteLine("| 7) Afsluiten                                       |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
-            while (userChoice < 1 || userChoice > 6)
+            while (userChoice < 1 || userChoice > 7)
             {
                 try
                 {
@@ -119,6 +120,10 @@ namespace Project_B
                     break;
 
                 case 6:
+                    cancelReservation();
+                    break;
+
+                case 7:
                     Environment.Exit(0);
                     break;
             }
@@ -148,11 +153,25 @@ namespace Project_B
                         {
                             Ticket ticket = null;
                             Console.WriteLine("Wilt u een VIP ticket kopen? (y/n)");
-                            string vipChoice = Console.ReadLine().ToLower();
+                            string vipChoice = "";
                             bool isVip = false;
-                            if (vipChoice == "y" || vipChoice == "Y")
+                            while (vipChoice != "y" || vipChoice != "Y")
                             {
-                                isVip = true;
+                                vipChoice = Console.ReadLine();
+                                if (vipChoice == "y" || vipChoice == "Y")
+                                {
+                                    isVip = true;
+                                    break;
+                                }
+                                if (vipChoice == "n" || vipChoice == "N")
+                                {
+                                    isVip = false;
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Maakt u a.u.b. een keuze:");
+                                }
                             }
                             Console.WriteLine("Hoeveel tickets wilt u bestellen? (Min 1, Max 10)");
                             int numberOfPeople = -1;
@@ -223,7 +242,7 @@ namespace Project_B
                             }
                             //dit genereert een random string van cijfers en letters (de reserveringscode waarmee de klant naar de kassa kan)
                             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                            char[] reservationCodeChars = new char[10];
+                            char[] reservationCodeChars = new char[8];
                             Random random = new Random();
 
                             for (int i = 0; i < reservationCodeChars.Length; i++)
@@ -466,6 +485,91 @@ namespace Project_B
                         registeredCustomers.Add(customer1);
                     }
                 }
+            }
+
+        }
+
+        static void cancelReservation()
+        {
+            Console.WriteLine("Weet u zeker dat u uw reservering wilt annuleren? (y/n)");
+            string userChoice = "";
+            while(userChoice != "y" || userChoice != "Y")
+            {
+                userChoice = Console.ReadLine();
+
+                switch (userChoice)
+                {
+                    case "Y":
+                    case "y":
+                        Console.WriteLine("Wat is uw reserveringscode (Let op hoofdletter gevoelig!):");
+                        string reservationCodeCustomer = Console.ReadLine();
+                        bool reservationExists = false;
+
+                        string jsonText = File.ReadAllText("reservations.json");
+                        using (JsonDocument document = JsonDocument.Parse(jsonText))
+                        {
+                            JsonElement root = document.RootElement;
+                            JsonElement reservationList = root;
+                            reservations.Clear();
+                            foreach (JsonElement ticket in reservationList.EnumerateArray())
+                            {
+                                if (ticket.TryGetProperty("ReservationCode", out JsonElement ReservationCodeElement) &&
+                                    ticket.TryGetProperty("CustomerName", out JsonElement CustomerNameElement) &&
+                                    ticket.TryGetProperty("CustomerEmail", out JsonElement CustomerEmailElement) &&
+                                    ticket.TryGetProperty("MovieName", out JsonElement MovieNameElement) &&
+                                    ticket.TryGetProperty("NumberOfPeople", out JsonElement NumberOfPeopleElement) &&
+                                    ticket.TryGetProperty("IsVip", out JsonElement IsVipElement) &&
+                                    ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement))
+                                {
+                                    string reservationCode = ReservationCodeElement.GetString();
+                                    if (reservationCode == reservationCodeCustomer)
+                                    {
+                                        Console.WriteLine("Uw reservering is geannuleerd!");
+                                        reservationExists = true;
+                                    }
+                                    else
+                                    {
+                                        string customerName = CustomerNameElement.GetString();
+                                        string customerEmail = CustomerEmailElement.GetString();
+                                        string movieName = MovieNameElement.GetString();
+                                        int numberOfPeople = NumberOfPeopleElement.GetInt32();
+                                        bool isVip = IsVipElement.GetBoolean();
+                                        int totalPrice = TotalPriceElement.GetInt32();
+
+                                        Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
+
+                                        Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip);
+                                        fillTicket.CustomerName = customerName;
+                                        fillTicket.CustomerEmail = customerEmail;
+                                        fillTicket.ReservationCode = reservationCode;
+                                        reservations.Add(fillTicket);
+                                    }
+                                }
+                            }
+
+                            JsonSerializerOptions options = new JsonSerializerOptions();
+                            options.WriteIndented = true;
+                            var jsonString = JsonSerializer.Serialize(reservations, options);
+                            File.WriteAllText("reservations.json", jsonString);
+
+                            if (reservationExists == false)
+                            {
+                                Console.WriteLine("Onbekend reserveringsnummer!");
+                            }
+                        }
+                        choiceMenu();
+                        break;
+
+                    case "N":
+                    case "n":
+                        choiceMenu();
+                        break;
+
+                    default:
+                        Console.WriteLine("Voer a.u.b. uw keuze in: ");
+                        break;
+                }
+
             }
 
         }

@@ -1,6 +1,6 @@
 [
   {
-    "ReservationCode": "tk8Buwgmwh",
+    "ReservationCode": "tk8Buwgm",
     "CustomerName": "Quinten de Groot",
     "CustomerEmail": "quinten103@gmail.com",
     "MovieName": "Knives Out",
@@ -9,12 +9,12 @@
     "TotalPrice": 0
   },
   {
-    "ReservationCode": "WcnwYXCFST",
-    "CustomerName": "Quinten de Groot",
+    "ReservationCode": "id3LFqBE",
+    "CustomerName": "Quinten Benito",
     "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "Honey Boy",
+    "MovieName": "The Passion",
     "NumberOfPeople": 1,
     "IsVip": false,
-    "TotalPrice": 7
+    "TotalPrice": 10
   }
 ]
