@@ -86,16 +86,27 @@ namespace Project_B
             Console.WriteLine(print);
         }
 
+        //deze method print de status van een zaal.
 
         public static void ScreenSeats(Movies movie)
         {
-            Console.WriteLine($"Status van zaal {movie.whichScreen.screenNumber} tijdens {movie.MovieName} om {movie.startTime} =");
+            Console.WriteLine($"Status van zaal {movie.whichScreen.screenNumber} tijdens {movie.MovieName} om {movie.startTime}.");
+            string[] RowBlueprint = new string[movie.whichScreen.amountOfRows];
+            for (int i = 0; i < RowBlueprint.Length; i++)
+            {
+                string RowI = "";
+                for(int j = 0; j < RowBlueprint.Length; j++)
+                {
+                    //hier komt de check of de zitplaats niet in de json staat.
+                    RowI += $"{j + 1} ";
+                }
+                RowBlueprint[i] = RowI;
+            }
             for (int rowCounter = 1; rowCounter < movie.whichScreen.amountOfRows; rowCounter++)
             {
-                Console.WriteLine($"Rij {rowCounter} : {movie.whichScreen.amountOfSeatsPerRow} / {movie.whichScreen.amountOfSeatsPerRow}");
+                Console.WriteLine($"Rij {rowCounter} : {RowBlueprint[rowCounter - 1]}");
             }
             Console.WriteLine($"VIP Rij : {movie.whichScreen.amountOfVip} / {movie.whichScreen.amountOfVip}");
-            Console.WriteLine($"Totaal : {movie.whichScreen.amountOfSeats} / {movie.whichScreen.amountOfSeats}");
         }
 
         //deze method initialiseert de films en zet ze in een ArrayList, waardoor de data makkelijk opnieuw te gebruiken is

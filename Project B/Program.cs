@@ -20,6 +20,7 @@ namespace Project_B
         static bool loggedIn = false;
         static string loggedInCustomerUsername;
 
+
         public static void Main(string[] args)
         {
             Screen.InitScreens();
@@ -49,6 +50,7 @@ namespace Project_B
             Console.WriteLine("|      Welkom op de site van CinemaX!                |");
             Console.WriteLine("| Hier kunt u zien welke films er draaien.           |");
             Console.WriteLine("|      Ook kunt u tickets bestellen!                 |");
+
         }
 
         static void choiceMenu()
@@ -62,12 +64,18 @@ namespace Project_B
             Console.WriteLine("| 3) Zaalstatus                                      |");
             Console.WriteLine("| 4) Bekijk onze prijzen                             |");
             Console.WriteLine("| 5) Account registratie                             |");
+            if (loggedIn)
+            {
+            Console.WriteLine("| 6) Uitloggen                                        |");
+            }
+            else {
             Console.WriteLine("| 6) Inloggen                                        |");
+            }
             Console.WriteLine("| 7) Reservering annuleren                           |");
             Console.WriteLine("| 8) Afsluiten                                       |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
-            while (userChoice < 1 || userChoice > 7)
+            while (userChoice < 1 || userChoice > 8)
             {
                 try
                 {
@@ -119,6 +127,7 @@ namespace Project_B
                             Console.WriteLine("Voert u a.u.b. een film nummer in:");
                         }
                     }
+                    choiceMenu();
                     break;
                 case 3:
                     Console.WriteLine("Van welke film wilt u de zaalstatus zien?");
@@ -130,7 +139,7 @@ namespace Project_B
                         {
                             //zelfde code bij case 2, maar deze roept de zaalstatus functie aan
                             statusChoice = int.Parse(Console.ReadLine());
-                            Movies statusOf = (Movies)Movies.movieList[userChoice - 1];
+                            Movies statusOf = (Movies)Movies.movieList[statusChoice - 1];
                             Movies.ScreenSeats(statusOf);
                         }
                         catch (Exception e)
@@ -138,7 +147,7 @@ namespace Project_B
                             Console.WriteLine("Voert u a.u.b. een film nummer in:");
                         }
                     }
-                    
+                    choiceMenu();
                     break;
                 case 4:
                     MoviePrice.PriceList();
@@ -151,7 +160,16 @@ namespace Project_B
                     break;
 
                 case 6:
-                    loginCustomer();
+                    if (loggedIn)
+                    {
+                        loggedInCustomerUsername = "";
+                        loggedIn = false;
+                        Console.WriteLine("U bent nu uitgelogd.");
+                    }
+                    else
+                    {
+                        loginCustomer();
+                    }
                     choiceMenu();
                     break;
 
@@ -189,6 +207,7 @@ namespace Project_B
                         {
                             Ticket ticket = null;
                             Console.WriteLine("Wilt u een VIP ticket kopen? (y/n)");
+                            Console.WriteLine("Een VIP ticket garandeert de beste zitplaatsen, voor maar drie euro extra!");
                             string vipChoice = "";
                             bool isVip = false;
                             while (vipChoice != "y" || vipChoice != "Y")
