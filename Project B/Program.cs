@@ -59,11 +59,12 @@ namespace Project_B
             Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
-            Console.WriteLine("| 3) Bekijk onze prijzen                             |");
-            Console.WriteLine("| 4) Account registratie                             |");
-            Console.WriteLine("| 5) Inloggen                                        |");
-            Console.WriteLine("| 6) Reservering annuleren                           |");
-            Console.WriteLine("| 7) Afsluiten                                       |");
+            Console.WriteLine("| 3) Zaalstatus                                      |");
+            Console.WriteLine("| 4) Bekijk onze prijzen                             |");
+            Console.WriteLine("| 5) Account registratie                             |");
+            Console.WriteLine("| 6) Inloggen                                        |");
+            Console.WriteLine("| 7) Reservering annuleren                           |");
+            Console.WriteLine("| 8) Afsluiten                                       |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
             while (userChoice < 1 || userChoice > 7)
@@ -102,6 +103,7 @@ namespace Project_B
                 case 2:
                     Console.WriteLine("Voor welke film wilt u tickets kopen:");
                     userChoice = -1;
+                    Movies.DisplayMovies(userChoice);
                     while (userChoice < 1 || userChoice > Movies.movieList.Count)
                     {
                         //hier wordt gecheckt of de gebruiker wel een bestaand filmnummer kiest
@@ -118,27 +120,46 @@ namespace Project_B
                         }
                     }
                     break;
-
                 case 3:
+                    Console.WriteLine("Van welke film wilt u de zaalstatus zien?");
+                    int statusChoice = -1;
+                    Movies.DisplayMovies(statusChoice);
+                    while (statusChoice < 1 || statusChoice > Movies.movieList.Count)
+                    {
+                        try
+                        {
+                            //zelfde code bij case 2, maar deze roept de zaalstatus functie aan
+                            statusChoice = int.Parse(Console.ReadLine());
+                            Movies statusOf = (Movies)Movies.movieList[userChoice - 1];
+                            Movies.ScreenSeats(statusOf);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                        }
+                    }
+                    
+                    break;
+                case 4:
                     MoviePrice.PriceList();
                     choiceMenu();
                     break;
 
-                case 4:
+                case 5:
                     registerCustomer();
                     choiceMenu();
                     break;
 
-                case 5:
+                case 6:
                     loginCustomer();
                     choiceMenu();
                     break;
 
-                case 6:
+                case 7:
                     cancelReservation();
                     break;
 
-                case 7:
+                case 8:
                     Environment.Exit(0);
                     break;
             }
@@ -319,6 +340,7 @@ namespace Project_B
                         {
                             Console.WriteLine("Voor welke film wilt u tickets kopen:");
                             int userChoice = -1;
+                            Movies.DisplayMovies(userChoice);
                             while (userChoice < 1 || userChoice > Movies.movieList.Count)
                             {
                                 try

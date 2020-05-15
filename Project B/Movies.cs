@@ -76,6 +76,16 @@ namespace Project_B
             }
         }
 
+        public static void DisplayMovies(int overFlow)
+        {
+            string print = "";
+            foreach(Movies movie in movieList)
+            {
+                print += movie.movieID + ")" + movie.MovieName + "\n";
+            }
+            Console.WriteLine(print);
+        }
+
 
         public static void ScreenSeats(Movies movie)
         {
