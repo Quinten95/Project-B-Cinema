@@ -55,6 +55,7 @@ namespace Project_B
 
         static void choiceMenu()
         {
+            while (true) { 
             int userChoice = 0;
 
             Console.WriteLine(" ----------------------------------------------------");
@@ -72,10 +73,11 @@ namespace Project_B
             Console.WriteLine("| 6) Inloggen                                        |");
             }
             Console.WriteLine("| 7) Reservering annuleren                           |");
-            Console.WriteLine("| 8) Afsluiten                                       |");
+            Console.WriteLine("| 8) Dagoverzicht                                    |");
+            Console.WriteLine("| 9) Afsluiten                                       |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
-            while (userChoice < 1 || userChoice > 8)
+            while (userChoice < 1 || userChoice > 9)
             {
                 try
                 {
@@ -87,99 +89,99 @@ namespace Project_B
                 }
 
             }
-            //deze switch statement controleert of de gebruiker optie 1 of 2 kiest
-            switch (userChoice)
-            {
-                case 1:
-                    Console.WriteLine("Wilt u 1) op termen zoeken, of 2) de hele film lijst zien?");
-                    string searchChoice = Console.ReadLine();
-                    switch (searchChoice) {
-                      case "1":
-                        Console.WriteLine("Vul uw zoektermen in. (genre, titels...)");
-                        string terms = Console.ReadLine();
-                        string[] arrayTerms = terms.Split();
-                        Movies.DisplayMovies(arrayTerms);
+                //deze switch statement controleert of de gebruiker optie 1 of 2 kiest
+                switch (userChoice)
+                {
+                    case 1:
+                        Console.WriteLine("Wilt u 1) op termen zoeken, of 2) de hele film lijst zien?");
+                        string searchChoice = Console.ReadLine();
+                        switch (searchChoice)
+                        {
+                            case "1":
+                                Console.WriteLine("Vul uw zoektermen in. (genre, titels...)");
+                                string terms = Console.ReadLine();
+                                string[] arrayTerms = terms.Split();
+                                Movies.DisplayMovies(arrayTerms);
+                                break;
+                            case "2":
+                                Movies.DisplayMovies();
+                                Console.WriteLine("\n");
+                                break;
+                        }
                         break;
-                      case "2":
-                        Movies.DisplayMovies();
-                        Console.WriteLine("\n");
+
+                    case 2:
+                        Console.WriteLine("Voor welke film wilt u tickets kopen:");
+                        userChoice = -1;
+                        Movies.DisplayMovies(userChoice);
+                        while (userChoice < 1 || userChoice > Movies.movieList.Count)
+                        {
+                            //hier wordt gecheckt of de gebruiker wel een bestaand filmnummer kiest
+                            //zo ja wordt de reserveTicket method aangeroepen en de geselecteerde film als parameter meegegeven
+                            try
+                            {
+                                userChoice = int.Parse(Console.ReadLine());
+                                Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
+                                reserveTicket(movieToReserve);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                            }
+                        }
                         break;
-                    }
-                    choiceMenu();
-                    break;
-
-                case 2:
-                    Console.WriteLine("Voor welke film wilt u tickets kopen:");
-                    userChoice = -1;
-                    Movies.DisplayMovies(userChoice);
-                    while (userChoice < 1 || userChoice > Movies.movieList.Count)
-                    {
-                        //hier wordt gecheckt of de gebruiker wel een bestaand filmnummer kiest
-                        //zo ja wordt de reserveTicket method aangeroepen en de geselecteerde film als parameter meegegeven
-                        try
+                    case 3:
+                        Console.WriteLine("Van welke film wilt u de zaalstatus zien?");
+                        int statusChoice = -1;
+                        Movies.DisplayMovies(statusChoice);
+                        while (statusChoice < 1 || statusChoice > Movies.movieList.Count)
                         {
-                            userChoice = int.Parse(Console.ReadLine());
-                            Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
-                            reserveTicket(movieToReserve);
+                            try
+                            {
+                                //zelfde code bij case 2, maar deze roept de zaalstatus functie aan
+                                statusChoice = int.Parse(Console.ReadLine());
+                                Movies statusOf = (Movies)Movies.movieList[statusChoice - 1];
+                                Movies.ScreenSeats(statusOf);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                            }
                         }
-                        catch (Exception e)
+                        break;
+                    case 4:
+                        MoviePrice.PriceList();
+                        break;
+
+                    case 5:
+                        registerCustomer();
+                        break;
+
+                    case 6:
+                        if (loggedIn)
                         {
-                            Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                            loggedInCustomerUsername = "";
+                            loggedIn = false;
+                            Console.WriteLine("U bent nu uitgelogd.");
                         }
-                    }
-                    choiceMenu();
-                    break;
-                case 3:
-                    Console.WriteLine("Van welke film wilt u de zaalstatus zien?");
-                    int statusChoice = -1;
-                    Movies.DisplayMovies(statusChoice);
-                    while (statusChoice < 1 || statusChoice > Movies.movieList.Count)
-                    {
-                        try
+                        else
                         {
-                            //zelfde code bij case 2, maar deze roept de zaalstatus functie aan
-                            statusChoice = int.Parse(Console.ReadLine());
-                            Movies statusOf = (Movies)Movies.movieList[statusChoice - 1];
-                            Movies.ScreenSeats(statusOf);
+                            loginCustomer();
                         }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Voert u a.u.b. een film nummer in:");
-                        }
-                    }
-                    choiceMenu();
-                    break;
-                case 4:
-                    MoviePrice.PriceList();
-                    choiceMenu();
-                    break;
+                        break;
 
-                case 5:
-                    registerCustomer();
-                    choiceMenu();
-                    break;
+                    case 7:
+                        cancelReservation();
+                        break;
 
-                case 6:
-                    if (loggedIn)
-                    {
-                        loggedInCustomerUsername = "";
-                        loggedIn = false;
-                        Console.WriteLine("U bent nu uitgelogd.");
-                    }
-                    else
-                    {
-                        loginCustomer();
-                    }
-                    choiceMenu();
-                    break;
+                    case 8:
+                        Movies.dayOverview();
+                        break;
 
-                case 7:
-                    cancelReservation();
-                    break;
-
-                case 8:
-                    Environment.Exit(0);
-                    break;
+                    case 9:
+                        Environment.Exit(0);
+                        break;
+                }
             }
         }
 

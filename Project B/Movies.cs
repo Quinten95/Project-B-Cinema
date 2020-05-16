@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Reflection.PortableExecutable;
 using System.Text;
 
@@ -121,11 +122,74 @@ namespace Project_B
             movieList.Add(new Movies(7, "Black Widow", new DateTime(2020, 04, 29, 14, 00, 00), (Screen)Screen.screenList[3], 130, "Actie, Avontuur, Science Fiction", "Cate Shortland", "IMAX"));
             movieList.Add(new Movies(8, "Honey Boy", new DateTime(2020, 04, 16, 16, 00, 00), (Screen)Screen.screenList[4], 94, "Drama", "Alma Har'el", "Base"));
         }
-        
-        
-  
-        
-        
+
+        public static void dayOverview()
+        {
+            Console.WriteLine("Voor welke dag wilt u het dagoverzicht zien?");
+            Console.WriteLine("1) Vandaag \n2) Andere ");
+            int dayChoice = -1;
+            while (dayChoice < 1 || dayChoice > 2)
+            {
+                try
+                {
+                    dayChoice = int.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Maak a.u.b. een keuze uit één van de opties:");
+                }
+
+            }
+            switch (dayChoice)
+            {
+                case 1:
+                    Console.WriteLine($"Films van vandaag {DateTime.Today}");
+                    int counter1 = 0;
+                    foreach(Movies movie in movieList)
+                    {
+                        if(movie.startTime.Date == DateTime.Today)
+                        {
+                            movieCatalog(movie);
+                            counter1++;
+                        }   
+                    }
+                    if (counter1 == 0)
+                    {
+                        Console.WriteLine("Er zijn geen films gevonden voor vandaag.");
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Vul een datum in. (schrijf als dd/mm/yyyy)");
+                    DateTime searchDate = new DateTime(01/01/1960);
+                    while (searchDate == new DateTime(01/01/1960))
+                    {
+                        try
+                        {   
+                            string searchDatestring = Console.ReadLine();
+                            searchDate = DateTime.Parse(searchDatestring);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("De datum moet als dd/mm/yyyy ingevoerd worden, bijv: 01/01/2020");
+                        }
+                    }
+                    int counter2 = 0;
+                    foreach (Movies movie in movieList)
+                    {
+                        if(movie.startTime.Date == searchDate)
+                        {
+                            movieCatalog(movie);
+                            counter2++;
+                        }   
+                    }
+                    if(counter2 == 0)
+                    {
+                        Console.WriteLine($"Er zijn geen films gevonden voor de datum {searchDate}");
+                    }
+                    break;
+            }
+
+        }        
         //deze method maakt per film die meegegeven wordt een mooi weergegeven detail overzicht
         public static void movieCatalog(Movies movie)
         {
