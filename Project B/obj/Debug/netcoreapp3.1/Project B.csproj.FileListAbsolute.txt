@@ -57,3 +57,9 @@ C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\ne
 C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfo.cs
 C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.dll
 C:\Users\stefa\OneDrive\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.AssemblyInfo.cs
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.pdb

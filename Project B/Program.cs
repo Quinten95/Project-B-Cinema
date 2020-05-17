@@ -180,6 +180,15 @@ namespace Project_B
 
                             string reservationCode = new string(reservationCodeChars);
 
+                            Console.WriteLine("Wilt u nog snacks kopen? (ja/nee)");
+                            string snackChoice = Console.ReadLine().ToLower();
+                            if (snackChoice == "ja")
+                            {
+                                Snacks[] gekozenSnacks = Snacks.snackKeuze();
+
+
+                            }
+
                             Console.WriteLine("\nU heeft gekozen voor: " + movie.movieName + " op " + movie.startTime);
                             Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
                             Console.WriteLine("Uw reserveringscode is: " + reservationCode + "\n\n");
