@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -25,7 +26,7 @@ namespace Project_B
         {
             Screen.InitScreens();
             Movies.InitMovies();
-
+            Snacks.initSnacks();
             fillReservationList();
             fillRegisteredCustomerList();
 
@@ -67,17 +68,19 @@ namespace Project_B
             Console.WriteLine("| 5) Account registratie                             |");
             if (loggedIn)
             {
-            Console.WriteLine("| 6) Uitloggen                                        |");
+            Console.WriteLine("| 6) Uitloggen                                       |");
             }
             else {
             Console.WriteLine("| 6) Inloggen                                        |");
             }
             Console.WriteLine("| 7) Reservering annuleren                           |");
             Console.WriteLine("| 8) Dagoverzicht                                    |");
-            Console.WriteLine("| 9) Afsluiten                                       |");
+            Console.WriteLine("| 9) Menukaart                                       |");
+            Console.WriteLine("| 10) Afsluiten                                      |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
-            while (userChoice < 1 || userChoice > 9)
+
+            while (userChoice < 1 || userChoice > 10)
             {
                 try
                 {
@@ -179,6 +182,9 @@ namespace Project_B
                         break;
 
                     case 9:
+                        Snacks.printSnacks();
+                        break;
+                    case 10:
                         Environment.Exit(0);
                         break;
                 }
@@ -305,6 +311,19 @@ namespace Project_B
                                 }
                                 customer = new Customer(customerName, customerBirthDay, customerEmail);
                             }
+
+                            Console.WriteLine("Wilt u snacks bij de film bestellen? y/n");
+                            string snackInput = Console.ReadLine();
+                            Snacks[] chosenSnacks;
+                            if(snackInput == "y" || snackInput == "Y")
+                            {
+                                chosenSnacks = Snacks.snackKeuze();
+                            }
+                            else
+                            {
+                                chosenSnacks = null;
+                            }
+
                             //dit genereert een random string van cijfers en letters (de reserveringscode waarmee de klant naar de kassa kan)
                             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
                             char[] reservationCodeChars = new char[8];
@@ -586,7 +605,7 @@ namespace Project_B
                 {
                     case "Y":
                     case "y":
-                        Console.WriteLine("Wat is uw reserveringscode (Let op hoofdletter gevoelig!):");
+                        Console.WriteLine("Wat is uw reserveringscode (Let op: hoofdletter gevoelig!):");
                         string reservationCodeCustomer = Console.ReadLine();
                         bool reservationExists = false;
 
