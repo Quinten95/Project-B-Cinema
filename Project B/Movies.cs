@@ -17,10 +17,11 @@ namespace Project_B
         public string director;
         public Screen whichScreen;
         public string movieType;
+        public string Synopsis;
         public static List<Movies> movieList = new List<Movies>();
 
         public Movies(int movieID, string movieName, DateTime startTime,
-            Screen whichScreen, int runTime, string genre, string director, string movieType)
+            Screen whichScreen, int runTime, string genre, string director, string movieType, string synopsis)
         {
             this.movieID = movieID;
             this.MovieName = movieName;
@@ -30,6 +31,7 @@ namespace Project_B
             this.director = director;
             this.whichScreen = whichScreen;
             this.movieType = movieType;
+            this.Synopsis = synopsis;
         }
 
         public static void DisplayMovies()
@@ -113,14 +115,14 @@ namespace Project_B
         //deze method initialiseert de films en zet ze in een ArrayList, waardoor de data makkelijk opnieuw te gebruiken is
         public static void InitMovies()
         {
-            movieList.Add(new Movies(1, "No Time To Die", new DateTime(2020, 11, 12, 10, 00, 00), (Screen)Screen.screenList[0], 163, "Actie, Avontuur, Thriller", "Cary Joji Fukunaga", "Base"));
-            movieList.Add(new Movies(2, "Knives Out", new DateTime(2020, 11, 28, 18, 00, 00), (Screen)Screen.screenList[0], 130, "Drama, Thriller", "Rian Johnson", "Base"));
-            movieList.Add(new Movies(3, "The Passion", new DateTime(2020, 04, 09, 21, 30, 00), (Screen)Screen.screenList[1], 100, "Music", "david Grifhorst", "3D"));
-            movieList.Add(new Movies(4, "Farewell", new DateTime(2020, 12, 31, 23, 00, 00), (Screen)Screen.screenList[1], 90, "Documentaire", "Pieter van Huystee", "IMAX"));
-            movieList.Add(new Movies(5, "The Turning", new DateTime(2020, 04, 16, 13, 00, 00), (Screen)Screen.screenList[2], 100, "Horror", "Floria Sigismondi", "Base"));
-            movieList.Add(new Movies(6, "Mission: Impossible - Fallout", new DateTime(2020, 04, 04, 12, 30, 00), (Screen)Screen.screenList[3], 145, "Actie", "Christopher McQuarrie", "Auro3D"));
-            movieList.Add(new Movies(7, "Black Widow", new DateTime(2020, 04, 29, 14, 00, 00), (Screen)Screen.screenList[3], 130, "Actie, Avontuur, Science Fiction", "Cate Shortland", "IMAX"));
-            movieList.Add(new Movies(8, "Honey Boy", new DateTime(2020, 04, 16, 16, 00, 00), (Screen)Screen.screenList[4], 94, "Drama", "Alma Har'el", "Base"));
+            movieList.Add(new Movies(1, "No Time To Die", new DateTime(2020, 11, 12, 10, 00, 00), (Screen)Screen.screenList[0], 163, "Actie, Avontuur, Thriller", "Cary Joji Fukunaga", "Base", "Nieuwste deel van de klassieke James Bond series."));
+            movieList.Add(new Movies(2, "Knives Out", new DateTime(2020, 11, 28, 18, 00, 00), (Screen)Screen.screenList[0], 130, "Drama, Thriller", "Rian Johnson", "Base", "Een moord. Een gezin. Een verdachte."));
+            movieList.Add(new Movies(3, "The Passion", new DateTime(2020, 04, 09, 21, 30, 00), (Screen)Screen.screenList[1], 100, "Music", "David Grifhorst", "3D", "Het verhaal van Jesus Christus, tot leven gebracht in deze schitterende tentoonstelling."));
+            movieList.Add(new Movies(4, "Farewell", new DateTime(2020, 12, 31, 23, 00, 00), (Screen)Screen.screenList[1], 90, "Documentaire", "Pieter van Huystee", "IMAX", "Documentaire over de enige vrouwelijke passegier van de Graf Zeppelin"));
+            movieList.Add(new Movies(5, "The Turning", new DateTime(2020, 04, 16, 13, 00, 00), (Screen)Screen.screenList[2], 100, "Horror", "Floria Sigismondi", "Base", "Een nieuwe versie van een horror klassieker, enger dan ooit."));
+            movieList.Add(new Movies(6, "Mission: Impossible - Fallout", new DateTime(2020, 04, 04, 12, 30, 00), (Screen)Screen.screenList[3], 145, "Actie", "Christopher McQuarrie", "Auro3D", "Nieuwste deel van de klassieke actie series Mission Impossible."));
+            movieList.Add(new Movies(7, "Black Widow", new DateTime(2020, 04, 29, 14, 00, 00), (Screen)Screen.screenList[3], 130, "Actie, Avontuur, Science Fiction", "Cate Shortland", "IMAX", "Een film over een superheld."));
+            movieList.Add(new Movies(8, "Honey Boy", new DateTime(2020, 04, 16, 16, 00, 00), (Screen)Screen.screenList[4], 94, "Drama", "Alma Har'el", "Base", "Het verhaal van een gebroken familie."));
         }
 
         public static void dayOverview()
@@ -201,6 +203,7 @@ namespace Project_B
             Console.WriteLine("Filmlengte: " + movie.runTime + " minuten");
             Console.WriteLine("Genre: " + movie.genre);
             Console.WriteLine("Regisseur: " + movie.director);
+            Console.WriteLine("Beschrijving: " + movie.Synopsis);
             
         }
     }
