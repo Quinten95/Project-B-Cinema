@@ -6,15 +6,21 @@ namespace Project_B
 {
     class Customer
     {
-        private string customerName;
-        private DateTime birthday;
+        public string CustomerName { get; set; }
+        public DateTime Birthday { get; set; }
         public int Age { get; set; }
         public string Email { get; set; }
+        public string CustomerPassword { get; set; }
+        public string CustomerUserName { get; set; }
 
-        public Customer(string customerName, DateTime birthday)
+        public Customer(string customerName, DateTime birthday, string email)
         {
-            this.customerName = customerName;
-            this.birthday = birthday;
+            this.CustomerName = customerName;
+            this.Birthday = birthday;
+            this.Email = email;
+            var today = DateTime.Today;
+            this.Age = today.Year - birthday.Year;
         }
+
     }
 }
