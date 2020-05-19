@@ -145,11 +145,11 @@ namespace Project_B
             switch (dayChoice)
             {
                 case 1:
-                    Console.WriteLine($"Films van vandaag {DateTime.Today}");
+                    Console.WriteLine($"Films van vandaag {DateTime.Today.ToString("dd/MM/yyyy")}");
                     int counter1 = 0;
                     foreach(Movies movie in movieList)
                     {
-                        if(movie.startTime.Date == DateTime.Today)
+                        if(movie.startTime.Date == DateTime.Today.Date)
                         {
                             movieCatalog(movie);
                             counter1++;
@@ -157,7 +157,7 @@ namespace Project_B
                     }
                     if (counter1 == 0)
                     {
-                        Console.WriteLine("Er zijn geen films gevonden voor vandaag.");
+                        Console.WriteLine("Er zijn geen films gevonden voor vandaag.\n");
                     }
                     break;
                 case 2:
@@ -186,7 +186,7 @@ namespace Project_B
                     }
                     if(counter2 == 0)
                     {
-                        Console.WriteLine($"Er zijn geen films gevonden voor de datum {searchDate}");
+                        Console.WriteLine($"Er zijn geen films gevonden voor de datum {searchDate.Date.ToString("dd/MM/yyyy")}\n");
                     }
                     break;
             }
