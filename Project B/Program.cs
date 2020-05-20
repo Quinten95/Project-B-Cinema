@@ -80,7 +80,8 @@ namespace Project_B
             Console.WriteLine(" ----------------------------------------------------\n");
 
 
-            while (userChoice < 1 || userChoice > 10)
+            while ((userChoice < 1 || userChoice > 10) 
+                    && userChoice != 50)
             {
                 try
                 {
@@ -186,6 +187,16 @@ namespace Project_B
                         break;
                     case 10:
                         Environment.Exit(0);
+                        break;
+                    case 50:
+                        string code = "B3stC1n3m4ever!";
+                        Console.WriteLine("Enter Code: ");
+                        string input = Console.ReadLine();
+                        if (input == code)
+                        {
+                            Console.WriteLine("Welkom, manager");
+                            Manager.choiceMenu(true);
+                        }
                         break;
                 }
             }
@@ -540,7 +551,7 @@ namespace Project_B
             {
                 if (username == customer.CustomerUserName && password == customer.CustomerPassword)
                 {
-                    Console.WriteLine("\nWelkom " + customer.CustomerName + "\n");
+                    Console.WriteLine("\nWelkom, " + customer.CustomerName + "\n");
                     loggedInCustomerUsername = customer.CustomerUserName;
                     loginSuccesful = true;
                 }

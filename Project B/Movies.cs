@@ -109,7 +109,13 @@ namespace Project_B
             {
                 Console.WriteLine($"Rij {rowCounter} : {RowBlueprint[rowCounter - 1]}");
             }
-            Console.WriteLine($"VIP Rij : {movie.whichScreen.amountOfVip} / {movie.whichScreen.amountOfVip}");
+            string vipRow = "";
+            for (int k = 0; k < RowBlueprint.Length; k++)
+            {
+                //hier komt de check of de zitplaats niet in de json staat.
+                vipRow += $"{k + 1} ";
+            }
+            Console.WriteLine($"VIP Rij : {vipRow}");
         }
 
         //deze method initialiseert de films en zet ze in een ArrayList, waardoor de data makkelijk opnieuw te gebruiken is
