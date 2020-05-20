@@ -42,6 +42,15 @@
     "MovieName": "The Passion",
     "NumberOfPeople": 1,
     "IsVip": false,
-    "TotalPrice": 9
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "OUkrOpbj",
+    "CustomerName": "Quinten de Groot",
+    "CustomerEmail": "quinten103@gmail.com",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 14.99
   }
 ]

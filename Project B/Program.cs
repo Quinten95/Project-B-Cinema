@@ -325,10 +325,14 @@ namespace Project_B
 
                             Console.WriteLine("Wilt u snacks bij de film bestellen? y/n");
                             string snackInput = Console.ReadLine();
-                            Snacks[] chosenSnacks;
+                            List<Snacks> chosenSnacks = new List<Snacks>();
                             if(snackInput == "y" || snackInput == "Y")
                             {
                                 chosenSnacks = Snacks.snackKeuze();
+                                foreach(Snacks s in chosenSnacks)
+                                {
+                                    ticket.TotalPrice = ticket.TotalPrice + s.Price;
+                                }
                             }
                             else
                             {
