@@ -472,7 +472,7 @@ namespace Project_B
                         string movieName = MovieNameElement.GetString();
                         int numberOfPeople = NumberOfPeopleElement.GetInt32();
                         bool isVip = IsVipElement.GetBoolean();
-                        int totalPrice = TotalPriceElement.GetInt32();
+                        double totalPrice = TotalPriceElement.GetDouble();
 
                         Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
 
