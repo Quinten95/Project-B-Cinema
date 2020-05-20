@@ -33,6 +33,15 @@
     "MovieName": "The Turning",
     "NumberOfPeople": 2,
     "IsVip": true,
-    "TotalPrice": 20
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "j6j5x3Eb",
+    "CustomerName": "Eddie",
+    "CustomerEmail": "23232@2323232e.com",
+    "MovieName": "The Passion",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 9
   }
 ]

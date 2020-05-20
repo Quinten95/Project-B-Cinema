@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -20,11 +21,12 @@ namespace Project_B
         static bool loggedIn = false;
         static string loggedInCustomerUsername;
 
+
         public static void Main(string[] args)
         {
             Screen.InitScreens();
             Movies.InitMovies();
-
+            Snacks.initSnacks();
             fillReservationList();
             fillRegisteredCustomerList();
 
@@ -49,24 +51,36 @@ namespace Project_B
             Console.WriteLine("|      Welkom op de site van CinemaX!                |");
             Console.WriteLine("| Hier kunt u zien welke films er draaien.           |");
             Console.WriteLine("|      Ook kunt u tickets bestellen!                 |");
+
         }
 
         static void choiceMenu()
         {
+            while (true) { 
             int userChoice = 0;
 
             Console.WriteLine(" ----------------------------------------------------");
             Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
-            Console.WriteLine("| 3) Bekijk onze prijzen                             |");
-            Console.WriteLine("| 4) Account registratie                             |");
-            Console.WriteLine("| 5) Inloggen                                        |");
-            Console.WriteLine("| 6) Reservering annuleren                           |");
-            Console.WriteLine("| 7) Afsluiten                                       |");
+            Console.WriteLine("| 3) Zaalstatus                                      |");
+            Console.WriteLine("| 4) Bekijk onze prijzen                             |");
+            Console.WriteLine("| 5) Account registratie                             |");
+            if (loggedIn)
+            {
+            Console.WriteLine("| 6) Uitloggen                                       |");
+            }
+            else {
+            Console.WriteLine("| 6) Inloggen                                        |");
+            }
+            Console.WriteLine("| 7) Reservering annuleren                           |");
+            Console.WriteLine("| 8) Dagoverzicht                                    |");
+            Console.WriteLine("| 9) Menukaart                                       |");
+            Console.WriteLine("| 10) Afsluiten                                      |");
             Console.WriteLine(" ----------------------------------------------------\n");
 
-            while (userChoice < 1 || userChoice > 7)
+
+            while (userChoice < 1 || userChoice > 10)
             {
                 try
                 {
@@ -78,57 +92,102 @@ namespace Project_B
                 }
 
             }
-            //deze switch statement controleert of de gebruiker optie 1 of 2 kiest
-            switch (userChoice)
-            {
-                case 1:
-                    Movies.DisplayMovies();
-                    Console.WriteLine("\n");
-                    choiceMenu();
-                    break;
-
-                case 2:
-                    Console.WriteLine("Voor welke film wilt u tickets kopen:");
-                    userChoice = -1;
-                    while (userChoice < 1 || userChoice > Movies.movieList.Count)
-                    {
-                        //hier wordt gecheckt of de gebruiker wel een bestaand filmnummer kiest
-                        //zo ja wordt de reserveTicket method aangeroepen en de geselecteerde film als parameter meegegeven
-                        try
+                //deze switch statement controleert of de gebruiker optie 1 of 2 kiest
+                switch (userChoice)
+                {
+                    case 1:
+                        Console.WriteLine("Wilt u 1) op termen zoeken, of 2) de hele film lijst zien?");
+                        string searchChoice = Console.ReadLine();
+                        switch (searchChoice)
                         {
-                            userChoice = int.Parse(Console.ReadLine());
-                            Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
-                            reserveTicket(movieToReserve);
+                            case "1":
+                                Console.WriteLine("Vul uw zoektermen in. (genre, titels...)");
+                                string terms = Console.ReadLine();
+                                string[] arrayTerms = terms.Split();
+                                Movies.DisplayMovies(arrayTerms);
+                                break;
+                            case "2":
+                                Movies.DisplayMovies();
+                                Console.WriteLine("\n");
+                                break;
                         }
-                        catch (Exception e)
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Voor welke film wilt u tickets kopen:");
+                        userChoice = -1;
+                        Movies.DisplayMovies(userChoice);
+                        while (userChoice < 1 || userChoice > Movies.movieList.Count)
                         {
-                            Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                            //hier wordt gecheckt of de gebruiker wel een bestaand filmnummer kiest
+                            //zo ja wordt de reserveTicket method aangeroepen en de geselecteerde film als parameter meegegeven
+                            try
+                            {
+                                userChoice = int.Parse(Console.ReadLine());
+                                Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
+                                reserveTicket(movieToReserve);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                            }
                         }
-                    }
-                    break;
+                        break;
+                    case 3:
+                        Console.WriteLine("Van welke film wilt u de zaalstatus zien?");
+                        int statusChoice = -1;
+                        Movies.DisplayMovies(statusChoice);
+                        while (statusChoice < 1 || statusChoice > Movies.movieList.Count)
+                        {
+                            try
+                            {
+                                //zelfde code bij case 2, maar deze roept de zaalstatus functie aan
+                                statusChoice = int.Parse(Console.ReadLine());
+                                Movies statusOf = (Movies)Movies.movieList[statusChoice - 1];
+                                Movies.ScreenSeats(statusOf);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Voert u a.u.b. een film nummer in:");
+                            }
+                        }
+                        break;
+                    case 4:
+                        MoviePrice.PriceList();
+                        break;
 
-                case 3:
-                    MoviePrice.PriceList();
-                    choiceMenu();
-                    break;
+                    case 5:
+                        registerCustomer();
+                        break;
 
-                case 4:
-                    registerCustomer();
-                    choiceMenu();
-                    break;
+                    case 6:
+                        if (loggedIn)
+                        {
+                            loggedInCustomerUsername = "";
+                            loggedIn = false;
+                            Console.WriteLine("U bent nu uitgelogd.");
+                        }
+                        else
+                        {
+                            loginCustomer();
+                        }
+                        break;
 
-                case 5:
-                    loginCustomer();
-                    choiceMenu();
-                    break;
+                    case 7:
+                        cancelReservation();
+                        break;
 
-                case 6:
-                    cancelReservation();
-                    break;
+                    case 8:
+                        Movies.dayOverview();
+                        break;
 
-                case 7:
-                    Environment.Exit(0);
-                    break;
+                    case 9:
+                        Snacks.printSnacks();
+                        break;
+                    case 10:
+                        Environment.Exit(0);
+                        break;
+                }
             }
         }
 
@@ -156,6 +215,7 @@ namespace Project_B
                         {
                             Ticket ticket = null;
                             Console.WriteLine("Wilt u een VIP ticket kopen? (y/n)");
+                            Console.WriteLine("Een VIP ticket garandeert de beste zitplaatsen, voor maar drie euro extra!");
                             string vipChoice = "";
                             bool isVip = false;
                             while (vipChoice != "y" || vipChoice != "Y")
@@ -251,6 +311,19 @@ namespace Project_B
                                 }
                                 customer = new Customer(customerName, customerBirthDay, customerEmail);
                             }
+
+                            Console.WriteLine("Wilt u snacks bij de film bestellen? y/n");
+                            string snackInput = Console.ReadLine();
+                            Snacks[] chosenSnacks;
+                            if(snackInput == "y" || snackInput == "Y")
+                            {
+                                chosenSnacks = Snacks.snackKeuze();
+                            }
+                            else
+                            {
+                                chosenSnacks = null;
+                            }
+
                             //dit genereert een random string van cijfers en letters (de reserveringscode waarmee de klant naar de kassa kan)
                             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
                             char[] reservationCodeChars = new char[8];
@@ -307,6 +380,7 @@ namespace Project_B
                         {
                             Console.WriteLine("Voor welke film wilt u tickets kopen:");
                             int userChoice = -1;
+                            Movies.DisplayMovies(userChoice);
                             while (userChoice < 1 || userChoice > Movies.movieList.Count)
                             {
                                 try
@@ -531,7 +605,7 @@ namespace Project_B
                 {
                     case "Y":
                     case "y":
-                        Console.WriteLine("Wat is uw reserveringscode (Let op hoofdletter gevoelig!):");
+                        Console.WriteLine("Wat is uw reserveringscode (Let op: hoofdletter gevoelig!):");
                         string reservationCodeCustomer = Console.ReadLine();
                         bool reservationExists = false;
 

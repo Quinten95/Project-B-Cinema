@@ -11,15 +11,15 @@ namespace Project_B
         public static double IMAXPrice = 12.00;
         public static double auro3DPrice = 15.00;
         public static double VIPcost = 3.00;
-        public static double childrensDiscount = 0.8;
-        public static double elderlyDiscount = 0.7;
-        public static double studentDiscount = 0.9;
+        public static double childrensDiscount = 0.80;
+        public static double elderlyDiscount = 0.70;
+        public static double studentDiscount = 0.90;
 
         public static Func<double, double, double> calcDiscount = (x, y) => x * y;
         public static Func<double, double, double> round = (a, b) =>
         {
             double p = calcDiscount(a, b);
-            double roundedValue = Math.Round(p, 2);
+            double roundedValue = Math.Round(p, 3);
             return roundedValue;
         };
 
@@ -59,25 +59,25 @@ namespace Project_B
             Console.WriteLine("Onze Prijzen");
             Console.WriteLine("-------------------------");
             Console.WriteLine(" ");
-            Console.WriteLine("Standaard Filmprijs = " + basePrice);
-            Console.WriteLine("Kinderkorting = " + round(basePrice, childrensDiscount));
-            Console.WriteLine("Bejaardenkorting = " + round(basePrice, elderlyDiscount));
-            Console.WriteLine("Studentenkorting = " + round(basePrice, studentDiscount));
+            Console.WriteLine("Standaard Filmprijs = " + basePrice.ToString("0.00"));
+            Console.WriteLine("Kinderkorting = " + round(basePrice, childrensDiscount).ToString("0.00"));
+            Console.WriteLine("Bejaardenkorting = " + round(basePrice, elderlyDiscount).ToString("0.00"));
+            Console.WriteLine("Studentenkorting = " + round(basePrice, studentDiscount).ToString("0.00"));
             Console.WriteLine(" ");
-            Console.WriteLine("3D Filmprijs = " + price3D);
-            Console.WriteLine("Kinderkorting = " + round(price3D, childrensDiscount));
-            Console.WriteLine("Bejaardenkorting = " + round(price3D, elderlyDiscount));
-            Console.WriteLine("Studentenkorting = " + round(price3D, studentDiscount));
+            Console.WriteLine("3D Filmprijs = " + price3D.ToString("0.00"));
+            Console.WriteLine("Kinderkorting = " + round(price3D, childrensDiscount).ToString("0.00"));
+            Console.WriteLine("Bejaardenkorting = " + round(price3D, elderlyDiscount).ToString("0.00"));
+            Console.WriteLine("Studentenkorting = " + round(price3D, studentDiscount).ToString("0.00"));
             Console.WriteLine(" ");
             Console.WriteLine("IMAX Filmprijs = " + IMAXPrice);
-            Console.WriteLine("Kinderkorting = " + round(IMAXPrice, childrensDiscount));
-            Console.WriteLine("Bejaardenkorting = " + round(IMAXPrice, elderlyDiscount));
-            Console.WriteLine("Studentenkorting = " + round(IMAXPrice, studentDiscount));
+            Console.WriteLine("Kinderkorting = " + round(IMAXPrice, childrensDiscount).ToString("0.00"));
+            Console.WriteLine("Bejaardenkorting = " + round(IMAXPrice, elderlyDiscount).ToString("0.00"));
+            Console.WriteLine("Studentenkorting = " + round(IMAXPrice, studentDiscount).ToString("0.00"));
             Console.WriteLine(" ");
-            Console.WriteLine("Auro3D Filmprijs = " + auro3DPrice);
-            Console.WriteLine("Kinderkorting = " + round(auro3DPrice, childrensDiscount));
-            Console.WriteLine("Bejaardenkorting = " + round(auro3DPrice, elderlyDiscount));
-            Console.WriteLine("Studentenkorting = " + round(auro3DPrice, studentDiscount));
+            Console.WriteLine("Auro3D Filmprijs = " + auro3DPrice.ToString("0.00"));
+            Console.WriteLine("Kinderkorting = " + round(auro3DPrice, childrensDiscount).ToString("0.00"));
+            Console.WriteLine("Bejaardenkorting = " + round(auro3DPrice, elderlyDiscount).ToString("0.00"));
+            Console.WriteLine("Studentenkorting = " + round(auro3DPrice, studentDiscount).ToString("0.00"));
             Console.WriteLine(" ");
             Console.WriteLine("-------------------------");
         }

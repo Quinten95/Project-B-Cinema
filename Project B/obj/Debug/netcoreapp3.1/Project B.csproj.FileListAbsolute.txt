@@ -70,3 +70,5 @@ C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B Fixed\Project B\obj\Debug\
 C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B Fixed\Project B\obj\Debug\netcoreapp3.1\Project B.dll
 C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B Fixed\Project B\obj\Debug\netcoreapp3.1\Project B.pdb
 C:\Users\Quinten\Documents\SCHOOL\PROJECT B\Project B Fixed\Project B\obj\Debug\netcoreapp3.1\Project B.genruntimeconfig.cache
+C:\Users\Erwin\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.csproj.CoreCompileInputs.cache
+C:\Users\Erwin\Documents\GitHub\Project-B-Cinema\Project B\obj\Debug\netcoreapp3.1\Project B.genruntimeconfig.cache
