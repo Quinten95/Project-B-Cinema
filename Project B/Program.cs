@@ -269,7 +269,28 @@ namespace Project_B
 
                                         Tuple<int, double>[] peoplePrices = tempTicket.PriceCalculator(numberOfPeople, movie, isVip);
                                         tempTicket.TotalPrice = tempTicket.PriceSummer(peoplePrices);
-                                        ticket = tempTicket;
+                                        string[] pickedRows = new string[numberOfPeople];
+                                        string[] pickedSeats = new string[numberOfPeople];
+                                        //for (int i = 0; i < numberOfPeople; i++)
+                                        // {
+                                        //    while (true)
+                                        //    {
+                                        //        string row = Movies.SelectRow(movie, isVip);
+                                        //        string seat = Movies.SelectSeat(movie);
+                                                //kijk in lijst of ze al gereserveerd zijn
+                                        //        if ()
+                                        //        {
+
+                                        //        }
+                                        //       else
+                                        //      {
+                                        //          pickedRows[i] = row;
+                                        //          pickedSeats[i] = seat;
+                                        //          break;
+                                        //      }
+                                        //   }
+                                        //}
+                                        //ticket = tempTicket;
                                     }
                                 }
                                 catch (Exception e)
@@ -459,20 +480,25 @@ namespace Project_B
                 foreach (JsonElement ticket in reservationList.EnumerateArray())
                 {
                     if (ticket.TryGetProperty("ReservationCode", out JsonElement ReservationCodeElement) &&
+                        ticket.TryGetProperty("Rows", out JsonElement RowsElement) &&
+                        ticket.TryGetProperty("Seats", out JsonElement SeatsElement) &&
                         ticket.TryGetProperty("CustomerName", out JsonElement CustomerNameElement) &&
                         ticket.TryGetProperty("CustomerEmail", out JsonElement CustomerEmailElement) &&
                         ticket.TryGetProperty("MovieName", out JsonElement MovieNameElement) &&
                         ticket.TryGetProperty("NumberOfPeople", out JsonElement NumberOfPeopleElement) &&
                         ticket.TryGetProperty("IsVip", out JsonElement IsVipElement) &&
-                        ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement))
+                        ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement) )
                     {
                         string reservationCode = ReservationCodeElement.GetString();
+
                         string customerName = CustomerNameElement.GetString();
                         string customerEmail = CustomerEmailElement.GetString();
                         string movieName = MovieNameElement.GetString();
                         int numberOfPeople = NumberOfPeopleElement.GetInt32();
                         bool isVip = IsVipElement.GetBoolean();
                         double totalPrice = TotalPriceElement.GetDouble();
+                        
+
 
                         Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
 
