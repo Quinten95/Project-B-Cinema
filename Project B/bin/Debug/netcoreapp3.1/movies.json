@@ -1,0 +1,178 @@
+[
+  {
+    "movieID": 1,
+    "MovieName": "No Time To Die",
+    "startTime": "2020-11-12T10:00:00",
+    "runTime": 163,
+    "genre": "Actie, Avontuur, Thriller",
+    "director": "Cary Joji Fukunaga",
+    "screenNumber": 0,
+    "movieType": "Base",
+    "Synopsis": "In deze James Bond-film heeft james bond ze oude leven als geheime agent achter zich gelaten e leeft die nu een rustig levendje in Jamiaca."
+  },
+  {
+    "movieID": 2,
+    "MovieName": "Knives Out",
+    "startTime": "2020-11-28T18:00:00",
+    "runTime": 130,
+    "genre": "Drama, Thriller",
+    "director": "Rian Johnson",
+    "screenNumber": 0,
+    "movieType": "Base",
+    "Synopsis": "Wanneer een misdaadschrijver dood wordt gevonden op zijn landgoed wordt de rechercheur Benoi Blanc opgeroepen om zijn dood te onderzoeken."
+  },
+  {
+    "movieID": 3,
+    "MovieName": "The Passion",
+    "startTime": "2020-04-09T21:30:00",
+    "runTime": 100,
+    "genre": "Music",
+    "director": "david Grifhorst",
+    "screenNumber": 1,
+    "movieType": "3D",
+    "Synopsis": "The Passion is een film over het lijden en sterven van jezus."
+  },
+  {
+    "movieID": 4,
+    "MovieName": "Farewell",
+    "startTime": "2020-12-31T23:00:00",
+    "runTime": 90,
+    "genre": "Docs",
+    "director": "Pieter van Huystee",
+    "screenNumber": 1,
+    "movieType": "IMAX",
+    "Synopsis": "Het ver1haal van Lady Grace Drummond-Hay. Een journaliste die de enige vrouwelijke passieger op de eerste reis rond de wereld in 1929. "
+  },
+  {
+    "movieID": 5,
+    "MovieName": "The Turning",
+    "startTime": "2020-04-16T13:00:00",
+    "runTime": 100,
+    "genre": "Horror",
+    "director": "Floria Sigismondi",
+    "screenNumber": 2,
+    "movieType": "Base",
+    "Synopsis": "Een horror film gebaseerd op het spookverhaal uit 1988 The Turn of the Screw van Henry James."
+  },
+  {
+    "movieID": 6,
+    "MovieName": "Mission: Impossible - Fallout",
+    "startTime": "2020-04-04T12:30:00",
+    "runTime": 145,
+    "genre": "Actie",
+    "director": "Christopher McQuarrie",
+    "screenNumber": 3,
+    "movieType": "Auro3D",
+    "Synopsis": "Wanneer er een een ernstige misdadiger ontsnapt wordt het voor Hunt en zijn team een race tegen de klok."
+  },
+  {
+    "movieID": 7,
+    "MovieName": "Black Widow",
+    "startTime": "2020-04-29T14:00:00",
+    "runTime": 130,
+    "genre": "Actie, Advontuur, Science Fiction",
+    "director": "Cate Shortland",
+    "screenNumber": 3,
+    "movieType": "IMAX",
+    "Synopsis": "Een aparte film van de bekende Black Widow bekend van de Marvel Cinematic Universe."
+  },
+  {
+    "movieID": 8,
+    "MovieName": "Honey Boy",
+    "startTime": "2020-04-16T16:00:00",
+    "runTime": 94,
+    "genre": "Drama",
+    "director": "Alma Har\u0027el",
+    "screenNumber": 4,
+    "movieType": "Base",
+    "Synopsis": "Een film gebasseerd op de ervaringen van Shia Labeouf als jonge acteur."
+  },
+  {
+    "movieID": 9,
+    "MovieName": "I See You",
+    "startTime": "2020-05-16T14:00:00",
+    "runTime": 98,
+    "genre": "Thriller",
+    "director": "Adam Randell",
+    "screenNumber": 4,
+    "movieType": "Base",
+    "Synopsis": "Wanner een rechercheur de verdwijning van een jongen onderzoekt overkomen hem en zijn gezin de vreemdste gebeurtenissen."
+  },
+  {
+    "movieID": 10,
+    "MovieName": "Bloodshot",
+    "startTime": "2020-08-16T15:00:00",
+    "runTime": 109,
+    "genre": "Actie",
+    "director": "Dave Wilson",
+    "screenNumber": 4,
+    "movieType": "IMAX",
+    "Synopsis": "Vin Diesel die speelt als Ray Garisson wordt wordt opnieuw tot leven gewekt tot menselijke superheld."
+  },
+  {
+    "movieID": 11,
+    "MovieName": "Color Out Of Space",
+    "startTime": "2020-06-22T10:00:00",
+    "runTime": 111,
+    "genre": "Horror, Science Fiction",
+    "director": "Richard Stanley",
+    "screenNumber": 4,
+    "movieType": "Base",
+    "Synopsis": "Color Out Of Space is een sci-fi Horoor-nachtmerrie gebaseerd op het verhaal van H.P. Lovecraft."
+  },
+  {
+    "movieID": 12,
+    "MovieName": "Interstellar",
+    "startTime": "2020-06-20T09:00:00",
+    "runTime": 111,
+    "genre": "Avontuur, Mysterie, Science Fiction",
+    "director": "Christopher Nolan",
+    "screenNumber": 4,
+    "movieType": "Base",
+    "Synopsis": "Een groep ondekkingsreizigers gaan kijken of er ergens een nieuwe plannet bestaat waar de mensheid verder op kan voortbestaan."
+  },
+  {
+    "movieID": 13,
+    "MovieName": "THE INVISIBLE MAN",
+    "startTime": "2021-03-20T20:00:00",
+    "runTime": 124,
+    "genre": "Horror, Thriller",
+    "director": "Leigh Whannell",
+    "screenNumber": 3,
+    "movieType": "IMAX",
+    "Synopsis": "Elisabeth Moss wordt opgejaagd door een onzichtbare man."
+  },
+  {
+    "movieID": 14,
+    "MovieName": "My Spy",
+    "startTime": "2020-06-20T17:00:00",
+    "runTime": 100,
+    "genre": "Actie, Comedy, ",
+    "director": "Peter Segal",
+    "screenNumber": 3,
+    "movieType": "Base",
+    "Synopsis": "Wanneer JJ een missie uit de hand laat lopen heeft die nog maar een kans om zijn carriere te redden."
+  },
+  {
+    "movieID": 15,
+    "MovieName": "Bad Boys For Life",
+    "startTime": "2020-06-21T12:00:00",
+    "runTime": 124,
+    "genre": "Actie, Comedy, ",
+    "director": "Adil El Arbi, Bilall Fallah",
+    "screenNumber": 3,
+    "movieType": "IMAX",
+    "Synopsis": "De Bad Boys Will Smith en Martin Lawrence keren terug als Mike Lowrey en Marcus Burnett."
+  },
+  {
+    "movieID": 16,
+    "MovieName": "1917",
+    "startTime": "2020-06-20T17:00:00",
+    "runTime": 119,
+    "genre": "Drama, Oorlog",
+    "director": "Sam Mendes, Krysty Wilson-Cairns",
+    "screenNumber": 2,
+    "movieType": "Base",
+    "Synopsis": "Een meeslepend oorlogsdrama over de Eeste Wereldoorlog."
+  }
+]
