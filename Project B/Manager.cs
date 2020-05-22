@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Project_B
 {
@@ -36,6 +38,7 @@ namespace Project_B
                 {
                     case 1:
                         Console.WriteLine("Coming soon");
+
                         break;
                     case 2:
                         Open = false;
@@ -44,7 +47,55 @@ namespace Project_B
                         Environment.Exit(0);
                         break;
                 }
+
+               
             }
         }
+
+        //private static void addMovie()
+        //{
+        //    JsonSerializerOptions options = new JsonSerializerOptions();
+        //    options.WriteIndented = true;
+
+        //    Console.WriteLine("Voer de titel in:");
+        //    string movieName = Console.ReadLine();
+
+        //    Console.WriteLine("Voert u alstublieft een wachtwoord in:");
+        //    string customerPassword = Console.ReadLine();
+
+        //    Console.WriteLine("Voert u alstublieft uw naam in:");
+        //    string customerName = Console.ReadLine();
+
+        //    Console.WriteLine("Voert u alstublieft uw e-mail adres in:");
+        //    string customerEmail = Console.ReadLine();
+
+        //    Console.WriteLine("Voert u alsublieft uw geboortedatum in (dd/mm/yyyy):");
+        //    DateTime customerBirthDay = DateTime.Today;
+        //    //deze while loop met try/catch clausule zorgt ervoor dat de gebruiker een correcte datum invult
+        //    //die ook converteerbaar is naar een DateTime format 
+        //    //zonder dat de app crasht als de gebruiker een foute datum invult
+        //    while (customerBirthDay == DateTime.Today)
+        //    {
+        //        try
+        //        {
+        //            string customerBDayStr = Console.ReadLine();
+        //            CultureInfo dutchCI = new CultureInfo("nl-NL", false);
+        //            customerBirthDay = DateTime.Parse(customerBDayStr, dutchCI);
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            Console.WriteLine("Uw geboortedatum moet als dd/mm/yyyy ingevoerd worden, bijv: 01/01/2020:");
+        //        }
+        //    }
+        //    Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
+        //    customer.CustomerPassword = customerPassword;
+        //    customer.CustomerUserName = customerUserName;
+        //    registeredCustomers.Add(customer);
+
+        //    var jsonString = JsonSerializer.Serialize(registeredCustomers, options);
+
+        //    File.WriteAllText("registered_customers.json", jsonString);
+        //    Console.WriteLine("Account geregistreerd!");
+        //}
     }
 }

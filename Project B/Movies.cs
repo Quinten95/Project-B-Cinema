@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Reflection.PortableExecutable;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Project_B
 {
@@ -115,7 +116,56 @@ namespace Project_B
                 //hier komt de check of de zitplaats niet in de json staat.
                 vipRow += $"{k + 1} ";
             }
-            Console.WriteLine($"VIP Rij : {vipRow}");
+            Console.WriteLine($"VIP Rij ({movie.whichScreen.amountOfRows}): {vipRow}");
+        }
+
+        public static string SelectRow(Movies movie, bool vip)
+        {
+           Console.WriteLine("Selecteer een rij. Vul in als een cijfer. Voor de VIP vul je het cijfer tussen de haakjes in.");
+           //implementeer vip check
+           string choice = ""; 
+           try
+           {
+               choice = Console.ReadLine();
+               int checker = int.Parse(choice);
+               if (checker < 1 && checker > movie.whichScreen.amountOfRows)
+               {
+                  Console.WriteLine($"Voer een getal tussen 1 en {movie.whichScreen.amountOfRows} in.");
+               }
+               else
+               {
+                    return choice;
+               }
+           }
+           catch (Exception e)
+           {
+               Console.WriteLine($"Voer een getal tussen 1 en {movie.whichScreen.amountOfRows} in.");
+           }
+            return choice;
+        }
+        public static string SelectSeat(Movies movie)
+        {
+            Console.WriteLine("Selecteer een stoel. Vul in als een cijfer.");
+            //implementeer vip check
+            string choice = "";
+            try
+            {
+                choice = Console.ReadLine();
+                int checker = int.Parse(choice);
+                if (checker < 1 && checker > movie.whichScreen.amountOfSeats)
+                {
+                    Console.WriteLine($"Voer een getal tussen 1 en {movie.whichScreen.amountOfSeats} in.");
+                }
+                else
+                {
+                    return choice;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Voer een getal tussen 1 en {movie.whichScreen.amountOfSeats} in.");
+            }
+            return choice;
         }
 
         //deze method initialiseert de films en zet ze in een ArrayList, waardoor de data makkelijk opnieuw te gebruiken is
