@@ -61,7 +61,7 @@ namespace Project_B
             int userChoice = 0;
 
             Console.WriteLine(" ----------------------------------------------------");
-            Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
+            Console.WriteLine("| Selecteer een optie met het bijbehorende nummer:  |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
             Console.WriteLine("| 3) Zaalstatus                                      |");
@@ -305,7 +305,7 @@ namespace Project_B
                             if (loggedIn == true)
                             {
                                 customer = registeredCustomers.Find(x => x.CustomerUserName == loggedInCustomerUsername);
-                                Console.WriteLine("\nControlleer uw gegevens:");
+                                Console.WriteLine("\nControleer uw gegevens:");
                                 Console.WriteLine("Naam: " + customer.CustomerName);
                                 Console.WriteLine("Email: " + customer.Email);
                             }
