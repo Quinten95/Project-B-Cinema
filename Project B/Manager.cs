@@ -18,12 +18,13 @@ namespace Project_B
                 Console.WriteLine(" ----------------------------------------------------");
                 Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
                 Console.WriteLine("| 1) Nieuwe film toevoegen                           |");
-                Console.WriteLine("| 2) Terug naar het hoofdmenu                        |");
-                Console.WriteLine("| 3) Afsluiten                                       |");
+                Console.WriteLine("| 2) Film verwijderen                                |");
+                Console.WriteLine("| 3) Terug naar het hoofdmenu                        |");
+                Console.WriteLine("| 4) Afsluiten                                       |");
                 Console.WriteLine(" ----------------------------------------------------\n");
 
 
-                while (managerChoice < 1 || managerChoice > 3)
+                while (managerChoice < 1 || managerChoice > 4)
                 {
                     try
                     {
@@ -42,9 +43,12 @@ namespace Project_B
                         addMovie();
                         break;
                     case 2:
-                        Open = false;
+                        deleteMovie();
                         break;
                     case 3:
+                        Open = false;
+                        break;
+                    case 4:
                         Environment.Exit(0);
                         break;
                 }
@@ -52,7 +56,7 @@ namespace Project_B
                
             }
         }
-
+        //Deze method geeft de manager de mogelijkheid om een nieuwe film in het systeem toe te voegen.
         private static void addMovie()
         {
             JsonSerializerOptions options = new JsonSerializerOptions();
@@ -86,7 +90,6 @@ namespace Project_B
                 {
                     Console.WriteLine("Vul een positief getal in.");
                 }
-
             }
             Console.WriteLine("Vul de regisseur in:");
             string director = Console.ReadLine();
@@ -129,7 +132,6 @@ namespace Project_B
                 {
                     Console.WriteLine("Vul een getal tussen 1 en 5 in.");
                 }
-
             };
 
             Console.WriteLine("Vul een geldige starttijd in.");
@@ -165,7 +167,51 @@ namespace Project_B
             }
             else
             {
-                Console.WriteLine("");
+                Console.WriteLine("Terugkeren naar het hoofdmenu...");
+            }
+        }
+
+        private static void deleteMovie()
+        {
+            Console.WriteLine("Welke film wilt u verwijderen?");
+            foreach(Movies movie in Program.movies)
+            {
+                Console.WriteLine($"{movie.movieID}) {movie.MovieName}");
+            }
+            Movies choice = null;
+            while (choice == null)
+            {
+                try
+                {
+                    int tempchoice = int.Parse(Console.ReadLine());
+                    choice = Program.movies[tempchoice - 1];
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Voer a.u.b het ID van een film in.");
+                }
+            }
+            Console.WriteLine($"U heeft gekozen voor {choice.movieID}) {choice.MovieName}.");
+            Console.WriteLine("Weet u zeker dat u deze film wilt verwijderen?(y/n)");
+            string confirm = Console.ReadLine();
+            switch (confirm)
+            {
+                case "Y":
+                case "y":
+                    Console.WriteLine($"Film {choice.MovieName} is verwijderd.");
+                    Program.movies.RemoveAt(choice.movieID - 1);
+                    JsonSerializerOptions options = new JsonSerializerOptions();
+                    options.WriteIndented = true;
+                    var jsonString = JsonSerializer.Serialize(Program.movies, options);
+                    File.WriteAllText("movies.json", jsonString);
+                    break;
+                case "N":
+                case "n":
+                    Console.WriteLine("Verwijdering afgezegd. Terugkeren naar het hoofdmenu...");
+                    break;
+                default:
+                    Console.WriteLine("Verkeerde invoer. Terugkeren naar het hoofdmenu... ");
+                    break;
             }
         }
     }
