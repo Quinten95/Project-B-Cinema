@@ -61,7 +61,7 @@ namespace Project_B
             int userChoice = 0;
 
             Console.WriteLine(" ----------------------------------------------------");
-            Console.WriteLine("| Selecteer een optie met het bijbehorende nummer:  |");
+            Console.WriteLine("| Selecteer een optie met het bijbehorende nummer:   |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
             Console.WriteLine("| 3) Zaalstatus                                      |");

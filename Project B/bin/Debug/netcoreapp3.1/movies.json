@@ -69,7 +69,7 @@
     "whichScreen": {},
     "screenNumber": 3,
     "movieType": "Auro3D",
-    "Synopsis": "Wanneer er een een ernstige misdadiger ontsnapt wordt het voor Hunt en zijn team een race tegen de klok."
+    "Synopsis": "Wanneer er een ernstige misdadiger ontsnapt wordt het voor Hunt en zijn team een race tegen de klok."
   },
   {
     "movieID": 7,
@@ -110,14 +110,14 @@
   {
     "movieID": 10,
     "MovieName": "Bloodshot",
-    "startTime": "2020-08-16T15:00:00",
+    "startTime": "2020-08-17T01:00:00",
     "runTime": 109,
     "genre": "Actie",
     "director": "Dave Wilson",
     "whichScreen": {},
-    "screenNumber": 4,
+    "screenNumber": 3,
     "movieType": "IMAX",
-    "Synopsis": "Vin Diesel die speelt als Ray Garisson wordt wordt opnieuw tot leven gewekt tot menselijke superheld."
+    "Synopsis": "Ray Garisson, gespeelt door Vin Diesel, wordt opnieuw tot leven gewekt als menselijke superheld..."
   },
   {
     "movieID": 11,
@@ -141,7 +141,7 @@
     "whichScreen": {},
     "screenNumber": 4,
     "movieType": "Base",
-    "Synopsis": "Een groep ondekkingsreizigers gaan kijken of er ergens een nieuwe plannet bestaat waar de mensheid verder op kan voortbestaan."
+    "Synopsis": "Een groep ondekkingsreizigers gaat kijken of er ergens een nieuwe plannet bestaat waar de mensheid verder op kan voortbestaan."
   },
   {
     "movieID": 13,
@@ -189,6 +189,6 @@
     "whichScreen": {},
     "screenNumber": 2,
     "movieType": "Base",
-    "Synopsis": "Een meeslepend oorlogsdrama over de Eeste Wereldoorlog."
+    "Synopsis": "Een meeslepende oorlogsdrama over de Eeste Wereldoorlog."
   }
 ]

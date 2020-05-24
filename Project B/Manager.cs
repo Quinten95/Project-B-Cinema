@@ -16,15 +16,17 @@ namespace Project_B
                 int managerChoice = 0;
 
                 Console.WriteLine(" ----------------------------------------------------");
-                Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
+                Console.WriteLine("| Selecteer een optie met het bijbehorende nummer:   |");
                 Console.WriteLine("| 1) Nieuwe film toevoegen                           |");
                 Console.WriteLine("| 2) Film verwijderen                                |");
-                Console.WriteLine("| 3) Terug naar het hoofdmenu                        |");
-                Console.WriteLine("| 4) Afsluiten                                       |");
+                Console.WriteLine("| 3) Filmdata veranderen                             |");
+                Console.WriteLine("| 4) Film kopieëren                                  |");
+                Console.WriteLine("| 5) Terug naar het hoofdmenu                        |");
+                Console.WriteLine("| 6) Afsluiten                                       |");
                 Console.WriteLine(" ----------------------------------------------------\n");
 
 
-                while (managerChoice < 1 || managerChoice > 4)
+                while (managerChoice < 1 || managerChoice > 6)
                 {
                     try
                     {
@@ -40,15 +42,21 @@ namespace Project_B
                 switch (managerChoice)
                 {
                     case 1:
-                        addMovie();
+                        AddMovie();
                         break;
                     case 2:
-                        deleteMovie();
+                        DeleteMovie();
                         break;
                     case 3:
-                        Open = false;
+                        ChangeMovie();
                         break;
                     case 4:
+                        Console.WriteLine("Coming soon");
+                        break;
+                    case 5:
+                        Open = false;
+                        break;
+                    case 6:
                         Environment.Exit(0);
                         break;
                 }
@@ -57,7 +65,7 @@ namespace Project_B
             }
         }
         //Deze method geeft de manager de mogelijkheid om een nieuwe film in het systeem toe te voegen.
-        private static void addMovie()
+        private static void AddMovie()
         {
             JsonSerializerOptions options = new JsonSerializerOptions();
             options.WriteIndented = true;
@@ -171,7 +179,7 @@ namespace Project_B
             }
         }
 
-        private static void deleteMovie()
+        private static void DeleteMovie()
         {
             Console.WriteLine("Welke film wilt u verwijderen?");
             foreach(Movies movie in Program.movies)
@@ -213,6 +221,113 @@ namespace Project_B
                     Console.WriteLine("Verkeerde invoer. Terugkeren naar het hoofdmenu... ");
                     break;
             }
+        }
+
+        private static void ChangeMovie()
+        {
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = true;
+            Console.WriteLine("Van welke film wilt u de data veranderen?");
+            Movies.DisplayMovies(0);
+            Movies chosenMovie = null;
+            int choice1 = 0;
+            while (chosenMovie == null)
+            {
+                try
+                {
+                    choice1 = int.Parse(Console.ReadLine());
+                    if(choice1 > 0 || choice1 <= Program.movies.Count)
+                    {
+                        chosenMovie = Program.movies[choice1 - 1];
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Voer een geldige optie in.");
+                }
+            }
+            Console.WriteLine($"U heeft gekozen voor film {chosenMovie.movieID}");
+            Console.WriteLine("Welke data wilt u veranderen? \n Starttijd / Zaal / Beschrijving");
+            string choice2 = "";
+            while(choice2.ToLower() != "Starttijd".ToLower() && choice2.ToLower() != "Zaal".ToLower() && choice2.ToLower() != "Beschrijving".ToLower())
+            {
+                choice2 = Console.ReadLine();
+                if(choice2.ToLower() != "Starttijd".ToLower() && choice2.ToLower() != "Zaal".ToLower() && choice2.ToLower() != "Beschrijving".ToLower())
+                {
+                    Console.WriteLine("Verkeerde invoer. Kies een van de bovenstaande opties.");
+                }
+            }
+            if (choice2.ToLower() == "Starttijd".ToLower())
+            {
+                Console.WriteLine($"Vul een nieuwe starttijd in. Oude is {Program.movies[choice1 - 1].startTime}.");
+                while (true)
+                {
+                    try
+                    {
+                        string startString = Console.ReadLine();
+                        CultureInfo dutchCI = new CultureInfo("nl-NL", false);
+                        chosenMovie.startTime = DateTime.Parse(startString, dutchCI);
+                        Console.WriteLine($"Nieuwe datum is {chosenMovie.startTime}");
+                        break;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("De datum is niet goed ingevuld. Probeer het opnieuw.");
+                        Console.WriteLine("Voorbeeld = 20 Juli 2020 15:00:00");
+                    }
+                }
+            }
+            else if(choice2.ToLower() == "Zaal".ToLower())
+            {
+                Console.WriteLine($"Vul een nieuwe zaal in. Oude is {Program.movies[choice1 - 1].screenNumber}.");
+                int choice = -1;
+                while (choice < 1 || choice > 5)
+                {
+                    try
+                    {
+                        choice = int.Parse(Console.ReadLine());
+                        if (choice < 1 || choice > 5)
+                        {
+                            Console.WriteLine("Het ingevoerde getal moet tussen 1 en 5 zijn.");
+                        }
+                        else
+                        {
+                            chosenMovie.screenNumber = choice;
+                            Console.WriteLine($"Nieuwe zaal is {chosenMovie.screenNumber}");
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Vul een getal tussen 1 en 5 in.");
+                    }
+                };
+            }
+            else if(choice2.ToLower() == "Beschrijving".ToLower())
+            {
+                Console.WriteLine($"Vul een nieuwe beschrijving in. Oude: {Program.movies[choice1 - 1].Synopsis}.");
+                chosenMovie.Synopsis = Console.ReadLine();
+                Console.WriteLine($"Nieuwe bescrijving is: {chosenMovie.Synopsis}");
+            }
+            Console.WriteLine("Kloppen al deze gegevens? Zo ja, vul 'y' in.");
+            string snackInput = Console.ReadLine();
+            if (snackInput == "y" || snackInput == "Y")
+            {
+                Program.movies[choice1 - 1].startTime = chosenMovie.startTime;
+                Program.movies[choice1 - 1].screenNumber = chosenMovie.screenNumber;
+                Program.movies[choice1 - 1].Synopsis = chosenMovie.Synopsis;
+                var jsonString = JsonSerializer.Serialize(Program.movies, options);
+                File.WriteAllText("movies.json", jsonString);
+                Console.WriteLine("Film data veranderd.");
+            }
+            else
+            {
+                Console.WriteLine("Terugkeren naar het hoofdmenu...");
+            }
+        }
+
+        private static void CopyMovie()
+        {
+
         }
     }
 }

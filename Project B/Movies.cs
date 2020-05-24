@@ -88,7 +88,7 @@ namespace Project_B
             string print = "";
             foreach(Movies movie in Program.movies)
             {
-                print += movie.movieID + ")" + movie.MovieName + "\n";
+                print += movie.movieID + ")" + movie.MovieName + " : " + movie.startTime +"\n";
             }
             Console.WriteLine(print);
         }
