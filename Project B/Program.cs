@@ -118,15 +118,24 @@ namespace Project_B
                     case 2:
                         Console.WriteLine("Voor welke film wilt u tickets kopen:");
                         userChoice = -1;
+                        int index = -1;
                         Movies.DisplayMovies(userChoice);
-                        while (userChoice < 1 || userChoice > movies.Count)
+                        while (index < 1 || index > movies.Count)
                         {
                             //hier wordt gecheckt of de gebruiker wel een bestaand filmnummer kiest
                             //zo ja wordt de reserveTicket method aangeroepen en de geselecteerde film als parameter meegegeven
                             try
                             {
                                 userChoice = int.Parse(Console.ReadLine());
-                                Movies movieToReserve = movies[userChoice - 1];
+                                for (int i = 0; i < movies.Count; i++)
+                                {
+                                    if (Equal(movies[i].movieID, userChoice))
+                                    {
+                                        index = movies.IndexOf(movies[i]);
+                                        break;
+                                    }
+                                }
+                                Movies movieToReserve = movies[index];
                                 reserveTicket(movieToReserve);
                             }
                             catch (Exception e)
@@ -418,13 +427,22 @@ namespace Project_B
                         {
                             Console.WriteLine("Voor welke film wilt u tickets kopen:");
                             int userChoice = -1;
+                            int index = -1;
                             Movies.DisplayMovies(userChoice);
-                            while (userChoice < 1 || userChoice > movies.Count)
+                            while (index < 1 || index > movies.Count)
                             {
                                 try
                                 {
                                     userChoice = int.Parse(Console.ReadLine());
-                                    Movies movieToReserve = movies[userChoice - 1];
+                                    for (int i = 0; i < movies.Count; i++)
+                                    {
+                                        if (Equal(movies[i].movieID, userChoice))
+                                        {
+                                            index = movies.IndexOf(movies[i]);
+                                            break;
+                                        }
+                                    }
+                                    Movies movieToReserve = movies[index];
                                     reserveTicket(movieToReserve);
                                 }
                                 catch (Exception e)
@@ -752,6 +770,12 @@ namespace Project_B
 
             smtpClient.Send(msg);
 
+        }
+
+        public static bool Equal(int one, int two)
+        {
+            bool equal = one == two;
+            return equal;
         }
     }
 }
