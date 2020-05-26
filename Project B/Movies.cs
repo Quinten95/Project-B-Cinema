@@ -94,35 +94,7 @@ namespace Project_B
             Console.WriteLine(print);
         }
 
-        //deze method print de status van een zaal.
-
-        public static void ScreenSeats(Movies movie)
-        {
-            Console.WriteLine($"Status van zaal {movie.whichScreen.screenNumber} tijdens {movie.MovieName} om {movie.startTime}.");
-            string[] RowBlueprint = new string[movie.whichScreen.amountOfRows];
-            for (int i = 0; i < RowBlueprint.Length; i++)
-            {
-                string RowI = "";
-                for(int j = 0; j < RowBlueprint.Length; j++)
-                {
-                    //hier komt de check of de zitplaats niet in de json staat.
-                    RowI += $"{j + 1} ";
-                }
-                RowBlueprint[i] = RowI;
-            }
-            for (int rowCounter = 1; rowCounter < movie.whichScreen.amountOfRows; rowCounter++)
-            {
-                Console.WriteLine($"Rij {rowCounter} : {RowBlueprint[rowCounter - 1]}");
-            }
-            string vipRow = "";
-            for (int k = 0; k < RowBlueprint.Length; k++)
-            {
-                //hier komt de check of de zitplaats niet in de json staat.
-                vipRow += $"{k + 1} ";
-            }
-            Console.WriteLine($"VIP Rij ({movie.whichScreen.amountOfRows}): {vipRow}");
-        }
-
+        
         public static string SelectRow(Movies movie, bool vip)
         {
            Console.WriteLine("Selecteer een rij. Vul in als een cijfer. Voor de VIP vul je het cijfer tussen de haakjes in.");

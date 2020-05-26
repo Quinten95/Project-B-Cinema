@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
+using System.Text.Json;
 
 namespace Project_B
 {
@@ -67,6 +69,46 @@ namespace Project_B
                 total += looper[j].Item2;
             }
             return total;
+        }
+
+        //vult de registeredCustomer list met de bestaande customers in de Json file
+        //dit omdat de Json file volledig overschreven wordt met alle customers die in deze list staan
+        //wanneer een nieuwe registratie gemaakt wordt dmv de File.WriteAllText
+        public static void fillRegisteredCustomerList()
+        {
+            string jsonText = File.ReadAllText("registered_customers.json");
+
+            using (JsonDocument document = JsonDocument.Parse(jsonText))
+            {
+                JsonElement root = document.RootElement;
+                JsonElement customerListElement = root;
+
+                foreach (JsonElement customer in customerListElement.EnumerateArray())
+                {
+                    if (customer.TryGetProperty("CustomerName", out JsonElement CustomerNameElement) &&
+                        customer.TryGetProperty("Birthday", out JsonElement BirthdayElement) &&
+                        customer.TryGetProperty("Age", out JsonElement AgeElement) &&
+                        customer.TryGetProperty("Email", out JsonElement EmailElement) &&
+                        customer.TryGetProperty("CustomerPassword", out JsonElement CustomerPasswordElement) &&
+                        customer.TryGetProperty("CustomerUserName", out JsonElement CustomerUserNameElement))
+                    {
+                        string CustomerName = CustomerNameElement.GetString();
+                        DateTime Birthday = BirthdayElement.GetDateTime();
+                        int Age = AgeElement.GetInt32();
+                        string Email = EmailElement.GetString();
+                        string CustomerPassword = CustomerPasswordElement.GetString();
+                        string CustomerUserName = CustomerUserNameElement.GetString();
+
+                        Customer customer1 = new Customer(CustomerName, Birthday, Email);
+                        customer1.CustomerPassword = CustomerPassword;
+                        customer1.CustomerUserName = CustomerUserName;
+                        customer1.Age = Age;
+
+                        Program.registeredCustomers.Add(customer1);
+                    }
+                }
+            }
+
         }
     }
 }

@@ -295,5 +295,20 @@ namespace Project_B
                 Console.WriteLine("Proces afgesloten. Terugkeren naar het hoofdmenu...");
             }
         }
+
+        private static void AddSnack()
+        {
+
+        }
+        
+        private static void DeleteSnack()
+        {
+
+        }
+
+        private static void ChangeSnack()
+        {
+
+        }
     }
 }

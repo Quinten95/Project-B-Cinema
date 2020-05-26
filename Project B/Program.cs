@@ -16,7 +16,7 @@ namespace Project_B
     class Program
     {
 
-        static List<Customer> registeredCustomers = new List<Customer>();
+        public static List<Customer> registeredCustomers = new List<Customer>();
         static List<Ticket> reservations = new List<Ticket>();
         public static List<Movies> movies = new List<Movies>();
         static bool loggedIn = false;
@@ -29,7 +29,7 @@ namespace Project_B
             Snacks.initSnacks();
             Movies.fillMovieList();
             fillReservationList();
-            fillRegisteredCustomerList();
+            Ticket.fillRegisteredCustomerList();
 
             displayWelcomeMsg();
             choiceMenu();
@@ -155,7 +155,7 @@ namespace Project_B
                                 //zelfde code bij case 2, maar deze roept de zaalstatus functie aan
                                 statusChoice = int.Parse(Console.ReadLine());
                                 Movies statusOf = movies[statusChoice - 1];
-                                Movies.ScreenSeats(statusOf);
+                                Screen.ScreenSeats(statusOf);
                             }
                             catch (Exception e)
                             {
@@ -611,45 +611,6 @@ namespace Project_B
             }
 
             loggedIn = loginSuccesful;
-        }
-        //vult de registeredCustomer list met de bestaande customers in de Json file
-        //dit omdat de Json file volledig overschreven wordt met alle customers die in deze list staan
-        //wanneer een nieuwe registratie gemaakt wordt dmv de File.WriteAllText
-        private static void fillRegisteredCustomerList()
-        {
-            string jsonText = File.ReadAllText("registered_customers.json");
-
-            using (JsonDocument document = JsonDocument.Parse(jsonText))
-            {
-                JsonElement root = document.RootElement;
-                JsonElement customerListElement = root;
-
-                foreach (JsonElement customer in customerListElement.EnumerateArray())
-                {
-                    if (customer.TryGetProperty("CustomerName", out JsonElement CustomerNameElement) &&
-                        customer.TryGetProperty("Birthday", out JsonElement BirthdayElement) &&
-                        customer.TryGetProperty("Age", out JsonElement AgeElement) &&
-                        customer.TryGetProperty("Email", out JsonElement EmailElement) &&
-                        customer.TryGetProperty("CustomerPassword", out JsonElement CustomerPasswordElement) &&
-                        customer.TryGetProperty("CustomerUserName", out JsonElement CustomerUserNameElement))
-                    {
-                        string CustomerName = CustomerNameElement.GetString();
-                        DateTime Birthday = BirthdayElement.GetDateTime();
-                        int Age = AgeElement.GetInt32();
-                        string Email = EmailElement.GetString();
-                        string CustomerPassword = CustomerPasswordElement.GetString();
-                        string CustomerUserName = CustomerUserNameElement.GetString();
-
-                        Customer customer1 = new Customer(CustomerName, Birthday, Email);
-                        customer1.CustomerPassword = CustomerPassword;
-                        customer1.CustomerUserName = CustomerUserName;
-                        customer1.Age = Age;
-
-                        registeredCustomers.Add(customer1);
-                    }
-                }
-            }
-
         }
 
         static void cancelReservation()
