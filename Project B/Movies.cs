@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Reflection.PortableExecutable;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Project_B
 {
@@ -17,10 +18,11 @@ namespace Project_B
         public string director;
         public Screen whichScreen;
         public string movieType;
+        public string Synopsis;
         public static List<Movies> movieList = new List<Movies>();
-        public string Beschrijving;
+
         public Movies(int movieID, string movieName, DateTime startTime,
-            Screen whichScreen, int runTime, string genre, string director, string movieType, string Beschrijving)
+            Screen whichScreen, int runTime, string genre, string director, string movieType, string synopsis)
         {
             this.movieID = movieID;
             this.MovieName = movieName;
@@ -30,7 +32,7 @@ namespace Project_B
             this.director = director;
             this.whichScreen = whichScreen;
             this.movieType = movieType;
-            this.Beschrijving = Beschrijving; 
+            this.Synopsis = synopsis;
         }
 
         public static void DisplayMovies()
@@ -108,7 +110,62 @@ namespace Project_B
             {
                 Console.WriteLine($"Rij {rowCounter} : {RowBlueprint[rowCounter - 1]}");
             }
-            Console.WriteLine($"VIP Rij : {movie.whichScreen.amountOfVip} / {movie.whichScreen.amountOfVip}");
+            string vipRow = "";
+            for (int k = 0; k < RowBlueprint.Length; k++)
+            {
+                //hier komt de check of de zitplaats niet in de json staat.
+                vipRow += $"{k + 1} ";
+            }
+            Console.WriteLine($"VIP Rij ({movie.whichScreen.amountOfRows}): {vipRow}");
+        }
+
+        public static string SelectRow(Movies movie, bool vip)
+        {
+           Console.WriteLine("Selecteer een rij. Vul in als een cijfer. Voor de VIP vul je het cijfer tussen de haakjes in.");
+           //implementeer vip check
+           string choice = ""; 
+           try
+           {
+               choice = Console.ReadLine();
+               int checker = int.Parse(choice);
+               if (checker < 1 && checker > movie.whichScreen.amountOfRows)
+               {
+                  Console.WriteLine($"Voer een getal tussen 1 en {movie.whichScreen.amountOfRows} in.");
+               }
+               else
+               {
+                    return choice;
+               }
+           }
+           catch (Exception e)
+           {
+               Console.WriteLine($"Voer een getal tussen 1 en {movie.whichScreen.amountOfRows} in.");
+           }
+            return choice;
+        }
+        public static string SelectSeat(Movies movie)
+        {
+            Console.WriteLine("Selecteer een stoel. Vul in als een cijfer.");
+            //implementeer vip check
+            string choice = "";
+            try
+            {
+                choice = Console.ReadLine();
+                int checker = int.Parse(choice);
+                if (checker < 1 && checker > movie.whichScreen.amountOfSeats)
+                {
+                    Console.WriteLine($"Voer een getal tussen 1 en {movie.whichScreen.amountOfSeats} in.");
+                }
+                else
+                {
+                    return choice;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Voer een getal tussen 1 en {movie.whichScreen.amountOfSeats} in.");
+            }
+            return choice;
         }
 
         //deze method initialiseert de films en zet ze in een ArrayList, waardoor de data makkelijk opnieuw te gebruiken is
@@ -132,7 +189,7 @@ namespace Project_B
             movieList.Add(new Movies(16, "1917", new DateTime(2020, 06, 20, 17, 00, 00), (Screen)Screen.screenList[2], 119, "Drama, Oorlog", "Sam Mendes, Krysty Wilson-Cairns", "Base", "Een meeslepend oorlogsdrama over de Eeste Wereldoorlog."));
         }
 
-            public static void dayOverview()
+        public static void dayOverview()
         {
             Console.WriteLine("Voor welke dag wilt u het dagoverzicht zien?");
             Console.WriteLine("1) Vandaag \n2) Andere ");
@@ -210,6 +267,7 @@ namespace Project_B
             Console.WriteLine("Filmlengte: " + movie.runTime + " minuten");
             Console.WriteLine("Genre: " + movie.genre);
             Console.WriteLine("Regisseur: " + movie.director);
+            Console.WriteLine("Beschrijving: " + movie.Synopsis);
             
         }
     }

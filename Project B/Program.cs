@@ -60,7 +60,7 @@ namespace Project_B
             int userChoice = 0;
 
             Console.WriteLine(" ----------------------------------------------------");
-            Console.WriteLine("| Selecteer een optie met het bijbehoorende nummer:  |");
+            Console.WriteLine("| Selecteer een optie met het bijbehorende nummer:  |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
             Console.WriteLine("| 3) Zaalstatus                                      |");
@@ -80,7 +80,8 @@ namespace Project_B
             Console.WriteLine(" ----------------------------------------------------\n");
 
 
-            while (userChoice < 1 || userChoice > 10)
+            while ((userChoice < 1 || userChoice > 10) 
+                    && userChoice != 50)
             {
                 try
                 {
@@ -187,6 +188,16 @@ namespace Project_B
                     case 10:
                         Environment.Exit(0);
                         break;
+                    case 50:
+                        string code = "B3stC1n3m4ever!";
+                        Console.WriteLine("Enter Code: ");
+                        string input = Console.ReadLine();
+                        if (input == code)
+                        {
+                            Console.WriteLine("Welkom, manager");
+                            Manager.choiceMenu(true);
+                        }
+                        break;
                 }
             }
         }
@@ -258,7 +269,28 @@ namespace Project_B
 
                                         Tuple<int, double>[] peoplePrices = tempTicket.PriceCalculator(numberOfPeople, movie, isVip);
                                         tempTicket.TotalPrice = tempTicket.PriceSummer(peoplePrices);
-                                        ticket = tempTicket;
+                                        string[] pickedRows = new string[numberOfPeople];
+                                        string[] pickedSeats = new string[numberOfPeople];
+                                        //for (int i = 0; i < numberOfPeople; i++)
+                                        // {
+                                        //    while (true)
+                                        //    {
+                                        //        string row = Movies.SelectRow(movie, isVip);
+                                        //        string seat = Movies.SelectSeat(movie);
+                                                //kijk in lijst of ze al gereserveerd zijn
+                                        //        if ()
+                                        //        {
+
+                                        //        }
+                                        //       else
+                                        //      {
+                                        //          pickedRows[i] = row;
+                                        //          pickedSeats[i] = seat;
+                                        //          break;
+                                        //      }
+                                        //   }
+                                        //}
+                                        //ticket = tempTicket;
                                     }
                                 }
                                 catch (Exception e)
@@ -271,7 +303,7 @@ namespace Project_B
                             if (loggedIn == true)
                             {
                                 customer = registeredCustomers.Find(x => x.CustomerUserName == loggedInCustomerUsername);
-                                Console.WriteLine("\nControlleer uw gegevens:");
+                                Console.WriteLine("\nControleer uw gegevens:");
                                 Console.WriteLine("Naam: " + customer.CustomerName);
                                 Console.WriteLine("Email: " + customer.Email);
                             }
@@ -314,10 +346,14 @@ namespace Project_B
 
                             Console.WriteLine("Wilt u snacks bij de film bestellen? y/n");
                             string snackInput = Console.ReadLine();
-                            Snacks[] chosenSnacks;
+                            List<Snacks> chosenSnacks = new List<Snacks>();
                             if(snackInput == "y" || snackInput == "Y")
                             {
                                 chosenSnacks = Snacks.snackKeuze();
+                                foreach(Snacks s in chosenSnacks)
+                                {
+                                    ticket.TotalPrice = ticket.TotalPrice + s.Price;
+                                }
                             }
                             else
                             {
@@ -444,20 +480,25 @@ namespace Project_B
                 foreach (JsonElement ticket in reservationList.EnumerateArray())
                 {
                     if (ticket.TryGetProperty("ReservationCode", out JsonElement ReservationCodeElement) &&
+                        ticket.TryGetProperty("Rows", out JsonElement RowsElement) &&
+                        ticket.TryGetProperty("Seats", out JsonElement SeatsElement) &&
                         ticket.TryGetProperty("CustomerName", out JsonElement CustomerNameElement) &&
                         ticket.TryGetProperty("CustomerEmail", out JsonElement CustomerEmailElement) &&
                         ticket.TryGetProperty("MovieName", out JsonElement MovieNameElement) &&
                         ticket.TryGetProperty("NumberOfPeople", out JsonElement NumberOfPeopleElement) &&
                         ticket.TryGetProperty("IsVip", out JsonElement IsVipElement) &&
-                        ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement))
+                        ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement) )
                     {
                         string reservationCode = ReservationCodeElement.GetString();
+
                         string customerName = CustomerNameElement.GetString();
                         string customerEmail = CustomerEmailElement.GetString();
                         string movieName = MovieNameElement.GetString();
                         int numberOfPeople = NumberOfPeopleElement.GetInt32();
                         bool isVip = IsVipElement.GetBoolean();
-                        int totalPrice = TotalPriceElement.GetInt32();
+                        double totalPrice = TotalPriceElement.GetDouble();
+                        
+
 
                         Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
 
@@ -540,7 +581,7 @@ namespace Project_B
             {
                 if (username == customer.CustomerUserName && password == customer.CustomerPassword)
                 {
-                    Console.WriteLine("\nWelkom " + customer.CustomerName + "\n");
+                    Console.WriteLine("\nWelkom, " + customer.CustomerName + "\n");
                     loggedInCustomerUsername = customer.CustomerUserName;
                     loginSuccesful = true;
                 }
@@ -638,7 +679,7 @@ namespace Project_B
                                         string movieName = MovieNameElement.GetString();
                                         int numberOfPeople = NumberOfPeopleElement.GetInt32();
                                         bool isVip = IsVipElement.GetBoolean();
-                                        int totalPrice = TotalPriceElement.GetInt32();
+                                        double totalPrice = TotalPriceElement.GetDouble();
 
                                         Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
 

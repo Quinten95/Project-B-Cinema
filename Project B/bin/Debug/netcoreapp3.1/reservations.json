@@ -45,12 +45,30 @@
     "TotalPrice": 0
   },
   {
-    "ReservationCode": "9Kj4zgf6",
-    "CustomerName": "stef",
-    "CustomerEmail": "stef@nijs.nl",
+    "ReservationCode": "OUkrOpbj",
+    "CustomerName": "Quinten de Groot",
+    "CustomerEmail": "quinten103@gmail.com",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "C3pJg3GF",
+    "CustomerName": "Erwin",
+    "CustomerEmail": "0989373@hr.nl",
     "MovieName": "1917",
     "NumberOfPeople": 1,
-    "IsVip": true,
-    "TotalPrice": 9
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "lkl3tUwV",
+    "CustomerName": "Quinten de Groot",
+    "CustomerEmail": "quinten103@gmail.com",
+    "MovieName": "Knives Out",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 7
   }
 ]

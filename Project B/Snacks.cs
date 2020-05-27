@@ -56,10 +56,10 @@ namespace Project_B
             }
         }
         
-        public static Snacks[] snackKeuze()
+        public static List<Snacks> snackKeuze()
         {
             int counter = 0;
-            Snacks[] gekozenSnacks = new Snacks[10];
+            List<Snacks> gekozenSnacks = new List<Snacks>();
             printSnacks();
             Console.WriteLine("Kies een snack van de lijst door de hele naam in te voeren.");
             while (counter < 10)
@@ -72,7 +72,7 @@ namespace Project_B
                     {
                         if (snack.snackName.ToLower() == SnackChoice)
                         {
-                            gekozenSnacks[counter] = snack;
+                            gekozenSnacks.Add(snack);
                             counter++;
                             break;
                         }
