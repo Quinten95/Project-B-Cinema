@@ -1,0 +1,37 @@
+[
+  {
+    "ScreenNumber": 1,
+    "AmountOfSeats": 150,
+    "AmountOfVip": 15,
+    "AmountOfRows": 10,
+    "AmountOfSeatsPerRow": 15
+  },
+  {
+    "ScreenNumber": 2,
+    "AmountOfSeats": 150,
+    "AmountOfVip": 15,
+    "AmountOfRows": 10,
+    "AmountOfSeatsPerRow": 15
+  },
+  {
+    "ScreenNumber": 3,
+    "AmountOfSeats": 150,
+    "AmountOfVip": 15,
+    "AmountOfRows": 10,
+    "AmountOfSeatsPerRow": 15
+  },
+  {
+    "ScreenNumber": 4,
+    "AmountOfSeats": 300,
+    "AmountOfVip": 30,
+    "AmountOfRows": 15,
+    "AmountOfSeatsPerRow": 20
+  },
+  {
+    "ScreenNumber": 5,
+    "AmountOfSeats": 500,
+    "AmountOfVip": 40,
+    "AmountOfRows": 25,
+    "AmountOfSeatsPerRow": 20
+  }
+]

@@ -1,74 +1,12 @@
 [
   {
-    "ReservationCode": "tk8Buwgm",
-    "CustomerName": "Quinten de Groot",
-    "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "Knives Out",
-    "NumberOfPeople": 2,
-    "IsVip": true,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "id3LFqBE",
-    "CustomerName": "Quinten Benito",
-    "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "The Passion",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "TaqUhecE",
-    "CustomerName": "Quinten de Groot",
-    "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "The Passion",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "r5gmDrrs",
-    "CustomerName": "Quinten de Groot",
-    "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "The Turning",
-    "NumberOfPeople": 2,
-    "IsVip": true,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "j6j5x3Eb",
-    "CustomerName": "Eddie",
-    "CustomerEmail": "23232@2323232e.com",
-    "MovieName": "The Passion",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "OUkrOpbj",
-    "CustomerName": "Quinten de Groot",
-    "CustomerEmail": "quinten103@gmail.com",
+    "rowandseat": null,
+    "ReservationCode": "oHfTbqUr",
+    "CustomerName": "test",
+    "CustomerEmail": "test@nl",
     "MovieName": "Bad Boys For Life",
     "NumberOfPeople": 1,
     "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "C3pJg3GF",
-    "CustomerName": "Erwin",
-    "CustomerEmail": "0989373@hr.nl",
-    "MovieName": "1917",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "lkl3tUwV",
-    "CustomerName": "Quinten de Groot",
-    "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "Knives Out",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 7
+    "TotalPrice": 12
   }
 ]

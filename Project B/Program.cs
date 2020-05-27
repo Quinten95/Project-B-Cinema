@@ -272,7 +272,7 @@ namespace Project_B
                                         Movies.ScreenSeats(movie);
 
                                         int selectedRow = movie.SelectRow(isVip);
-                                        string selectedSeat = movie.SelectSeat(selectedRow).ToString();
+                                        string selectedSeat = movie.SelectSeat(selectedRow, numberOfPeople).ToString();
                                         
                                         for(int i = int.Parse(selectedSeat); i < numberOfPeople; i++)
                                         {
@@ -280,7 +280,7 @@ namespace Project_B
                                         }
 
                                         Console.WriteLine($"U heeft gekozen voor rij {selectedRow} en stoel {selectedSeat}");
-
+                                        Screen.saveScreensToJson();
                                         ticket = tempTicket;
                                     }
                                 }

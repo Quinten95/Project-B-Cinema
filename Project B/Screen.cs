@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.IO;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Project_B
 {
@@ -12,7 +16,9 @@ namespace Project_B
         public int AmountOfVip { get; set; }
         public int AmountOfRows { get; set; }
         public int AmountOfSeatsPerRow { get; set; }
-        public static ArrayList screenList = new ArrayList();
+        public string[,] screenLayout;
+
+        public static List<Screen> screenList = new List<Screen>();
 
         public Screen(int screenNumber, int amountOfVip, int amountOfRows, int amountOfSeatsPerRow)
         {
@@ -32,7 +38,20 @@ namespace Project_B
             screenList.Add(new Screen(3, 15, 10, 15));
             screenList.Add(new Screen(4, 30, 15, 20));
             screenList.Add(new Screen(5, 40, 25, 20));
-        } 
+        }
+
+        public static void saveScreensToJson()
+        {
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = true;
+            var jsonString = JsonSerializer.Serialize(screenList, options);
+
+            File.WriteAllText("screens.json", jsonString);
+        }
+
     }
+
+    
 
 }

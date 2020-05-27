@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Xml.Serialization;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Project_B
 {
@@ -155,13 +152,36 @@ namespace Project_B
                 return choice;
             }
         }
-        public int SelectSeat(int row)
+
+        void fillScreenLayout(int seatsPerRow, int selectedRow, int selectedSeat)
+        {
+            whichScreen.screenLayout = new string[whichScreen.AmountOfRows, seatsPerRow];
+            for (int i = 0; i < whichScreen.AmountOfRows; i++)
+            {
+                for (int j = 0; j < seatsPerRow; j++)
+                {
+                    if (i == selectedRow && j == selectedSeat)
+                    {
+                        whichScreen.screenLayout[i, j] = "X";
+                    }
+                    else
+                    {
+                        whichScreen.screenLayout[i, j] = "O";
+                    }
+                }
+            }
+        }
+
+        
+
+        public int SelectSeat(int row, int numberOfPeople)
         {
             Console.WriteLine("Voer het nummer in van de stoel waar u wilt zitten\n" +
                 "Als u voor meerdere personen reserveert, selecteert u de linker stoel.\n" +
                 "De stoelen rechts van uw keuze worden automatisch geselecteerd:");
             int seatsPerRow = whichScreen.AmountOfSeats / whichScreen.AmountOfRows;
-
+            
+            
             int choice = -1;
             while (choice < 1 || choice > seatsPerRow)
             {
@@ -174,6 +194,7 @@ namespace Project_B
                     }
                     else
                     {
+                        fillScreenLayout(seatsPerRow, row - 1, choice - 1);
                         return choice;
                     }
                 }
@@ -182,6 +203,7 @@ namespace Project_B
                     Console.WriteLine($"Voer een getal tussen 1 en {seatsPerRow} in.");
                 }
             }
+
             return choice;
         }
 
