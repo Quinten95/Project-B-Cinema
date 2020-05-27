@@ -16,8 +16,6 @@ namespace Project_B
         public int AmountOfVip { get; set; }
         public int AmountOfRows { get; set; }
         public int AmountOfSeatsPerRow { get; set; }
-        public List<string> ScreenRows { get; set; }
-        public string[,] screenLayout;
 
         public static List<Screen> screenList = new List<Screen>();
 
@@ -39,20 +37,6 @@ namespace Project_B
             screenList.Add(new Screen(3, 15, 10, 15));
             screenList.Add(new Screen(4, 30, 15, 20));
             screenList.Add(new Screen(5, 40, 20, 25));
-        }
-
-        public void saveScreenToJson()
-        {
-            foreach(string s in this.ScreenRows)
-            {
-                Console.WriteLine(s);
-            }
-
-            JsonSerializerOptions options = new JsonSerializerOptions();
-            options.WriteIndented = true;
-            var jsonString = JsonSerializer.Serialize(screenList, options);
-
-            File.WriteAllText("screens.json", jsonString);
         }
 
     }

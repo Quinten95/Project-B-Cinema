@@ -6,6 +6,78 @@
     "MovieName": "Honey Boy",
     "NumberOfPeople": 1,
     "IsVip": false,
-    "TotalPrice": 7
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "BFrvcJoZ",
+    "CustomerName": "Benito",
+    "CustomerEmail": "benito@gmail.asd",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "2Xy5sUTv",
+    "CustomerName": "quinten",
+    "CustomerEmail": "q@w.nl",
+    "MovieName": "1917",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "pmCDacVO",
+    "CustomerName": "q",
+    "CustomerEmail": "q@q.nl",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "lJVKocaw",
+    "CustomerName": "q",
+    "CustomerEmail": "quinten@quinten.nl",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 1,
+    "IsVip": true,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "JNOLdkoz",
+    "CustomerName": "q",
+    "CustomerEmail": "q@q.nl",
+    "MovieName": "No Time To Die",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "bVYKSvYM",
+    "CustomerName": "q",
+    "CustomerEmail": "q@q.nl",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "UjsotvWY",
+    "CustomerName": "Quinten",
+    "CustomerEmail": "de@asd.nl",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "hS4yXctY",
+    "CustomerName": "quinten",
+    "CustomerEmail": "quinten103@gmail.com",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 12
   }
 ]

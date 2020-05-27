@@ -281,7 +281,7 @@ namespace Project_B
                                         }
 
                                         Console.WriteLine($"U heeft gekozen voor rij {selectedRow} en stoel {selectedSeat}");
-                                        movie.whichScreen.saveScreenToJson();
+                                        movie.saveMovieScreenJson();
                                         ticket = tempTicket;
                                     }
                                 }

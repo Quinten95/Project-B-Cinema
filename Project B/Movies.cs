@@ -5,7 +5,9 @@ using System.IO;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Xml.Serialization;
+using static System.Text.Json.JsonElement;
 
 namespace Project_B
 {
@@ -21,6 +23,7 @@ namespace Project_B
         public int screenNumber { get; set; }
         public string movieType { get; set; }
         public string Synopsis { get; set; }
+        public List<string> ScreenRows { get; set; }
 
         public Movies(int movieID, string movieName, DateTime startTime,
              int screenNumber, int runTime, string genre, string director, string movieType, string synopsis)
@@ -160,24 +163,32 @@ namespace Project_B
 
         void fillScreenLayout(int seatsPerRow, int selectedRow, int selectedSeat)
         {
-            whichScreen.ScreenRows = new List<string>();
-            string rows = "";
-            whichScreen.screenLayout = new string[whichScreen.AmountOfRows, seatsPerRow];
-            for (int i = 0; i < whichScreen.AmountOfRows; i++)
+            for (int i = 0; i < ScreenRows.Count; i++)
             {
-                for (int j = 0; j < seatsPerRow; j++)
+                string oldRow = ScreenRows[i];
+                string newRow = "";
+                string[] rowChars = new string[seatsPerRow];
+                for (int k = 0; k < ScreenRows[i].Length; k++)
                 {
-                    if (i == selectedRow && j == selectedSeat)
+                    rowChars[k] = oldRow[k].ToString();
+                }
+
+                for(int j = 0; j < rowChars.Length; j++)
+                {
+                    if (rowChars[j] == "O" && i == selectedRow && j == selectedSeat)
                     {
-                        rows = rows + "X";
+                        newRow = newRow + "X";
+                    }
+                    else if(rowChars[j] == "X")
+                    {
+                        newRow = newRow + "X";
                     }
                     else
                     {
-                        rows = rows + "O";
+                        newRow = newRow + "O";
                     }
                 }
-                whichScreen.ScreenRows.Add(rows);
-                rows = "";
+                ScreenRows[i] = newRow;
             }
         }
 
@@ -216,10 +227,22 @@ namespace Project_B
             return choice;
         }
 
+        public void saveMovieScreenJson(){
+
+            Movies movieToDelete = Program.movies.Find(x => x.movieID == this.movieID);
+            Program.movies.Remove(movieToDelete);
+            Program.movies.Insert(this.movieID-1, this);
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = true;
+            var jsonString = JsonSerializer.Serialize(Program.movies, options);
+
+            File.WriteAllText("movies.json", jsonString);
+        }
+
         public static void fillMovieList()
         {
             string jsonText = File.ReadAllText("movies.json");
-
             using (JsonDocument document = JsonDocument.Parse(jsonText))
             {
                 JsonElement root = document.RootElement;
@@ -234,7 +257,8 @@ namespace Project_B
                         movie.TryGetProperty("director", out JsonElement directorElement) &&
                         movie.TryGetProperty("screenNumber", out JsonElement screenNumberElement) &&
                         movie.TryGetProperty("movieType", out JsonElement movieTypeElement) &&
-                        movie.TryGetProperty("Synopsis", out JsonElement SynopsisElement))
+                        movie.TryGetProperty("Synopsis", out JsonElement SynopsisElement)&&
+                        movie.TryGetProperty("ScreenRows", out JsonElement ScreenRowsElement))
                     {
                         int movieID = movieIDElement.GetInt32();
                         string MovieName = MovieNameElement.GetString();
@@ -245,8 +269,17 @@ namespace Project_B
                         int screenNumber = screenNumberElement.GetInt32();
                         string movieType = movieTypeElement.GetString();
                         string Synopsis = SynopsisElement.GetString();
+                        List<string> screenRows = new List<string>();
+                        ArrayEnumerator arrayEnum = ScreenRowsElement.EnumerateArray();
+
+                        while (arrayEnum.MoveNext())
+                        {
+                            screenRows.Add(arrayEnum.Current.GetString());
+                        }
+
 
                         Movies fillMovies = new Movies(movieID, MovieName, startTime, screenNumber, runTime, genre, director, movieType, Synopsis);
+                        fillMovies.ScreenRows = screenRows;
                         Program.movies.Add(fillMovies);
                     }
                 }
