@@ -7,7 +7,6 @@ namespace Project_B
     class Ticket
     {
         private Screen screen;
-        public RowSeat rowandseat { get; set; }
         public string ReservationCode { get; set; }
         public string CustomerName { get; set; }
         public string CustomerEmail { get; set; }

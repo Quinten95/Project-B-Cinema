@@ -155,6 +155,8 @@ namespace Project_B
 
         void fillScreenLayout(int seatsPerRow, int selectedRow, int selectedSeat)
         {
+            whichScreen.ScreenRows = new List<string>();
+            string rows = "";
             whichScreen.screenLayout = new string[whichScreen.AmountOfRows, seatsPerRow];
             for (int i = 0; i < whichScreen.AmountOfRows; i++)
             {
@@ -162,13 +164,15 @@ namespace Project_B
                 {
                     if (i == selectedRow && j == selectedSeat)
                     {
-                        whichScreen.screenLayout[i, j] = "X";
+                        rows = rows + "X";
                     }
                     else
                     {
-                        whichScreen.screenLayout[i, j] = "O";
+                        rows = rows + "O";
                     }
                 }
+                whichScreen.ScreenRows.Add(rows);
+                rows = "";
             }
         }
 

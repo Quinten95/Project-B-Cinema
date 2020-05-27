@@ -280,7 +280,7 @@ namespace Project_B
                                         }
 
                                         Console.WriteLine($"U heeft gekozen voor rij {selectedRow} en stoel {selectedSeat}");
-                                        Screen.saveScreensToJson();
+                                        movie.whichScreen.saveScreenToJson();
                                         ticket = tempTicket;
                                     }
                                 }
@@ -471,8 +471,6 @@ namespace Project_B
                 foreach (JsonElement ticket in reservationList.EnumerateArray())
                 {
                     if (ticket.TryGetProperty("ReservationCode", out JsonElement ReservationCodeElement) &&
-                        ticket.TryGetProperty("Rows", out JsonElement RowsElement) &&
-                        ticket.TryGetProperty("Seats", out JsonElement SeatsElement) &&
                         ticket.TryGetProperty("CustomerName", out JsonElement CustomerNameElement) &&
                         ticket.TryGetProperty("CustomerEmail", out JsonElement CustomerEmailElement) &&
                         ticket.TryGetProperty("MovieName", out JsonElement MovieNameElement) &&

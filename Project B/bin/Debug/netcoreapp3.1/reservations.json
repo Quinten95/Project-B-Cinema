@@ -1,12 +1,29 @@
 [
   {
-    "rowandseat": null,
-    "ReservationCode": "oHfTbqUr",
-    "CustomerName": "test",
-    "CustomerEmail": "test@nl",
-    "MovieName": "Bad Boys For Life",
+    "ReservationCode": "n2A1Tlx9",
+    "CustomerName": "benito",
+    "CustomerEmail": "benito@benito.com",
+    "MovieName": "Knives Out",
     "NumberOfPeople": 1,
     "IsVip": false,
-    "TotalPrice": 12
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "OaIjLVc1",
+    "CustomerName": "Quinten",
+    "CustomerEmail": "quinten@quinten.nl",
+    "MovieName": "Black Widow",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "7yG2GgPg",
+    "CustomerName": "test",
+    "CustomerEmail": "test@ased.nl",
+    "MovieName": "Honey Boy",
+    "NumberOfPeople": 1,
+    "IsVip": false,
+    "TotalPrice": 7
   }
 ]
