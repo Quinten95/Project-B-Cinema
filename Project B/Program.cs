@@ -19,6 +19,7 @@ namespace Project_B
         public static List<Customer> registeredCustomers = new List<Customer>();
         static List<Ticket> reservations = new List<Ticket>();
         public static List<Movies> movies = new List<Movies>();
+        public static List<Snacks> snacks = new List<Snacks>();
         static bool loggedIn = false;
         static string loggedInCustomerUsername;
 
@@ -26,7 +27,7 @@ namespace Project_B
         public static void Main(string[] args)
         {
             Screen.InitScreens();
-            Snacks.initSnacks();
+            Snacks.FillSnackList();
             Movies.fillMovieList();
             fillReservationList();
             Ticket.fillRegisteredCustomerList();

@@ -27,6 +27,16 @@
     "MovieName": "1917",
     "NumberOfPeople": 1,
     "IsVip": true,
-    "TotalPrice": 7
+    "TotalPrice": 0
+  },
+  {
+    "rowandseat": null,
+    "ReservationCode": "gfyygrin",
+    "CustomerName": "Iemand",
+    "CustomerEmail": "eenemail@ditisgeenechtemailadres.nl",
+    "MovieName": "The Passion",
+    "NumberOfPeople": 2,
+    "IsVip": false,
+    "TotalPrice": 29.25
   }
 ]
