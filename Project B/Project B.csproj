@@ -8,4 +8,8 @@
 
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp3.1\movies.json" />
+  </ItemGroup>
+
 </Project>

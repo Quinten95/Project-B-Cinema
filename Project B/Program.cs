@@ -18,6 +18,7 @@ namespace Project_B
 
         static List<Customer> registeredCustomers = new List<Customer>();
         static List<Ticket> reservations = new List<Ticket>();
+        public static List<Movies> movies = new List<Movies>();
         static bool loggedIn = false;
         static string loggedInCustomerUsername;
 
@@ -25,8 +26,8 @@ namespace Project_B
         public static void Main(string[] args)
         {
             Screen.InitScreens();
-            Movies.InitMovies();
             Snacks.initSnacks();
+            Movies.fillMovieList();
             fillReservationList();
             fillRegisteredCustomerList();
 
@@ -60,7 +61,7 @@ namespace Project_B
             int userChoice = 0;
 
             Console.WriteLine(" ----------------------------------------------------");
-            Console.WriteLine("| Selecteer een optie met het bijbehorende nummer:  |");
+            Console.WriteLine("| Selecteer een optie met het bijbehorende nummer:   |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
             Console.WriteLine("| 2) Maak een reservatie                             |");
             Console.WriteLine("| 3) Zaalstatus                                      |");
@@ -118,14 +119,14 @@ namespace Project_B
                         Console.WriteLine("Voor welke film wilt u tickets kopen:");
                         userChoice = -1;
                         Movies.DisplayMovies(userChoice);
-                        while (userChoice < 1 || userChoice > Movies.movieList.Count)
+                        while (userChoice < 1 || userChoice > movies.Count)
                         {
                             //hier wordt gecheckt of de gebruiker wel een bestaand filmnummer kiest
                             //zo ja wordt de reserveTicket method aangeroepen en de geselecteerde film als parameter meegegeven
                             try
                             {
                                 userChoice = int.Parse(Console.ReadLine());
-                                Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
+                                Movies movieToReserve = movies[userChoice - 1];
                                 reserveTicket(movieToReserve);
                             }
                             catch (Exception e)
@@ -138,13 +139,13 @@ namespace Project_B
                         Console.WriteLine("Van welke film wilt u de zaalstatus zien?");
                         int statusChoice = -1;
                         Movies.DisplayMovies(statusChoice);
-                        while (statusChoice < 1 || statusChoice > Movies.movieList.Count)
+                        while (statusChoice < 1 || statusChoice > movies.Count)
                         {
                             try
                             {
                                 //zelfde code bij case 2, maar deze roept de zaalstatus functie aan
                                 statusChoice = int.Parse(Console.ReadLine());
-                                Movies statusOf = (Movies)Movies.movieList[statusChoice - 1];
+                                Movies statusOf = movies[statusChoice - 1];
                                 Movies.ScreenSeats(statusOf);
                             }
                             catch (Exception e)
@@ -384,12 +385,12 @@ namespace Project_B
                             {
                                 Console.WriteLine("Voor welke film wilt u tickets kopen:");
                                 int userChoice = -1;
-                                while (userChoice < 1 || userChoice > Movies.movieList.Count)
+                                while (userChoice < 1 || userChoice > movies.Count)
                                 {
                                     try
                                     {
                                         userChoice = int.Parse(Console.ReadLine());
-                                        Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
+                                        Movies movieToReserve = movies[userChoice - 1];
                                         reserveTicket(movieToReserve);
                                     }
                                     catch (Exception e)
@@ -408,12 +409,12 @@ namespace Project_B
                             Console.WriteLine("Voor welke film wilt u tickets kopen:");
                             int userChoice = -1;
                             Movies.DisplayMovies(userChoice);
-                            while (userChoice < 1 || userChoice > Movies.movieList.Count)
+                            while (userChoice < 1 || userChoice > movies.Count)
                             {
                                 try
                                 {
                                     userChoice = int.Parse(Console.ReadLine());
-                                    Movies movieToReserve = (Movies)Movies.movieList[userChoice - 1];
+                                    Movies movieToReserve = movies[userChoice - 1];
                                     reserveTicket(movieToReserve);
                                 }
                                 catch (Exception e)
@@ -489,7 +490,7 @@ namespace Project_B
                         
 
 
-                        Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
+                        Movies tempMovie = movies.Find(x => x.MovieName == movieName);
 
                         Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip);
                         fillTicket.CustomerName = customerName;
@@ -670,7 +671,7 @@ namespace Project_B
                                         bool isVip = IsVipElement.GetBoolean();
                                         double totalPrice = TotalPriceElement.GetDouble();
 
-                                        Movies tempMovie = Movies.movieList.Find(x => x.MovieName == movieName);
+                                        Movies tempMovie = movies.Find(x => x.MovieName == movieName);
 
                                         Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip);
                                         fillTicket.CustomerName = customerName;
