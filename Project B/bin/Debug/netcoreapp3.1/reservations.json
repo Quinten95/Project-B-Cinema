@@ -42,6 +42,15 @@
     "MovieName": "The Passion",
     "NumberOfPeople": 1,
     "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "9Kj4zgf6",
+    "CustomerName": "stef",
+    "CustomerEmail": "stef@nijs.nl",
+    "MovieName": "1917",
+    "NumberOfPeople": 1,
+    "IsVip": true,
     "TotalPrice": 9
   }
 ]

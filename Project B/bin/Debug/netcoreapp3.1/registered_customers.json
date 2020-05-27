@@ -30,5 +30,21 @@
     "Email": "benny@gmail.com",
     "CustomerPassword": "Test95",
     "CustomerUserName": "Test95"
+  },
+  {
+    "CustomerName": "stef",
+    "Birthday": "2000-01-01T00:00:00",
+    "Age": 20,
+    "Email": "stef@nijs.nl",
+    "CustomerPassword": "stef",
+    "CustomerUserName": "stef"
+  },
+  {
+    "CustomerName": "Stefan",
+    "Birthday": "2000-04-04T00:00:00",
+    "Age": 20,
+    "Email": "Stefan.nijssen68@gmail.com",
+    "CustomerPassword": "stefan",
+    "CustomerUserName": "Stef435"
   }
 ]
