@@ -6,8 +6,15 @@
     "MovieName": "Bad Boys For Life",
     "NumberOfPeople": 2,
     "IsVip": false,
-    "TotalPrice": 24,
-    "SelectedRow": 14,
-    "SelectedSeat": 10
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "3TdpkwqL",
+    "CustomerName": "Erwin\\",
+    "CustomerEmail": "erwinhazeleger@ditisgeenechtemailadres.nl",
+    "MovieName": "Knives Out",
+    "NumberOfPeople": 4,
+    "IsVip": false,
+    "TotalPrice": 25.900000000000002
   }
 ]
