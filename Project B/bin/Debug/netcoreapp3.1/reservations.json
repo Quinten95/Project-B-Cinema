@@ -1,101 +1,13 @@
 [
   {
-    "ReservationCode": "Jcjw8IYx",
+    "ReservationCode": "kmuDAB8O",
     "CustomerName": "Quinten de Groot",
     "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "Honey Boy",
-    "NumberOfPeople": 1,
+    "MovieName": "Black Widow",
+    "NumberOfPeople": 2,
     "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "BFrvcJoZ",
-    "CustomerName": "Benito",
-    "CustomerEmail": "benito@gmail.asd",
-    "MovieName": "Bad Boys For Life",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "2Xy5sUTv",
-    "CustomerName": "quinten",
-    "CustomerEmail": "q@w.nl",
-    "MovieName": "1917",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "pmCDacVO",
-    "CustomerName": "q",
-    "CustomerEmail": "q@q.nl",
-    "MovieName": "Bad Boys For Life",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "lJVKocaw",
-    "CustomerName": "q",
-    "CustomerEmail": "quinten@quinten.nl",
-    "MovieName": "Bad Boys For Life",
-    "NumberOfPeople": 1,
-    "IsVip": true,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "JNOLdkoz",
-    "CustomerName": "q",
-    "CustomerEmail": "q@q.nl",
-    "MovieName": "No Time To Die",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "bVYKSvYM",
-    "CustomerName": "q",
-    "CustomerEmail": "q@q.nl",
-    "MovieName": "Bad Boys For Life",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "UjsotvWY",
-    "CustomerName": "Quinten",
-    "CustomerEmail": "de@asd.nl",
-    "MovieName": "Bad Boys For Life",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "hS4yXctY",
-    "CustomerName": "quinten",
-    "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "Bad Boys For Life",
-    "NumberOfPeople": 1,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "98CRtHoP",
-    "CustomerName": "Quinten",
-    "CustomerEmail": "quinten@quinten.nl",
-    "MovieName": "Bad Boys For Life",
-    "NumberOfPeople": 3,
-    "IsVip": false,
-    "TotalPrice": 0
-  },
-  {
-    "ReservationCode": "this37rJ",
-    "CustomerName": "Quinten",
-    "CustomerEmail": "quinten@quinten.nl",
-    "MovieName": "Bad Boys For Life",
-    "NumberOfPeople": 4,
-    "IsVip": false,
-    "TotalPrice": 48
+    "TotalPrice": 24,
+    "SelectedRow": 14,
+    "SelectedSeat": 9
   }
 ]
