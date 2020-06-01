@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CHij61r8mPfvOxfi36Ov2e4Bj8sxgdG3WFHRtQI21kBrzUmSL6U5YQKTlG7Ez5VXuAJUt9CaDZmD9A7lNY1vvA==",
+  "dgSpecHash": "NJFUr5UMGGQJXSBYlqEAAjTnAshLeLIL0yVemb03Iy9joVDeA4KYgaHMRlpM/9sEdb55y+TC8AzC/vP+35vrFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Quinten\\Documents\\SCHOOL\\PROJECT B\\Project B Fixed\\Project B\\Project B.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Quinten\\Documents\\SCHOOL\\PROJECT B\\Project B\\Project B.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Quinten\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
   "logs": []
 }

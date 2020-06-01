@@ -63,7 +63,7 @@ namespace Project_B
             Console.WriteLine(" ----------------------------------------------------");
             Console.WriteLine("| Selecteer een optie met het bijbehorende nummer:   |");
             Console.WriteLine("| 1) Bekijk ons filmaanbod                           |");
-            Console.WriteLine("| 2) Maak een reservatie                             |");
+            Console.WriteLine("| 2) Maak een reservering                            |");
             Console.WriteLine("| 3) Zaalstatus                                      |");
             Console.WriteLine("| 4) Bekijk onze prijzen                             |");
             Console.WriteLine("| 5) Account registratie                             |");
@@ -672,6 +672,14 @@ namespace Project_B
                                     string reservationCode = ReservationCodeElement.GetString();
                                     if (reservationCode == reservationCodeCustomer)
                                     {
+                                        int numberOfPeople = NumberOfPeopleElement.GetInt32();
+                                        int selectedRow = SelectedRowElement.GetInt32();
+                                        int selectedSeat = SelectedSeatElement.GetInt32();
+                                        string movieName = MovieNameElement.GetString();
+                                        Movies movieToCancel = movies.Find(x => x.MovieName == movieName);
+                                        movieToCancel.cancelReservation(selectedRow - 1, selectedSeat - 1, numberOfPeople);
+                                        movieToCancel.saveMovieScreenJson();
+
                                         Console.WriteLine("Uw reservering is geannuleerd!");
                                         reservationExists = true;
                                     }
@@ -741,7 +749,9 @@ namespace Project_B
                         "\nFilm: " + movieName +
                         "\nTijd: " + startTime.ToString("dd/MM/yyyy HH:mm") +
                         "\nZaal: " + screenNumber +
-                        "\nPrijs: €" + String.Format("{0:0.00}", totalPrice);
+                        "\nPrijs: €" + String.Format("{0:0.00}", totalPrice) +
+                        "\nRij: " + row +
+                        "\nStoel: " + seat;
             msg.IsBodyHtml = false;
 
 

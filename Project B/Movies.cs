@@ -231,6 +231,45 @@ namespace Project_B
             }
         }
 
+        public void cancelReservation(int selectedRow, int selectedSeat, int numberOfPeople)
+        {
+            int seatsPerRow = whichScreen.AmountOfSeats / whichScreen.AmountOfRows;
+            for (int i = 0; i < ScreenRows.Count; i++)
+            {
+                string oldRow = ScreenRows[i];
+                string newRow = "";
+                string[] rowChars = new string[seatsPerRow];
+                for (int k = 0; k < ScreenRows[i].Length; k++)
+                {
+                    rowChars[k] = oldRow[k].ToString();
+                }
+
+                for (int j = 0; j < rowChars.Length; j++)
+                {
+                    if (rowChars[j] == "X" && i == selectedRow && j == selectedSeat && numberOfPeople > 0)
+                    {
+                        for (int k = 0; k < numberOfPeople; k++)
+                        {
+                            newRow = newRow + "O";
+                            if (k < numberOfPeople - 1)
+                            {
+                                j++;
+                            }
+                        }
+                    }
+                    else if (rowChars[j] == "X")
+                    {
+                        newRow = newRow + "X";
+                    }
+                    else
+                    {
+                        newRow = newRow + "O";
+                    }
+                }
+                ScreenRows[i] = newRow;
+            }
+        }
+
         
         /**In deze methode wordt de stoel gekozen door de klant.
         Ook wordt op basis van het aantal mensen bepaald wat de meest rechter stoel is die de klant kan kiezen.

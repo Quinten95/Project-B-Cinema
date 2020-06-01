@@ -1,13 +1,13 @@
 [
   {
-    "ReservationCode": "kmuDAB8O",
+    "ReservationCode": "O0xq0rF5",
     "CustomerName": "Quinten de Groot",
     "CustomerEmail": "quinten103@gmail.com",
-    "MovieName": "Black Widow",
+    "MovieName": "Bad Boys For Life",
     "NumberOfPeople": 2,
     "IsVip": false,
     "TotalPrice": 24,
     "SelectedRow": 14,
-    "SelectedSeat": 9
+    "SelectedSeat": 10
   }
 ]
