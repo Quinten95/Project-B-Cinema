@@ -22,5 +22,9 @@ namespace Project_B
             this.Age = today.Year - birthday.Year;
         }
 
+        public Customer(string customerName, DateTime? customerBirthDay, string customerEmail)
+        {
+            CustomerName = customerName;
+        }
     }
 }

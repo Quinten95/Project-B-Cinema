@@ -20,6 +20,7 @@ namespace Project_B
         public string movieType;
         public string Synopsis;
         public static List<Movies> movieList = new List<Movies>();
+        internal string movieName;
 
         public Movies(int movieID, string movieName, DateTime startTime,
             Screen whichScreen, int runTime, string genre, string director, string movieType, string synopsis)

@@ -166,7 +166,7 @@ namespace Project_B
                                     Console.WriteLine("Uw geboortedatum moet als dd/mm/yyyy ingevoerd worden, bijv: 01/01/2020:");
                                 }
                             }
-                            Customer customer = new Customer(customerName, customerBirthDay, customerEmail);
+                            Customer customer = new Customer(customerName, customerBirthDay, customerEmail: customerEmail);
 
                             //dit genereert een random string van cijfers en letters (de reserveringscode waarmee de klant naar de kassa kan)
                             string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

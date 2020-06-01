@@ -16,6 +16,8 @@ namespace Project_B
         public int NumberOfPeople { get; set; }
         public bool IsVip { get; set; }
         public Tuple<int, double>[] peoplePrices;
+        internal string totalPrice;
+
         public double TotalPrice { get; set; }
 
         public Ticket(Movies movie, int numberOfPeople, bool VipChoice)

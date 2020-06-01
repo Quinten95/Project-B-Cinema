@@ -48,7 +48,7 @@ namespace Project_B
             Snacks[] snacklijst = new Snacks[]
             {
                 snack1, snack2, snack3, snack4, snack5, snack6, snack7, snack8, snack9, snack10, snack11, snack12, snack13, snack14, snack15, snack16, snack17, snack18, snack19, snack20, snack21, snack22, snack23
-            }
+            };
             Snacks[] gekozenSnacks = new Snacks[10];
             int counter = 0;
             Console.WriteLine("ons menu");
