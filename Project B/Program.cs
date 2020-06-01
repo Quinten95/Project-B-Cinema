@@ -88,6 +88,10 @@ namespace Project_B
                 try
                 {
                     userChoice = int.Parse(Console.ReadLine());
+                    if((userChoice < 1 || userChoice > 10) && userChoice != 50)
+                        {
+                            Console.WriteLine("Maak a.u.b. een keuze uit één van de opties:");
+                        }
                 }
                 catch (Exception e)
                 {
@@ -209,6 +213,7 @@ namespace Project_B
                             Manager.choiceMenu(true);
                         }
                         break;
+                    
                 }
             }
         }
@@ -280,29 +285,19 @@ namespace Project_B
 
                                         Tuple<int, double>[] peoplePrices = tempTicket.PriceCalculator(numberOfPeople, movie, isVip);
                                         tempTicket.TotalPrice = tempTicket.PriceSummer(peoplePrices);
-                                        string[] pickedRows = new string[numberOfPeople];
-                                        string[] pickedSeats = new string[numberOfPeople];
-                                        ticket = tempTicket;
-                                        //for (int i = 0; i < numberOfPeople; i++)
-                                        // {
-                                        //    while (true)
-                                        //    {
-                                        //        string row = Movies.SelectRow(movie, isVip);
-                                        //        string seat = Movies.SelectSeat(movie);
-                                                //kijk in lijst of ze al gereserveerd zijn
-                                        //        if ()
-                                        //        {
+                                        Movies.ScreenSeats(movie);
 
-                                        //        }
-                                        //       else
-                                        //      {
-                                        //          pickedRows[i] = row;
-                                        //          pickedSeats[i] = seat;
-                                        //          break;
-                                        //      }
-                                        //   }
-                                        //}
-                                        //ticket = tempTicket;
+                                        int selectedRow = movie.SelectRow(isVip);
+                                        string selectedSeat = movie.SelectSeat(selectedRow, numberOfPeople).ToString();
+                                        
+                                        for(int i = int.Parse(selectedSeat); i < numberOfPeople; i++)
+                                        {
+                                            selectedSeat = selectedSeat + " " + (i + 1);
+                                        }
+
+                                        Console.WriteLine($"U heeft gekozen voor rij {selectedRow} en stoel {selectedSeat}");
+                                        movie.saveMovieScreenJson();
+                                        ticket = tempTicket;
                                     }
                                 }
                                 catch (Exception e)
@@ -385,7 +380,7 @@ namespace Project_B
                             string reservationCode = new string(reservationCodeChars);
 
                             Console.WriteLine("\nU heeft gekozen voor: " + movie.MovieName + " op " + movie.startTime);
-                            Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.screenNumber);
+                            Console.WriteLine("De film speelt zich af in zaal: " + movie.whichScreen.ScreenNumber);
                             Console.WriteLine("De totale prijs is: €" + String.Format("{0:0.00}", ticket.TotalPrice));
 
                             Console.WriteLine("\nWilt u uw keuze bevestigen? (y/n)");
@@ -398,7 +393,7 @@ namespace Project_B
                                 ticket.CustomerEmail = customer.Email;
                                 ticket.ReservationCode = reservationCode;
                                 sendCustomerMail(customer.CustomerName, customer.Email, reservationCode,
-                                    movie.MovieName, movie.startTime, movie.whichScreen.screenNumber, ticket.TotalPrice);
+                                    movie.MovieName, movie.startTime, movie.whichScreen.ScreenNumber, ticket.TotalPrice);
                                 saveReservationJson(ticket);
                             }
                             else

@@ -6,10 +6,28 @@
     "runTime": 163,
     "genre": "Actie, Avontuur, Thriller",
     "director": "Cary Joji Fukunaga",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 1,
+      "AmountOfSeats": 150,
+      "AmountOfVip": 15,
+      "AmountOfRows": 10,
+      "AmountOfSeatsPerRow": 15
+    },
     "screenNumber": 0,
     "movieType": "Base",
-    "Synopsis": "In deze James Bond-film heeft james bond ze oude leven als geheime agent achter zich gelaten e leeft die nu een rustig levendje in Jamiaca."
+    "Synopsis": "In deze James Bond-film heeft james bond ze oude leven als geheime agent achter zich gelaten e leeft die nu een rustig levendje in Jamiaca.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 2,
@@ -18,10 +36,28 @@
     "runTime": 130,
     "genre": "Drama, Thriller",
     "director": "Rian Johnson",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 1,
+      "AmountOfSeats": 150,
+      "AmountOfVip": 15,
+      "AmountOfRows": 10,
+      "AmountOfSeatsPerRow": 15
+    },
     "screenNumber": 0,
     "movieType": "Base",
-    "Synopsis": "Wanneer een misdaadschrijver dood wordt gevonden op zijn landgoed wordt de rechercheur Benoi Blanc opgeroepen om zijn dood te onderzoeken."
+    "Synopsis": "Wanneer een misdaadschrijver dood wordt gevonden op zijn landgoed wordt de rechercheur Benoi Blanc opgeroepen om zijn dood te onderzoeken.",
+    "ScreenRows": [
+      "XXXXOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 3,
@@ -30,10 +66,28 @@
     "runTime": 100,
     "genre": "Music",
     "director": "david Grifhorst",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 2,
+      "AmountOfSeats": 150,
+      "AmountOfVip": 15,
+      "AmountOfRows": 10,
+      "AmountOfSeatsPerRow": 15
+    },
     "screenNumber": 1,
     "movieType": "3D",
-    "Synopsis": "The Passion is een film over het lijden en sterven van jezus."
+    "Synopsis": "The Passion is een film over het lijden en sterven van jezus.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 4,
@@ -42,10 +96,28 @@
     "runTime": 90,
     "genre": "Docs",
     "director": "Pieter van Huystee",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 2,
+      "AmountOfSeats": 150,
+      "AmountOfVip": 15,
+      "AmountOfRows": 10,
+      "AmountOfSeatsPerRow": 15
+    },
     "screenNumber": 1,
     "movieType": "IMAX",
-    "Synopsis": "Het ver1haal van Lady Grace Drummond-Hay. Een journaliste die de enige vrouwelijke passieger op de eerste reis rond de wereld in 1929. "
+    "Synopsis": "Het ver1haal van Lady Grace Drummond-Hay. Een journaliste die de enige vrouwelijke passieger op de eerste reis rond de wereld in 1929. ",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 5,
@@ -54,10 +126,28 @@
     "runTime": 100,
     "genre": "Horror",
     "director": "Floria Sigismondi",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 3,
+      "AmountOfSeats": 150,
+      "AmountOfVip": 15,
+      "AmountOfRows": 10,
+      "AmountOfSeatsPerRow": 15
+    },
     "screenNumber": 2,
     "movieType": "Base",
-    "Synopsis": "Een horror film gebaseerd op het spookverhaal uit 1988 The Turn of the Screw van Henry James."
+    "Synopsis": "Een horror film gebaseerd op het spookverhaal uit 1988 The Turn of the Screw van Henry James.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 6,
@@ -66,10 +156,33 @@
     "runTime": 145,
     "genre": "Actie",
     "director": "Christopher McQuarrie",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 4,
+      "AmountOfSeats": 300,
+      "AmountOfVip": 30,
+      "AmountOfRows": 15,
+      "AmountOfSeatsPerRow": 20
+    },
     "screenNumber": 3,
     "movieType": "Auro3D",
-    "Synopsis": "Wanneer er een ernstige misdadiger ontsnapt wordt het voor Hunt en zijn team een race tegen de klok."
+    "Synopsis": "Wanneer er een ernstige misdadiger ontsnapt wordt het voor Hunt en zijn team een race tegen de klok.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 7,
@@ -78,10 +191,33 @@
     "runTime": 130,
     "genre": "Actie, Advontuur, Science Fiction",
     "director": "Cate Shortland",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 4,
+      "AmountOfSeats": 300,
+      "AmountOfVip": 30,
+      "AmountOfRows": 15,
+      "AmountOfSeatsPerRow": 20
+    },
     "screenNumber": 3,
     "movieType": "IMAX",
-    "Synopsis": "Een aparte film van de bekende Black Widow bekend van de Marvel Cinematic Universe."
+    "Synopsis": "Een aparte film van de bekende Black Widow bekend van de Marvel Cinematic Universe.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 8,
@@ -90,10 +226,38 @@
     "runTime": 94,
     "genre": "Drama",
     "director": "Alma Har\u0027el",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 5,
+      "AmountOfSeats": 500,
+      "AmountOfVip": 40,
+      "AmountOfRows": 20,
+      "AmountOfSeatsPerRow": 25
+    },
     "screenNumber": 4,
     "movieType": "Base",
-    "Synopsis": "Een film gebasseerd op de ervaringen van Shia Labeouf als jonge acteur."
+    "Synopsis": "Een film gebasseerd op de ervaringen van Shia Labeouf als jonge acteur.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OXOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 9,
@@ -102,10 +266,38 @@
     "runTime": 98,
     "genre": "Thriller",
     "director": "Adam Randell",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 5,
+      "AmountOfSeats": 500,
+      "AmountOfVip": 40,
+      "AmountOfRows": 20,
+      "AmountOfSeatsPerRow": 25
+    },
     "screenNumber": 4,
     "movieType": "Base",
-    "Synopsis": "Wanner een rechercheur de verdwijning van een jongen onderzoekt overkomen hem en zijn gezin de vreemdste gebeurtenissen."
+    "Synopsis": "Wanner een rechercheur de verdwijning van een jongen onderzoekt overkomen hem en zijn gezin de vreemdste gebeurtenissen.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 10,
@@ -114,10 +306,33 @@
     "runTime": 109,
     "genre": "Actie",
     "director": "Dave Wilson",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 4,
+      "AmountOfSeats": 300,
+      "AmountOfVip": 30,
+      "AmountOfRows": 15,
+      "AmountOfSeatsPerRow": 20
+    },
     "screenNumber": 3,
     "movieType": "IMAX",
-    "Synopsis": "Ray Garisson, gespeelt door Vin Diesel, wordt opnieuw tot leven gewekt als menselijke superheld..."
+    "Synopsis": "Ray Garisson, gespeelt door Vin Diesel, wordt opnieuw tot leven gewekt als menselijke superheld...",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 11,
@@ -126,10 +341,38 @@
     "runTime": 111,
     "genre": "Horror, Science Fiction",
     "director": "Richard Stanley",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 5,
+      "AmountOfSeats": 500,
+      "AmountOfVip": 40,
+      "AmountOfRows": 20,
+      "AmountOfSeatsPerRow": 25
+    },
     "screenNumber": 4,
     "movieType": "Base",
-    "Synopsis": "Color Out Of Space is een sci-fi Horoor-nachtmerrie gebaseerd op het verhaal van H.P. Lovecraft."
+    "Synopsis": "Color Out Of Space is een sci-fi Horoor-nachtmerrie gebaseerd op het verhaal van H.P. Lovecraft.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 12,
@@ -138,10 +381,33 @@
     "runTime": 111,
     "genre": "Avontuur, Mysterie, Science Fiction",
     "director": "Christopher Nolan",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 5,
+      "AmountOfSeats": 500,
+      "AmountOfVip": 40,
+      "AmountOfRows": 20,
+      "AmountOfSeatsPerRow": 25
+    },
     "screenNumber": 4,
     "movieType": "Base",
-    "Synopsis": "Een groep ondekkingsreizigers gaat kijken of er ergens een nieuwe plannet bestaat waar de mensheid verder op kan voortbestaan."
+    "Synopsis": "Een groep ondekkingsreizigers gaat kijken of er ergens een nieuwe plannet bestaat waar de mensheid verder op kan voortbestaan.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOXOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 13,
@@ -150,10 +416,33 @@
     "runTime": 124,
     "genre": "Horror, Thriller",
     "director": "Leigh Whannell",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 4,
+      "AmountOfSeats": 300,
+      "AmountOfVip": 30,
+      "AmountOfRows": 15,
+      "AmountOfSeatsPerRow": 20
+    },
     "screenNumber": 3,
     "movieType": "IMAX",
-    "Synopsis": "Elisabeth Moss wordt opgejaagd door een onzichtbare man."
+    "Synopsis": "Elisabeth Moss wordt opgejaagd door een onzichtbare man.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 14,
@@ -162,10 +451,33 @@
     "runTime": 100,
     "genre": "Actie, Comedy, ",
     "director": "Peter Segal",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 4,
+      "AmountOfSeats": 300,
+      "AmountOfVip": 30,
+      "AmountOfRows": 15,
+      "AmountOfSeatsPerRow": 20
+    },
     "screenNumber": 3,
     "movieType": "Base",
-    "Synopsis": "Wanneer JJ een missie uit de hand laat lopen heeft die nog maar een kans om zijn carriere te redden."
+    "Synopsis": "Wanneer JJ een missie uit de hand laat lopen heeft die nog maar een kans om zijn carriere te redden.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOXOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 15,
@@ -174,10 +486,33 @@
     "runTime": 124,
     "genre": "Actie, Comedy, ",
     "director": "Adil El Arbi, Bilall Fallah",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 4,
+      "AmountOfSeats": 300,
+      "AmountOfVip": 30,
+      "AmountOfRows": 15,
+      "AmountOfSeatsPerRow": 20
+    },
     "screenNumber": 3,
     "movieType": "IMAX",
-    "Synopsis": "De Bad Boys Will Smith en Martin Lawrence keren terug als Mike Lowrey en Marcus Burnett."
+    "Synopsis": "De Bad Boys Will Smith en Martin Lawrence keren terug als Mike Lowrey en Marcus Burnett.",
+    "ScreenRows": [
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOXXXX",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOXXXX",
+      "OXXXXOOOOOOOOOOOOXXX",
+      "OOOOOOOOOOOOOOOOOOOO"
+    ]
   },
   {
     "movieID": 16,
@@ -186,9 +521,27 @@
     "runTime": 119,
     "genre": "Drama, Oorlog",
     "director": "Sam Mendes, Krysty Wilson-Cairns",
-    "whichScreen": {},
+    "whichScreen": {
+      "ScreenNumber": 3,
+      "AmountOfSeats": 150,
+      "AmountOfVip": 15,
+      "AmountOfRows": 10,
+      "AmountOfSeatsPerRow": 15
+    },
     "screenNumber": 2,
     "movieType": "Base",
-    "Synopsis": "Een meeslepende oorlogsdrama over de Eeste Wereldoorlog."
+    "Synopsis": "Een meeslepende oorlogsdrama over de Eeste Wereldoorlog.",
+    "ScreenRows": [
+      "XXXOOOOOOOOOOOX",
+      "XOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOXXXXOOOOXXXXO",
+      "OXOOOOOOOOOOOOO"
+    ]
   }
 ]

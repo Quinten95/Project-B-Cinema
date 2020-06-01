@@ -115,7 +115,7 @@ namespace Project_B
 
             Screen tempScreen = (Screen)Screen.screenList[screenNumber];
             Console.WriteLine("Kloppen al deze gegevens? Zo ja, vul 'y' in.");
-            Console.WriteLine($"ID: {movieID}, Titel: {movieName}, Starttijd: {startTime}, Zaal: {tempScreen.screenNumber} \n" +
+            Console.WriteLine($"ID: {movieID}, Titel: {movieName}, Starttijd: {startTime}, Zaal: {tempScreen.ScreenNumber} \n" +
                 $"Duur : {runTime} minuten, Genre(s) : {genre}, Regisseur: {director}, Type: {movieType}. Beschrijving: \n {synopsis}");
             string snackInput = Console.ReadLine();
             if (snackInput == "y" || snackInput == "Y")
