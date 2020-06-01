@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.Globalization;
 using System.IO;
 using System.Reflection.PortableExecutable;
 using System.Text;
@@ -426,6 +427,57 @@ namespace Project_B
             Console.WriteLine("Regisseur: " + movie.director);
             Console.WriteLine("Beschrijving: " + movie.Synopsis);
 
+        }
+        //Deze methods stellen nieuwe waardes voor films in. In de management functies worden ze aangeroepen.
+        public static int ChangeID()
+        {
+            int movieID = Program.movies.Count + 1;
+            return movieID;
+        }
+        public static DateTime ChangeStart()
+        {
+            Console.WriteLine("Voorbeeld = 20 Juli 2020 15:00:00");
+            while (true)
+            {
+                try
+                {
+                    string startString = Console.ReadLine();
+                    CultureInfo dutchCI = new CultureInfo("nl-NL", false);
+                    DateTime newStart = DateTime.Parse(startString, dutchCI);
+                    Console.WriteLine($"Nieuwe datum is {newStart}");
+                    return newStart;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("De datum is niet goed ingevuld. Probeer het opnieuw.");
+                    Console.WriteLine("Voorbeeld = 20 Juli 2020 15:00:00");
+                }
+            }
+        }
+
+        public static int ChangeScreen()
+        {
+            int choice = -1;
+            while (choice < 1 || choice > 5)
+            {
+                try
+                {
+                    int storage = int.Parse(Console.ReadLine());
+                    if (storage < 1 || storage > 5)
+                    {
+                        Console.WriteLine("Het ingevoerde getal moet tussen 1 en 5 zijn.");
+                    }
+                    else
+                    {
+                        choice = storage;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Vul een getal tussen 1 en 5 in.");
+                }
+            }
+            return choice - 1;
         }
     }
 }
