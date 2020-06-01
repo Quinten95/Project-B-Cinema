@@ -160,7 +160,7 @@ namespace Project_B
                                 //zelfde code bij case 2, maar deze roept de zaalstatus functie aan
                                 statusChoice = int.Parse(Console.ReadLine());
                                 Movies statusOf = movies[statusChoice - 1];
-                                Screen.ScreenSeats(statusOf);
+                                Movies.ScreenSeats(statusOf);
                             }
                             catch (Exception e)
                             {

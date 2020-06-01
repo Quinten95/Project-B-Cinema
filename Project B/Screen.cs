@@ -40,7 +40,4 @@ namespace Project_B
         }
 
     }
-
-    
-
 }

@@ -156,6 +156,8 @@ namespace Project_B
                 i++;
             }
         }
+
+
         //in deze methode wordt een rij gekozen door de klant
         // het nummer van de rij wordt gereturned en gebruikt in SelectSeat
         public int SelectRow(bool vip)

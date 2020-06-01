@@ -218,6 +218,7 @@ namespace Project_B
             }
             if (choice2.ToLower() == "Starttijd".ToLower())
             {
+                Console.WriteLine($"Vul een nieuwe starttijd in. Oude is {Program.movies[choice1 - 1].startTime}");
                 chosenMovie.startTime = Movies.ChangeStart();
             }
             else if(choice2.ToLower() == "Zaal".ToLower())
