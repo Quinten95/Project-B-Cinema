@@ -281,7 +281,7 @@ namespace Project_B
                                     }
                                     else
                                     {
-                                        Ticket tempTicket = new Ticket(movie, numberOfPeople, isVip);
+                                        Ticket tempTicket = new Ticket(movie, numberOfPeople, isVip, 0, 0);
 
                                         Tuple<int, double>[] peoplePrices = tempTicket.PriceCalculator(numberOfPeople, movie, isVip);
                                         tempTicket.TotalPrice = tempTicket.PriceSummer(peoplePrices);
@@ -297,6 +297,8 @@ namespace Project_B
 
                                         Console.WriteLine($"U heeft gekozen voor rij {selectedRow} en stoel {selectedSeat}");
                                         movie.saveMovieScreenJson();
+                                        tempTicket.SelectedSeat = int.Parse(selectedSeat);
+                                        tempTicket.SelectedRow = selectedRow;
                                         ticket = tempTicket;
                                     }
                                 }
@@ -386,14 +388,15 @@ namespace Project_B
                             Console.WriteLine("\nWilt u uw keuze bevestigen? (y/n)");
                             string userChoice1 = Console.ReadLine();
 
-                            if (userChoice1 == "y")
+                            if (userChoice1 == "y") 
                             {
                                 Console.WriteLine("Uw reserveringscode is: " + reservationCode);
                                 ticket.CustomerName = customer.CustomerName;
                                 ticket.CustomerEmail = customer.Email;
                                 ticket.ReservationCode = reservationCode;
                                 sendCustomerMail(customer.CustomerName, customer.Email, reservationCode,
-                                    movie.MovieName, movie.startTime, movie.whichScreen.ScreenNumber, ticket.TotalPrice);
+                                    movie.MovieName, movie.startTime, movie.whichScreen.ScreenNumber, 
+                                    ticket.TotalPrice, ticket.SelectedSeat, ticket.SelectedRow);
                                 saveReservationJson(ticket);
                             }
                             else
@@ -501,7 +504,9 @@ namespace Project_B
                         ticket.TryGetProperty("MovieName", out JsonElement MovieNameElement) &&
                         ticket.TryGetProperty("NumberOfPeople", out JsonElement NumberOfPeopleElement) &&
                         ticket.TryGetProperty("IsVip", out JsonElement IsVipElement) &&
-                        ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement) )
+                        ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement) &&
+                        ticket.TryGetProperty("SelectedSeat", out JsonElement SelectedSeatElement) &&
+                        ticket.TryGetProperty("SelectedRow", out JsonElement SelectedRowElement))
                     {
                         string reservationCode = ReservationCodeElement.GetString();
 
@@ -511,12 +516,13 @@ namespace Project_B
                         int numberOfPeople = NumberOfPeopleElement.GetInt32();
                         bool isVip = IsVipElement.GetBoolean();
                         double totalPrice = TotalPriceElement.GetDouble();
-                        
+                        int selectedRow = SelectedRowElement.GetInt32();
+                        int selectedSeat = SelectedSeatElement.GetInt32();
 
 
                         Movies tempMovie = movies.Find(x => x.MovieName == movieName);
 
-                        Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip);
+                        Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip, selectedRow, selectedSeat);
                         fillTicket.CustomerName = customerName;
                         fillTicket.CustomerEmail = customerEmail;
                         fillTicket.ReservationCode = reservationCode;
@@ -639,7 +645,9 @@ namespace Project_B
                                     ticket.TryGetProperty("MovieName", out JsonElement MovieNameElement) &&
                                     ticket.TryGetProperty("NumberOfPeople", out JsonElement NumberOfPeopleElement) &&
                                     ticket.TryGetProperty("IsVip", out JsonElement IsVipElement) &&
-                                    ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement))
+                                    ticket.TryGetProperty("TotalPrice", out JsonElement TotalPriceElement) &&
+                                    ticket.TryGetProperty("SelectedSeat", out JsonElement SelectedSeatElement) &&
+                                    ticket.TryGetProperty("SelectedRow", out JsonElement SelectedRowElement))
                                 {
                                     string reservationCode = ReservationCodeElement.GetString();
                                     if (reservationCode == reservationCodeCustomer)
@@ -655,10 +663,12 @@ namespace Project_B
                                         int numberOfPeople = NumberOfPeopleElement.GetInt32();
                                         bool isVip = IsVipElement.GetBoolean();
                                         double totalPrice = TotalPriceElement.GetDouble();
+                                        int selectedRow = SelectedRowElement.GetInt32();
+                                        int selectedSeat = SelectedSeatElement.GetInt32();
 
                                         Movies tempMovie = movies.Find(x => x.MovieName == movieName);
 
-                                        Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip);
+                                        Ticket fillTicket = new Ticket(tempMovie, numberOfPeople, isVip, selectedRow, selectedSeat);
                                         fillTicket.CustomerName = customerName;
                                         fillTicket.CustomerEmail = customerEmail;
                                         fillTicket.ReservationCode = reservationCode;
@@ -695,7 +705,7 @@ namespace Project_B
         }
 
         static void sendCustomerMail(string customerName, string customerEmail, string reservationCode,
-                                    string movieName, DateTime startTime, int screenNumber, double totalPrice)
+                                    string movieName, DateTime startTime, int screenNumber, double totalPrice, int seat, int row)
         {
 
 

@@ -47,7 +47,7 @@
     "movieType": "Base",
     "Synopsis": "Wanneer een misdaadschrijver dood wordt gevonden op zijn landgoed wordt de rechercheur Benoi Blanc opgeroepen om zijn dood te onderzoeken.",
     "ScreenRows": [
-      "XXXXOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
@@ -215,7 +215,7 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOXXOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -238,7 +238,7 @@
     "Synopsis": "Een film gebasseerd op de ervaringen van Shia Labeouf als jonge acteur.",
     "ScreenRows": [
       "OOOOOOOOOOOOOOOOOOOOOOOOO",
-      "OXOOOOOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOOOOOOO",
@@ -405,7 +405,7 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOXOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -475,7 +475,7 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOXOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -506,11 +506,11 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOOOOOOOOXXXX",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOOOOOOOOXXXX",
-      "OXXXXOOOOOOOOOOOOXXX",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -532,16 +532,16 @@
     "movieType": "Base",
     "Synopsis": "Een meeslepende oorlogsdrama over de Eeste Wereldoorlog.",
     "ScreenRows": [
-      "XXXOOOOOOOOOOOX",
-      "XOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
-      "OOXXXXOOOOXXXXO",
-      "OXOOOOOOOOOOOOO"
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOO"
     ]
   }
 ]

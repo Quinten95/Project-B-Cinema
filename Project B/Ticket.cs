@@ -18,13 +18,17 @@ namespace Project_B
         public bool IsVip { get; set; }
         public Tuple<int, double>[] peoplePrices;
         public double TotalPrice { get; set; }
+        public int SelectedRow { get; set; }
+        public int SelectedSeat { get; set; }
 
-        public Ticket(Movies movie, int numberOfPeople, bool VipChoice)
+        public Ticket(Movies movie, int numberOfPeople, bool VipChoice, int selectedRow, int selectedSeat)
         {
             this.movie = movie;
             this.MovieName = movie.MovieName;
             this.NumberOfPeople = numberOfPeople;
             this.IsVip = VipChoice;
+            this.SelectedRow = selectedRow;
+            this.SelectedSeat = selectedSeat;
         }
 
         public Tuple<int, double>[] PriceCalculator(int x, Movies y, bool z)
