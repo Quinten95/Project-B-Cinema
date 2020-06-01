@@ -78,6 +78,24 @@
     "MovieName": "Bad Boys For Life",
     "NumberOfPeople": 1,
     "IsVip": false,
-    "TotalPrice": 12
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "98CRtHoP",
+    "CustomerName": "Quinten",
+    "CustomerEmail": "quinten@quinten.nl",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 3,
+    "IsVip": false,
+    "TotalPrice": 0
+  },
+  {
+    "ReservationCode": "this37rJ",
+    "CustomerName": "Quinten",
+    "CustomerEmail": "quinten@quinten.nl",
+    "MovieName": "Bad Boys For Life",
+    "NumberOfPeople": 4,
+    "IsVip": false,
+    "TotalPrice": 48
   }
 ]

@@ -99,35 +99,64 @@ namespace Project_B
 
         public static void ScreenSeats(Movies movie)
         {
-            Console.WriteLine($"\n\nStatus van zaal {movie.whichScreen.ScreenNumber} tijdens {movie.MovieName} om {movie.startTime.ToString("dd/MM/yyyy HH:mm")}:\n");
-            string[] RowBlueprint = new string[movie.whichScreen.AmountOfSeatsPerRow];
-            for (int i = 0; i < RowBlueprint.Length; i++)
+            Console.WriteLine($"\n\nStatus van zaal {movie.whichScreen.ScreenNumber} tijdens {movie.MovieName} om {movie.startTime.ToString("dd/MM/yyyy HH:mm")}:");
+            Console.WriteLine("\"X\" = bezet, \"O\" = vrij\n");
+            int i = 1;
+            foreach (string row in movie.ScreenRows)
             {
-                string RowI = "";
-                for (int j = 0; j < RowBlueprint.Length; j++)
+                if (i < 10)
                 {
-                    //hier komt de check of de zitplaats niet in de json staat.
-                    RowI += $"{j + 1} ";
+                    if (i == 1)
+                    {
+                        Console.Write("           ");
+                        for (int j = 1; j < row.Length+1; j++)
+                        {
+                            if (j < 10)
+                            {
+                                Console.Write(j + "  ");
+                            }
+                            else
+                            {
+                                Console.Write(j + " ");
+                            }
+                        }
+                        Console.Write("\n Rij 1   : ");
+                        for (int j = 0; j < row.Length; j++)
+                        {
+                            Console.Write(row[j] + "  ");
+                        }
+                    }
+                    else
+                    {
+                        Console.Write($"\n Rij {i}   : ");
+                        for (int j = 0; j < row.Length; j++)
+                        {
+                            Console.Write(row[j] + "  ");
+                        }
+                    }
                 }
-                RowBlueprint[i] = RowI;
+                else if (i >= 10 && i < movie.ScreenRows.Count)
+                {
+                    Console.Write($"\n Rij {i}  : ");
+                    for (int j = 0; j < row.Length; j++)
+                    {
+                        Console.Write(row[j] + "  ");
+                    }
+                }
+                else
+                {
+                    Console.Write($"\n Vip rij : ");
+                    for (int j = 0; j < row.Length; j++)
+                    {
+                        Console.Write(row[j] + "  ");
+                    }
+                    Console.WriteLine();
+                }
+                i++;
             }
-            for (int rowCounter = 1; rowCounter < 10; rowCounter++)
-            {
-                Console.WriteLine($"Rij {rowCounter} :   {RowBlueprint[rowCounter - 1]}");
-            }
-            for (int rowCounter = 10; rowCounter < movie.whichScreen.AmountOfRows; rowCounter++)
-            {
-                Console.WriteLine($"Rij {rowCounter} :  {RowBlueprint[rowCounter - 1]}");
-            }
-            string vipRow = "";
-            for (int k = 0; k < RowBlueprint.Length; k++)
-            {
-                //hier komt de check of de zitplaats niet in de json staat.
-                vipRow += $"{k + 1} ";
-            }
-            Console.WriteLine($"VIP Rij : {vipRow}");
         }
-
+        //in deze methode wordt een rij gekozen door de klant
+        // het nummer van de rij wordt gereturned en gebruikt in SelectSeat
         public int SelectRow(bool vip)
         {
             Console.WriteLine("\nVoer het nummer in van de rij waar u wilt zitten:");
@@ -160,10 +189,11 @@ namespace Project_B
                 return choice;
             }
         }
-
-        void fillScreenLayout(int seatsPerRow, int selectedRow, int selectedSeat)
+        //deze methode vult de ScreenRows list op basis van het aantal geselecteerde stoelen door de klant
+        //en op basis van welke rij en stoel de klant gekozen heeft. 
+        void fillScreenLayout(int seatsPerRow, int selectedRow, int selectedSeat, int numberOfPeople)
         {
-            for (int i = 0; i < ScreenRows.Count; i++)
+                for (int i = 0; i < ScreenRows.Count; i++)
             {
                 string oldRow = ScreenRows[i];
                 string newRow = "";
@@ -173,11 +203,20 @@ namespace Project_B
                     rowChars[k] = oldRow[k].ToString();
                 }
 
-                for(int j = 0; j < rowChars.Length; j++)
+                for(int j = 0; j < rowChars.Length - 1; j++)
                 {
-                    if (rowChars[j] == "O" && i == selectedRow && j == selectedSeat)
+                    if (rowChars[j] == "O" && i == selectedRow && j == selectedSeat && numberOfPeople > 0)
                     {
-                        newRow = newRow + "X";
+                        //deze loop zorgt er voor dat de klanten naast elkaar zitten zodra de meest linkerstoel
+                        //gekozen is (de j++ buiten de initiele loop zorgt er voor dat de rij niet langer wordt)
+                        for (int k = 0; k < numberOfPeople; k++)
+                        {
+                            newRow = newRow + "X";
+                            if (k < numberOfPeople - 1)
+                            {
+                                j++;
+                            }
+                        }
                     }
                     else if(rowChars[j] == "X")
                     {
@@ -193,14 +232,17 @@ namespace Project_B
         }
 
         
-
+        /**In deze methode wordt de stoel gekozen door de klant.
+        Ook wordt op basis van het aantal mensen bepaald wat de meest rechter stoel is die de klant kan kiezen.
+        Dit omdat bij meerdere personen de stoelen rechts van de gekozen stoel worden geselecteerd voor de overige klanten.
+        Dit voorkomt dat een klant op een niet bestaand stoelnummer geplaatst wordt */
         public int SelectSeat(int row, int numberOfPeople)
         {
             Console.WriteLine("Voer het nummer in van de stoel waar u wilt zitten\n" +
                 "Als u voor meerdere personen reserveert, selecteert u de linker stoel.\n" +
                 "De stoelen rechts van uw keuze worden automatisch geselecteerd:");
             int seatsPerRow = whichScreen.AmountOfSeats / whichScreen.AmountOfRows;
-            
+            seatsPerRow = (seatsPerRow - numberOfPeople) + 1;
             
             int choice = -1;
             while (choice < 1 || choice > seatsPerRow)
@@ -208,18 +250,35 @@ namespace Project_B
                 try
                 {
                     choice = int.Parse(Console.ReadLine());
+                    bool occupied = false;
+
+                    for(int i = 0; i < numberOfPeople; i++)
+                    {
+                        if(ScreenRows[row - 1][(choice -1) + i] == 'X')
+                        {
+                            occupied = true;
+                        }
+                    }
+
                     if (choice < 1 || choice > seatsPerRow)
                     {
                         Console.WriteLine($"Voer een getal tussen 1 en {seatsPerRow} in.");
                     }
+                    else if (occupied == true)
+                    {
+                        Console.WriteLine("Deze stoel is helaas al bezet, kies een ander stoelnummer:");
+                        choice = -1;
+                        occupied = false;
+                    }
                     else
                     {
-                        fillScreenLayout(seatsPerRow, row - 1, choice - 1);
+                        fillScreenLayout(seatsPerRow + numberOfPeople, row - 1, choice - 1, numberOfPeople);
                         return choice;
                     }
                 }
                 catch (Exception e)
                 {
+                    Console.WriteLine(e.StackTrace);
                     Console.WriteLine($"Voer een getal tussen 1 en {seatsPerRow} in.");
                 }
             }

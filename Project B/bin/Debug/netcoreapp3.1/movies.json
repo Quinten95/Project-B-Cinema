@@ -47,7 +47,7 @@
     "movieType": "Base",
     "Synopsis": "Wanneer een misdaadschrijver dood wordt gevonden op zijn landgoed wordt de rechercheur Benoi Blanc opgeroepen om zijn dood te onderzoeken.",
     "ScreenRows": [
-      "OOOOOOOOOOOOOOO",
+      "XXXXOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
@@ -180,7 +180,7 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOXOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -215,7 +215,7 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOXOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -330,7 +330,7 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOXOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -440,7 +440,7 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
-      "OOOOOOOOOXOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -497,9 +497,6 @@
     "movieType": "IMAX",
     "Synopsis": "De Bad Boys Will Smith en Martin Lawrence keren terug als Mike Lowrey en Marcus Burnett.",
     "ScreenRows": [
-      "XOOOOOOOOOOOOOOOOOXX",
-      "XOOOOOOOOOOOOOOOOOOO",
-      "XOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
@@ -509,8 +506,11 @@
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOXXXX",
       "OOOOOOOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOOOOOOO",
+      "OOOOOOOOOOOOOOOOXXXX",
+      "OXXXXOOOOOOOOOOOOXXX",
       "OOOOOOOOOOOOOOOOOOOO"
     ]
   },
@@ -532,7 +532,7 @@
     "movieType": "Base",
     "Synopsis": "Een meeslepende oorlogsdrama over de Eeste Wereldoorlog.",
     "ScreenRows": [
-      "XOOOOOOOOOOOOOX",
+      "XXXOOOOOOOOOOOX",
       "XOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
@@ -540,8 +540,8 @@
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
       "OOOOOOOOOOOOOOO",
-      "OOXOOOOOOOOOOOO",
-      "OOOOOOOOOOOOOOO"
+      "OOXXXXOOOOXXXXO",
+      "OXOOOOOOOOOOOOO"
     ]
   }
 ]

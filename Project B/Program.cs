@@ -87,6 +87,10 @@ namespace Project_B
                 try
                 {
                     userChoice = int.Parse(Console.ReadLine());
+                    if((userChoice < 1 || userChoice > 10) && userChoice != 50)
+                        {
+                            Console.WriteLine("Maak a.u.b. een keuze uit één van de opties:");
+                        }
                 }
                 catch (Exception e)
                 {
@@ -199,6 +203,7 @@ namespace Project_B
                             Manager.choiceMenu(true);
                         }
                         break;
+                    
                 }
             }
         }
@@ -277,7 +282,7 @@ namespace Project_B
                                         
                                         for(int i = int.Parse(selectedSeat); i < numberOfPeople; i++)
                                         {
-                                            selectedSeat = selectedSeat + " " + i;
+                                            selectedSeat = selectedSeat + " " + (i + 1);
                                         }
 
                                         Console.WriteLine($"U heeft gekozen voor rij {selectedRow} en stoel {selectedSeat}");
