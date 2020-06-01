@@ -299,8 +299,42 @@ namespace Project_B
 
         private static void AddSnack()
         {
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = true;
 
+            int SnackID = Snacks.ChangeID();
+            Console.WriteLine("Vul de snack naam in:");
+            string SnackName = Console.ReadLine();
+            Console.WriteLine("Vul de nutrition info en prijs in:");
+            int runTime = -1;
+            while (runTime < 0)
+            {
+                try
+                {
+                    runTime = int.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Vul een positief getal in.");
+                }
+            }
+            Console.WriteLine("Kloppen al deze gegevens? Zo ja, vul 'y' in.");
+            Console.WriteLine($"ID: {SnacksID}, Titel: {SnackName} )
+            string snackInput = Console.ReadLine();
+            if (snackInput == "y" || snackInput == "Y")
+            {
+                Movies newMovie = new Movies(movieID, movieName, startTime, screenNumber, runTime, genre, director, movieType, synopsis);
+                Program.movies.Add(newMovie);
+                var jsonString = JsonSerializer.Serialize(Program.movies, options);
+                File.WriteAllText("movies.json", jsonString);
+                Console.WriteLine("Film toegevoegd.");
+            }
+            else
+            {
+                Console.WriteLine("Terugkeren naar het hoofdmenu...");
+            }
         }
+    }
         
         private static void DeleteSnack()
         {
