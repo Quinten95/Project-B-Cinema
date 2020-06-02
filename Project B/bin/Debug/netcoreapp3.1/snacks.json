@@ -1,0 +1,117 @@
+[
+  {
+    "snackName": "Popcorn zout small",
+    "nutritionInfo": "196 Kcal, beker van 50g",
+    "Price": 3.5
+  },
+  {
+    "snackName": "Popcorn zout medium",
+    "nutritionInfo": "392 Kcal, beker van 100g",
+    "Price": 4.5
+  },
+  {
+    "snackName": "Popcorn zout large",
+    "nutritionInfo": "745 Kcal, beker van 190g",
+    "Price": 6
+  },
+  {
+    "snackName": "Popcorn zoet small",
+    "nutritionInfo": "382 Kcal, beker van 90g",
+    "Price": 3.5
+  },
+  {
+    "snackName": "Popcorn zoet medium",
+    "nutritionInfo": "764 Kcal, beker van 180g",
+    "Price": 4.5
+  },
+  {
+    "snackName": "Popcorn zoet large",
+    "nutritionInfo": "1484 Kcal, beker van 350g",
+    "Price": 6
+  },
+  {
+    "snackName": "Nacho\u0027s klein",
+    "nutritionInfo": "1200 Kcal",
+    "Price": 4
+  },
+  {
+    "snackName": "Nacho\u0027s groot",
+    "nutritionInfo": "2000 Kcal",
+    "Price": 6
+  },
+  {
+    "snackName": "Broodje Hot Dog",
+    "nutritionInfo": "980 Kcal",
+    "Price": 3
+  },
+  {
+    "snackName": "M\u0026M\u0027s",
+    "nutritionInfo": "1012 Kcal",
+    "Price": 3.25
+  },
+  {
+    "snackName": "Maltesers",
+    "nutritionInfo": "1000 Kcal",
+    "Price": 3.25
+  },
+  {
+    "snackName": "Kit Kat",
+    "nutritionInfo": "950 Kcal",
+    "Price": 3.25
+  },
+  {
+    "snackName": "Flesje Cola",
+    "nutritionInfo": "102 Kcal",
+    "Price": 2.99
+  },
+  {
+    "snackName": "Flesje Fanta",
+    "nutritionInfo": "142 Kcal",
+    "Price": 2.99
+  },
+  {
+    "snackName": "Flesje Sprite",
+    "nutritionInfo": "129 Kcal",
+    "Price": 2.99
+  },
+  {
+    "snackName": "flesje Spa",
+    "nutritionInfo": "0 Kcal",
+    "Price": 2.99
+  },
+  {
+    "snackName": "flesje Ice Tea",
+    "nutritionInfo": "35 Kcal",
+    "Price": 2.99
+  },
+  {
+    "snackName": "Ben \u0026 Jerry\u0027s Strawberry Cheesecake",
+    "nutritionInfo": "450 Kcal",
+    "Price": 4
+  },
+  {
+    "snackName": "Ben \u0026 Jerry\u0027s Cookie Dough",
+    "nutritionInfo": "450Kcal",
+    "Price": 4
+  },
+  {
+    "snackName": "Ben \u0026 Jerry\u0027s Topped",
+    "nutritionInfo": "450Kcal",
+    "Price": 4
+  },
+  {
+    "snackName": "Bugles",
+    "nutritionInfo": "540Kcal per 100g",
+    "Price": 3.75
+  },
+  {
+    "snackName": "Doritos",
+    "nutritionInfo": "499Kcal per 100g",
+    "Price": 3.75
+  },
+  {
+    "snackName": "Lay\u0027s",
+    "nutritionInfo": "551Kcal per 100g",
+    "Price": 3.75
+  }
+]
