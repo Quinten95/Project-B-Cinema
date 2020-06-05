@@ -19,7 +19,7 @@ namespace Project_B
         public static Func<double, double, double> round = (a, b) =>
         {
             double p = calcDiscount(a, b);
-            double roundedValue = Math.Round(p, 3);
+            double roundedValue = Math.Round(p, 2);
             return roundedValue;
         };
 

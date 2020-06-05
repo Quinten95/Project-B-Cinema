@@ -142,6 +142,7 @@ namespace Project_B
                                 }
                                 Movies movieToReserve = movies[index];
                                 reserveTicket(movieToReserve);
+                                break;
                             }
                             catch (Exception e)
                             {
@@ -240,7 +241,7 @@ namespace Project_B
                     case "y":
                     case "Y":
                         {
-                            Ticket ticket = new Ticket();
+                            Ticket ticket = null;
                             Console.WriteLine("Wilt u een VIP ticket kopen? (y/n)");
                             Console.WriteLine("Een VIP ticket garandeert de beste zitplaatsen, voor maar drie euro extra!");
                             string vipChoice = "";
@@ -289,13 +290,13 @@ namespace Project_B
 
                                         int selectedRow = movie.SelectRow(isVip);
                                         string selectedSeat = movie.SelectSeat(selectedRow, numberOfPeople).ToString();
-                                        
-                                        for(int i = int.Parse(selectedSeat); i < numberOfPeople; i++)
+                                        string extraSeats = " ";
+                                        for (int i = 0; i < numberOfPeople - 1; i++)
                                         {
-                                            selectedSeat = selectedSeat + " " + (i + 1);
+                                            extraSeats += (int.Parse(selectedSeat) + 1 + i) + " ";
                                         }
 
-                                        Console.WriteLine($"U heeft gekozen voor rij {selectedRow} en stoel {selectedSeat}");
+                                        Console.WriteLine($"U heeft gekozen voor rij {selectedRow} en stoel(en) {selectedSeat}{extraSeats}");
                                         movie.saveMovieScreenJson();
                                         tempTicket.SelectedSeat = int.Parse(selectedSeat);
                                         tempTicket.SelectedRow = selectedRow;
@@ -398,6 +399,7 @@ namespace Project_B
                                     movie.MovieName, movie.startTime, movie.whichScreen.ScreenNumber, 
                                     ticket.TotalPrice, ticket.SelectedSeat, ticket.SelectedRow);
                                 saveReservationJson(ticket);
+                                return;
                             }
                             else
                             {
@@ -417,7 +419,7 @@ namespace Project_B
                                     }
                                 }
                             }
-                            break;
+                            return;
                         }
                     //wanneer de gebruiker n of N invult bij de bevestigingsvraag
                     //moet deze een nieuwe film kiezen die aan deze method meegegeven wordt
@@ -485,6 +487,7 @@ namespace Project_B
             var jsonString = JsonSerializer.Serialize(reservations, options);
 
             File.WriteAllText("reservations.json", jsonString);
+            return;
         }
 
         static void fillReservationList()
