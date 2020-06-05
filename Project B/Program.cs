@@ -240,7 +240,7 @@ namespace Project_B
                     case "y":
                     case "Y":
                         {
-                            Ticket ticket = null;
+                            Ticket ticket = new Ticket();
                             Console.WriteLine("Wilt u een VIP ticket kopen? (y/n)");
                             Console.WriteLine("Een VIP ticket garandeert de beste zitplaatsen, voor maar drie euro extra!");
                             string vipChoice = "";
@@ -283,8 +283,8 @@ namespace Project_B
                                     {
                                         Ticket tempTicket = new Ticket(movie, numberOfPeople, isVip, 0, 0);
 
-                                        Tuple<int, double>[] peoplePrices = tempTicket.PriceCalculator(numberOfPeople, movie, isVip);
-                                        tempTicket.TotalPrice = tempTicket.PriceSummer(peoplePrices);
+                                        tempTicket.peoplePrices = tempTicket.PriceCalculator(numberOfPeople, movie, isVip);
+                                        tempTicket.TotalPrice = tempTicket.PriceSummer(tempTicket.peoplePrices);
                                         Movies.ScreenSeats(movie);
 
                                         int selectedRow = movie.SelectRow(isVip);

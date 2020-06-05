@@ -31,6 +31,11 @@ namespace Project_B
             this.SelectedSeat = selectedSeat;
         }
 
+        public Ticket()
+        {
+
+        }
+
         public Tuple<int, double>[] PriceCalculator(int x, Movies y, bool z)
         {
             Tuple<int, double>[] collector = new Tuple<int, double>[x];
